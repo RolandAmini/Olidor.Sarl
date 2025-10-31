@@ -3,6 +3,7 @@
 
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export default function ProductsCatalogPage() {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -230,6 +231,7 @@ export default function ProductsCatalogPage() {
       </div>
 
     </div>
+    <Footer />
     </>
   );
 }

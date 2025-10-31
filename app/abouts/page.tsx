@@ -4,6 +4,8 @@ import React from 'react';
 import { Building2, Target, Users, Award, Leaf, Truck, ShoppingCart, Globe } from 'lucide-react';
 import Link from 'next/link';       
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
+
 
 export default function AboutPage() {
   const values = [
@@ -237,6 +239,7 @@ export default function AboutPage() {
         </div>
       </section>
     </div>
+    <Footer />  
     </>
   );
 }

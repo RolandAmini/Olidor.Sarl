@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
+import Footer from '@/components/Footer';
 
 export default function QuoteRequestPage() {
   const [formData, setFormData] = useState({
@@ -270,6 +271,8 @@ export default function QuoteRequestPage() {
           </form>
         </div>
       </div>
+
+      <Footer />
      
     </>
   );

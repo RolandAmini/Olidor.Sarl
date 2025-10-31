@@ -1,10 +1,13 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export default function RealisationsPage() {
   return (
+    <>
     <section className="min-h-screen bg-gradient-to-br from-gray-50 to-white py-20 px-6 md:px-12">
         <Navbar />
       <div className="max-w-7xl mx-auto">
@@ -172,10 +175,18 @@ export default function RealisationsPage() {
             Découvrez comment Olidor Sarl peut transformer vos défis en succès avec nos solutions éprouvées.
           </p>
           <button className="px-10 py-4 bg-white text-green-600 font-bold text-lg rounded-xl hover:bg-gray-100 transition-all shadow-xl hover:scale-105 transform">
-            Demander un devis gratuit
+        
+               <Link 
+            href="/cotation" 
+            className="text-gray-900 font-medium hover:text-green-700 transition-colors"
+          >
+               Demander une cotation gratuit
+          </Link>
           </button>
         </div>
       </div>
     </section>
+    <Footer />
+    </>
   );
 }

@@ -63,27 +63,47 @@ des aliments de complément, solutions nutritionnelles et les services logistiqu
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-xl font-bold">Quick Links</h4>
+            <h4 className="text-xl font-bold">racourci</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#about" className="text-gray-300 hover:text-green-400 transition-colors">
-                  home
-                </a>
+                <a
+            href="/abouts"
+            className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
+          >
+           Aceille
+          </a>
               </li>
               <li>
-                <a href="#services" className="text-gray-300 hover:text-green-400 transition-colors">
-                 cotation
-                </a>
+                <a
+            href="/abouts"
+            className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
+          >
+           Cotation
+          </a>
               </li>
               <li>
-                <a href="#products" className="text-gray-300 hover:text-green-400 transition-colors">
-                  Products
-                </a>
+                 <a
+            href="/abouts"
+            className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
+          >
+           À Propos
+          </a>
               </li>
               <li>
-                <a href="#capabilities" className="text-gray-300 hover:text-green-400 transition-colors">
-                  shop
-                </a>
+               <a
+            href="/productsCatalog"
+            className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
+          >
+           produits
+          </a>
+              </li>
+              <li>
+               <a
+            href="/realisation"
+            className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
+          >
+           Réalisations
+          </a>
               </li>
               
             </ul>

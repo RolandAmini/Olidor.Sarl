@@ -105,19 +105,19 @@ const getParallaxStyle = (speed: number) => ({
       {
         img: "/unga.webp",
         title: "Boule totale ",
-        text: "Boostez vos cultures avec un apport complet en nutriments essentiels.",
+        text: "Une semoule fortifiée à base de maïs local, conçue pour toute la famille.",
        
       },
       {
         img: "/mamunga.webp",
         title: "Mwisho MAM ",
-        text: "Un engrais 100% naturel qui améliore la fertilité du sol.",
+        text: "Intrant nutritionnel spécialement formulé pour la prise en charge de la malnutrition aiguë modérée.",
        
       },
       {
         img: "/uji.webp",
         title: " Uji - total",
-        text: "Préservez la fraîcheur et la qualité de vos récoltes plus longtemps.",
+        text: " Aliment de complément destiné aux enfants à partir de 6 mois, ainsi qu aux femmes enceintes et allaitantes.",
        
       },
       {
@@ -139,7 +139,7 @@ const getParallaxStyle = (speed: number) => ({
         <div className="p-4 space-y-2">
           <h3 className="text-lg font-semibold text-white">{product.title}</h3>
           <p className="text-gray-300 text-sm">{product.text}</p>
-          <button className="mt-2 bg-cyan-500 hover:bg-cyan-600 text-white font-medium py-1.5 px-4 rounded-full transition-colors duration-300">
+          <button className="mt-2 bg-green-700 hover:bg-green-400 text-white font-medium py-1.5 px-4 rounded-full transition-colors duration-300">
             Acheter
           </button>
         </div>
@@ -185,25 +185,25 @@ const getParallaxStyle = (speed: number) => ({
       {
         img: "/07bB0-02.webp",
         title: "Equipements pour la prise en charge de la malnutrition",
-        text: "Boostez vos cultures avec un apport complet en nutriments essentiels.",
+        text: "Olidor a des partenariats avec des firmes et entreprises accréditées au niveau international dans la production des intrants nutritionnels.",
        
       },
       {
         img: "/F100-2.webp",
         title: "F100 et F75",
-        text: "Un engrais 100% naturel qui améliore la fertilité du sol.",
+        text: "Laits thérapeutiques utilisés dans la prise en charge de la malnutrition aiguë sévère chez les enfants.",
         
       },
       {
         img: "/PLUMP.webp",
         title: "Plumpy-nut",
-        text: "Préservez la fraîcheur et la qualité de vos récoltes plus longtemps.",
+        text: "Aliment thérapeutique prêt à l’emploi pour la prise en charge de la malnutrition aiguë sévère.",
        
       },
       {
         img: "/PCI.webp",
         title: "AKit PCI  ",
-        text: "Renforce la résistance des plantes face aux conditions extrêmes.",
+        text: "Prévention et contrôle des infections en milieu hospitalier et dans les zones d’interventions. ",
         
       },
     ].map((product, i) => (
@@ -384,10 +384,10 @@ const getParallaxStyle = (speed: number) => ({
         <div className="text-center mt-16">
           <button className="px-10 py-4 bg-green-700 hover:bg-green-400 text-white font-bold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform text-lg">
               <Link 
-            href="/productsCatalog" 
+            href="/realisation" 
             className="text-white font-medium hover:text-green-700 transition-colors"
           >
-           voir nos produits
+           voir nos Realisation
           </Link>
           </button>
         </div>
