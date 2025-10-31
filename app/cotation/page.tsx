@@ -54,7 +54,7 @@ export default function QuoteRequestPage() {
         <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 sm:p-10 md:p-12 text-gray-800">
           {/* Titre */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-green-800 mb-4">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-green-800 mb-4">
               Demande de cotation
             </h1>
             <p className="text-gray-600 text-sm sm:text-base">

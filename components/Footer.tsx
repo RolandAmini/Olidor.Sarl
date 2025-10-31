@@ -67,7 +67,7 @@ des aliments de complément, solutions nutritionnelles et les services logistiqu
             <ul className="space-y-3">
               <li>
                 <a
-            href="/abouts"
+            href="/"
             className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
           >
            Aceille
@@ -75,7 +75,7 @@ des aliments de complément, solutions nutritionnelles et les services logistiqu
               </li>
               <li>
                 <a
-            href="/abouts"
+            href="/cotation"
             className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
           >
            Cotation

@@ -119,7 +119,7 @@ export default function ProductsCatalogPage() {
       {/* Hero Section */}
       <div className="bg-green-700 text-white py-20 px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-6">
             Notre Catalogue
           </h1>
           <p className="text-xl md:text-2xl text-teal-100 max-w-3xl mx-auto">

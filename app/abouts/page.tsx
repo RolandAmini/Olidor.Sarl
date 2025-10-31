@@ -57,7 +57,7 @@ export default function AboutPage() {
       <section className="relative bg-gradient-to-br from-green-700 to-green-400 text-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-6">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
               À Propos de Olidor SARL
             </h1>
             <p className="text-xl sm:text-2xl max-w-3xl mx-auto text-cyan-50">
