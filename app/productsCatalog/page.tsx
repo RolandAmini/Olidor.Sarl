@@ -112,7 +112,7 @@ export default function ProductsCatalogPage() {
   return (
     <>
     <Navbar />
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-gray-100">
       
       
       {/* Hero Section */}
@@ -179,9 +179,7 @@ export default function ProductsCatalogPage() {
                   <h3 className="text-lg font-bold text-green-700 mb-1 group-hover:text-green-400 transition-colors line-clamp-1">
                     {item.name}
                   </h3>
-                  {item.role && (
-                    <p className="text-green-700 font-semibold text-sm">{item.role}</p>
-                  )}
+                 
                   <p className="text-green-700 text-sm mt-1 line-clamp-2">{item.description}</p>
                 </div>
 
@@ -189,7 +187,7 @@ export default function ProductsCatalogPage() {
                 <div className="space-y-1">
                   {item.specs.slice(0, 2).map((spec, index) => (
                     <div key={index} className="flex items-center gap-2 text-xs text-green-700">
-                      <svg className="w-4 h-4 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 text-green-400 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span className="line-clamp-1">{spec}</span>
@@ -199,9 +197,6 @@ export default function ProductsCatalogPage() {
 
                 {/* Price & CTA */}
                 <div className="pt-3 border-t border-gray-200">
-                  {item.price && (
-                    <p className="text-lg font-bold text-green-700 mb-2">{item.price}</p>
-                  )}
                   <button className="w-full px-4 py-2 bg-green-700 hover:bg-green-400 text-white font-semibold rounded-lg transition-all duration-300 text-sm shadow-sm hover:shadow-md">
                     {item.category === 'team' ? 'Contacter' : 'Devis'}
                   </button>

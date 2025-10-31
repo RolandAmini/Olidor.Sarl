@@ -10,16 +10,16 @@ export default function ContactSection() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
+  const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
@@ -122,6 +122,7 @@ export default function ContactSection() {
               onChange={handleChange}
               disabled={isSubmitting}
               placeholder="Écrivez votre message ici..."
+              rows={5}
               className="w-full px-0 py-3 bg-transparent border-b-2 border-gray-400 focus:border-gray-900 focus:outline-none transition-colors text-gray-900 text-lg resize-none placeholder-gray-500 disabled:opacity-50"
             ></textarea>
           </div>

@@ -12,8 +12,7 @@ export default function GlobalPresencePage() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const getParallaxStyle = (speed) => ({
+const getParallaxStyle = (speed: number) => ({
     transform: `translateY(${scrollY * speed}px)`,
     willChange: 'transform'
   });
