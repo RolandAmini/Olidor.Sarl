@@ -82,7 +82,7 @@ export default function AboutSection() {
 
           {/* Right Side - Content */}
           <div className="space-y-8">
-            <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl  font-bold text-gray-900 leading-tight">
              À propos de Olidor sarl
             </h2>
 
@@ -96,10 +96,10 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <button className="px-10 py-4 border-3 border-cyan-500 text-gray-900 font-semibold rounded-full hover:bg-cyan-500 hover:text-white transition-all duration-300 text-lg">
+            <button className="px-10 py-4 border-3 border-green-400 text-gray-900 font-semibold rounded-full hover:bg-cyan-500 hover:text-white transition-all duration-300 text-lg">
                  <Link 
             href="/abouts" 
-            className="text-gray-900 font-medium hover:text-cyan-500 transition-colors"
+            className="text-gray-900 font-medium hover:text-green-700 transition-colors"
           >
            lire plus 
           </Link>

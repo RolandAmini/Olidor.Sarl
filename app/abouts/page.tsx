@@ -218,7 +218,7 @@ export default function AboutPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-green-700 text-white">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-3xl sm:text-4xl font-bold">
             Prêt à Travailler Avec Nous ?
@@ -226,8 +226,13 @@ export default function AboutPage() {
           <p className="text-xl text-gray-300">
             Contactez-nous dès aujourd'hui pour discuter de vos besoins
           </p>
-          <button className="px-10 py-4 bg-gradient-to-r from-cyan-500 to-green-500 text-white font-semibold rounded-full hover:from-cyan-600 hover:to-green-600 transition-all duration-300 text-lg shadow-lg hover:shadow-xl">
-            Nous Contacter
+          <button className="px-10 py-4 bg-green-400 text-white font-semibold rounded-full hover:from-green-400 hover:to-white transition-all duration-300 text-lg shadow-lg hover:shadow-xl">
+             <Link
+      href="/contact"
+      className="inline-block px-10 py-4 bg-green-400 text-white font-semibold rounded-full hover:bg-green-500 transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
+    >
+      Nous Contacter
+    </Link>
           </button>
         </div>
       </section>

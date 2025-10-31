@@ -245,7 +245,7 @@ const getParallaxStyle = (speed: number) => ({
         
         {/* Header Section */}
         <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-green-700 mb-6 leading-tight">
+          <h2 className="text-3xl sm:text-5xl md:text-6xl font-bold text-green-700 mb-6 leading-tight">
             Nos Services
           </h2>
           <p className="text-xl md:text-2xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
@@ -382,10 +382,10 @@ const getParallaxStyle = (speed: number) => ({
 
         {/* Optional CTA Button */}
         <div className="text-center mt-16">
-          <button className="px-10 py-4 bg-green-700 hover:bg-blue-800 text-white font-bold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform text-lg">
+          <button className="px-10 py-4 bg-green-700 hover:bg-green-400 text-white font-bold rounded-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 transform text-lg">
               <Link 
             href="/productsCatalog" 
-            className="text-white font-medium hover:text-cyan-500 transition-colors"
+            className="text-white font-medium hover:text-green-700 transition-colors"
           >
            voir nos produits
           </Link>

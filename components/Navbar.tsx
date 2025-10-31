@@ -6,7 +6,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-amber-50 px-4 py-2 shadow-md">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-200 px-4 py-2 shadow-md">
       <div className="max-w-5xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <div className="flex items-center">
@@ -21,25 +21,25 @@ function Navbar() {
         <div className="hidden md:flex bg-gray-200 rounded-full px-6 py-3 gap-8">
           <Link
             href="/"
-            className="text-gray-900 font-medium hover:text-cyan-500 transition-colors"
+            className="text-gray-900 font-medium hover:text-green-700 transition-colors"
           >
             Acceille
           </Link>
           <Link
             href="/cotation"
-            className="text-gray-900 font-medium hover:text-cyan-500 transition-colors"
+            className="text-gray-900 font-medium hover:text-green-700 transition-colors"
           >
             Cotation
           </Link>
           <a
             href="/abouts"
-            className="text-gray-900 font-medium hover:text-cyan-500 transition-colors whitespace-nowrap"
+            className="text-gray-900 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
           >
            À Propos
           </a>
           <Link
             href="/productsCatalog"
-            className="text-gray-900 font-medium hover:text-cyan-500 transition-colors"
+            className="text-gray-900 font-medium hover:text-green-700 transition-colors"
           >
             Produits
           </Link>

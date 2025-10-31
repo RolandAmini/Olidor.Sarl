@@ -46,9 +46,10 @@ export default function QuoteRequestPage() {
   return (
     <>
       <Navbar />
+      
 
       {/* Section principale */}
-      <div className="min-h-screen bg-gradient-to-b from-green-900 via-green-700 to-green-500 text-white py-16 px-4 sm:px-6 lg:px-8">
+          <div className="min-h-screen bg-gradient-to-b from-green-900 via-green-700 to-green-500 text-white py-16 px-4 sm:px-6 lg:px-8 mt-24">
         <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 sm:p-10 md:p-12 text-gray-800">
           {/* Titre */}
           <div className="text-center mb-12">
@@ -89,7 +90,7 @@ export default function QuoteRequestPage() {
                     onChange={() => handleRadioChange("organisation")}
                     className="w-5 h-5 text-green-700"
                   />
-                  <span className="text-gray-700">Organisation / Société</span>
+                  <span className="text-green-400">Organisation / Société</span>
                 </label>
               </div>
             </div>
@@ -115,7 +116,7 @@ export default function QuoteRequestPage() {
 
               <div>
                 <label className="block text-green-800 font-medium mb-2">
-                  Ville *
+                  Ville 
                 </label>
                 <input
                   type="text"
@@ -132,7 +133,7 @@ export default function QuoteRequestPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-green-800 font-medium mb-2">
-                  Noms *
+                  Noms 
                 </label>
                 <input
                   type="text"
@@ -169,7 +170,7 @@ export default function QuoteRequestPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label className="block text-green-800 font-medium mb-2">
-                  Téléphone *
+                  Téléphone 
                 </label>
                 <input
                   type="tel"
@@ -183,7 +184,7 @@ export default function QuoteRequestPage() {
 
               <div>
                 <label className="block text-green-800 font-medium mb-2">
-                  Organisation / Société *
+                  Organisation / Société 
                 </label>
                 <input
                   type="text"
@@ -230,7 +231,7 @@ export default function QuoteRequestPage() {
             {/* Email */}
             <div>
               <label className="block text-green-800 font-medium mb-2">
-                E-mail *
+                E-mail 
               </label>
               <input
                 type="email"
@@ -245,7 +246,7 @@ export default function QuoteRequestPage() {
             {/* Description */}
             <div>
               <label className="block text-green-800 font-medium mb-2">
-                Description du projet / programme *
+                Description du projet / programme 
               </label>
               <textarea
                 name="description"
@@ -269,6 +270,7 @@ export default function QuoteRequestPage() {
           </form>
         </div>
       </div>
+     
     </>
   );
 }

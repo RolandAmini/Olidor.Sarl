@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import About from '../components/About';
 import Global from '../components/Global';
-import Contact from '../components/Contact';
+import ContactSection from "@/components/ContactSection";
 import Footer from '../components/Footer';
 
 // Hero Section Component
@@ -37,7 +37,7 @@ export default function HeroSection() {
           <div className="max-w-2xl space-y-8">
 
             {/* Main Heading */}
-            <h1 className="text-2xl sm:text-5xl mt-20 lg:text-6xl xl:text-7xl font-extrabold  text-white leading-tight">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl mt-20 lg:text-6xl xl:text-7xl font-extrabold  text-white leading-tight">
               <span className="block drop-shadow-2xl">Olidor Sarl</span>
               <span className="block text-white/70  drop-shadow-2xl mt-0">
                 Plus sain, plus efficace
@@ -64,7 +64,7 @@ export default function HeroSection() {
     </div>
     <About />
      <Global />
-     <Contact/>
+     <ContactSection/>
      <Footer />
     </>
   );
