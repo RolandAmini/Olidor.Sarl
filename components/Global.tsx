@@ -90,8 +90,8 @@ const getParallaxStyle = (speed: number) => ({
           📊 STATS SECTION
       ========================== */}
   <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-20">
-  <div className="absolute inset-0 bg-green-900"></div>
-  <div className="absolute inset-0 bg-gradient-to-b from-green-900 to-green-400"></div>
+
+  <div className="absolute inset-0 bg-green-800"></div>
   
  <div className="relative z-10 max-w-3xl mx-auto space-y-4 px-4 sm:px-6 mb-8 sm:mb-12 text-center">
   <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white drop-shadow-2xl leading-snug sm:leading-tight">

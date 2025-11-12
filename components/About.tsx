@@ -96,7 +96,7 @@ export default function AboutSection() {
               </p>
             </div>
 
-            <button className="px-10 py-4 border-3 border-green-400 text-gray-900 font-semibold rounded-full hover:bg-cyan-500 hover:text-white transition-all duration-300 text-lg">
+            <button className="px-10 py-4 border-3 border-green-800 text-gray-800 font-semibold rounded-full hover:bg-cyan-500 hover:text-white transition-all duration-300 text-lg">
                  <Link 
             href="/abouts" 
             className="text-gray-900 font-medium hover:text-green-700 transition-colors"
