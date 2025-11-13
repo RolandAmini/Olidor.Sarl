@@ -15,7 +15,7 @@ export default function HeroSection() {
   const images = [
     '/home1.jpg',
     '/olidoresarl.webp',
-    '/logo.jpg',
+    '/TEAM3.webp',
     '/mamunga.webp'
   ];
 

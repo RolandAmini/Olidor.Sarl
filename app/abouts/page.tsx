@@ -54,10 +54,10 @@ export default function AboutPage() {
     <Navbar />
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-green-700 to-green-400 text-white py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-green-700  text-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-6">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold">
+            <h1 className="text-3xl mt-5 sm:text-5xl md:text-6xl font-bold">
               À Propos de Olidor SARL
             </h1>
             <p className="text-xl sm:text-2xl max-w-3xl mx-auto text-cyan-50">
@@ -73,7 +73,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+              <h2 className="text-3xl sm:text-4xl font-bold text-blue-700">
                 Notre Histoire
               </h2>
               <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
@@ -96,7 +96,7 @@ export default function AboutPage() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-green-500 rounded-2xl -z-10"></div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-green-700 rounded-2xl -z-10"></div>
               <div className="absolute -top-6 -left-6 w-32 h-32 bg-green-700 rounded-2xl -z-10"></div>
             </div>
           </div>
@@ -104,10 +104,10 @@ export default function AboutPage() {
       </section>
 
       {/* Nos Services */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-16 sm:py-20 mt-0 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-blue-700 mb-4">
               Nos Services
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 key={index}
                 className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
-                <div className="w-16 h-16 bg-green-400 rounded-xl flex items-center justify-center text-white mb-6">
+                <div className="w-16 h-16 bg-green-700 rounded-xl flex items-center justify-center text-white mb-6">
                   {service.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -140,7 +140,7 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl sm:text-4xl font-bold text-blue-700 mb-4">
               Nos Valeurs
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
@@ -154,7 +154,7 @@ export default function AboutPage() {
                 key={index}
                 className="text-center space-y-4 p-6 rounded-xl hover:bg-gray-50 transition-colors duration-300"
               >
-                <div className="w-16 h-16 bg-green-400  rounded-full flex items-center justify-center text-white mx-auto">
+                <div className="w-16 h-16 bg-green-700  rounded-full flex items-center justify-center text-white mx-auto">
                   {value.icon}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
@@ -170,7 +170,7 @@ export default function AboutPage() {
       </section>
 
       {/* Notre Mission */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-green-400 0 text-white">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-green-700 0 text-white">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto">
             <Building2 className="w-10 h-10" />
@@ -228,10 +228,10 @@ export default function AboutPage() {
           <p className="text-xl text-gray-300">
             Contactez-nous dès aujourd'hui pour discuter de vos besoins
           </p>
-          <button className="px-10 py-4 bg-green-400 text-white font-semibold rounded-full hover:from-green-400 hover:to-white transition-all duration-300 text-lg shadow-lg hover:shadow-xl">
+          <button className="px-10 py-4 bg-blue-700 text-white font-semibold rounded-full hover:from-green-700 hover:to-white transition-all duration-300 text-lg shadow-lg hover:shadow-xl">
              <Link
       href="/contact"
-      className="inline-block px-10 py-4 bg-green-400 text-white font-semibold rounded-full hover:bg-green-500 transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
+      className="inline-block px-10 py-4 bg-blue-700 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
     >
       Nous Contacter
     </Link>

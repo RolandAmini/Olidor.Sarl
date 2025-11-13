@@ -90,7 +90,7 @@ function Navbar() {
             {/* Sign In */}
             <Link
               href="/signin"
-              className="hidden md:block text-gray-700 font-medium hover:text-green-600 transition-colors"
+              className="hidden md:block text-gray-700 font-medium hover:text-green-700 transition-colors"
             >
               Sign in
             </Link>
@@ -125,19 +125,19 @@ function Navbar() {
         {/* Mobile Navigation Menu */}
         {isOpen && (
           <div className="md:hidden mt-3 bg-white rounded-lg shadow-lg py-4 px-6 space-y-3 border border-gray-200">
-            <Link href="/" className="block text-gray-700 font-medium hover:text-green-600 transition-colors" onClick={() => setIsOpen(false)}>
+            <Link href="/" className="block text-gray-700 font-medium hover:text-green-700 transition-colors" onClick={() => setIsOpen(false)}>
               Home
             </Link>
-            <Link href="/nos-produits" className="block text-gray-700 font-medium hover:text-green-600 transition-colors" onClick={() => setIsOpen(false)}>
+            <Link href="/nos-produits" className="block text-gray-700 font-medium hover:text-green-700 transition-colors" onClick={() => setIsOpen(false)}>
               Nos produits
             </Link>
-            <Link href="/cotation" className="block text-gray-700 font-medium hover:text-green-600 transition-colors" onClick={() => setIsOpen(false)}>
+            <Link href="/cotation" className="block text-gray-700 font-medium hover:text-green-700 transition-colors" onClick={() => setIsOpen(false)}>
               Cotation
             </Link>
-            <Link href="/shop" className="block text-gray-700 font-medium hover:text-green-600 transition-colors" onClick={() => setIsOpen(false)}>
+            <Link href="/shop" className="block text-gray-700 font-medium hover:text-green-700 transition-colors" onClick={() => setIsOpen(false)}>
               Shop
             </Link>
-            <Link href="/signin" className="block text-gray-700 font-medium hover:text-green-600 transition-colors" onClick={() => setIsOpen(false)}>
+            <Link href="/signin" className="block text-gray-700 font-medium hover:text-green-700 transition-colors" onClick={() => setIsOpen(false)}>
               Sign in
             </Link>
             <Link href="/contact" className="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors font-medium text-center" onClick={() => setIsOpen(false)}>

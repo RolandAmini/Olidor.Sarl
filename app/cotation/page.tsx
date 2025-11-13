@@ -16,7 +16,10 @@ export default function QuoteRequestPage() {
     fonction: "",
     siteWeb: "",
     email: "",
-    description: "",
+    sujet: "",
+    message: "",
+    categorie: "",
+    preciserProduits: "non",
   });
 
   const handleChange = (
@@ -31,16 +34,14 @@ export default function QuoteRequestPage() {
     }));
   };
 
-  const handleRadioChange = (value: string) => {
-
+  const handleRadioChange = (name: string, value: string) => {
     setFormData((prev) => ({
       ...prev,
-      userType: value,
+      [name]: value,
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = () => {
     console.log("Form submitted:", formData);
   };
 
@@ -48,36 +49,40 @@ export default function QuoteRequestPage() {
     <>
       <Navbar />
       
-
       {/* Section principale */}
-          <div className="min-h-screen bg-gradient-to-b from-green-900 via-green-700 to-green-500 text-white py-16 px-4 sm:px-6 lg:px-8 mt-24">
-        <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-8 sm:p-10 md:p-12 text-gray-800">
-          {/* Titre */}
-          <div className="text-center mb-12">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-green-800 mb-4">
+      <div className="min-h-screen bg-gray-100 py-16 px-4 sm:px-6 lg:px-8 mt-20">
+        <div className="max-w-5xl mx-auto">
+          
+          {/* En-tête */}
+          <div className="mb-8">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-emerald-700 mb-4">
               Demande de cotation
             </h1>
-            <p className="text-gray-600 text-sm sm:text-base">
-              Veuillez remplir ce formulaire avec soin. Les champs marqués d’un
-              astérisque (*) sont obligatoires.
+            <p className="text-gray-700 text-base mb-3">
+              Pour obtenir une cotation, merci de remplir ce formulaire. Les champs marqués d'un astérisque (*) sont obligatoires.
+            </p>
+            <p className="text-gray-700 text-sm">
+              En renseignant le plus précisément possible les informations descriptives du programme / projet dans lequel vous comptez utiliser les produits de Innofaso, vous permettrez à nos équipes de répondre rapidement et d'orienter au mieux votre demande.
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
-            {/* Radio Boutons */}
-            <div>
-              <span className="block text-green-800 font-semibold mb-3">
-                Êtes-vous :
-              </span>
-              <div className="flex flex-col sm:flex-row gap-4">
+          <div className="space-y-6">
+            
+            {/* Ligne séparatrice */}
+            <div className="border-t border-gray-300 my-6"></div>
+
+            {/* Radio: Etes-vous */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div className="font-medium text-gray-800">Etes-vous</div>
+              <div className="flex gap-8">
                 <label className="flex items-center gap-2 cursor-pointer">
                   <input
                     type="radio"
                     name="userType"
                     value="particulier"
                     checked={formData.userType === "particulier"}
-                    onChange={() => handleRadioChange("particulier")}
-                    className="w-5 h-5 text-green-700"
+                    onChange={() => handleRadioChange("userType", "particulier")}
+                    className="w-4 h-4 text-emerald-600"
                   />
                   <span className="text-gray-700">Particulier</span>
                 </label>
@@ -88,36 +93,34 @@ export default function QuoteRequestPage() {
                     name="userType"
                     value="organisation"
                     checked={formData.userType === "organisation"}
-                    onChange={() => handleRadioChange("organisation")}
-                    className="w-5 h-5 text-green-700"
+                    onChange={() => handleRadioChange("userType", "organisation")}
+                    className="w-4 h-4 text-emerald-600"
                   />
-                  <span className="text-green-400">Organisation / Société</span>
+                  <span className="text-gray-700">Organisation /Société</span>
                 </label>
               </div>
             </div>
 
             {/* Civilité & Ville */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-green-800 font-medium mb-2">
-                  Civilité
-                </label>
+              <div className="space-y-2">
+                <label className="block text-gray-800 font-medium">Civilité</label>
                 <select
                   name="civilite"
                   value={formData.civilite}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-green-400 rounded-md focus:ring-2 focus:ring-green-600 focus:outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded bg-white text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 >
-                  <option value="">Sélectionnez</option>
+                  <option value="">- Cliquer pour sélectionner -</option>
                   <option value="M.">M.</option>
                   <option value="Mme">Mme</option>
                   <option value="Mlle">Mlle</option>
                 </select>
               </div>
 
-              <div>
-                <label className="block text-green-800 font-medium mb-2">
-                  Ville 
+              <div className="space-y-2">
+                <label className="block text-gray-800 font-medium">
+                  Ville <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -125,16 +128,16 @@ export default function QuoteRequestPage() {
                   value={formData.ville}
                   onChange={handleChange}
                   placeholder="Ville"
-                  className="w-full px-4 py-3 border border-green-400 rounded-md focus:ring-2 focus:ring-green-600 focus:outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Noms & Pays */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-green-800 font-medium mb-2">
-                  Noms 
+              <div className="space-y-2">
+                <label className="block text-gray-800 font-medium">
+                  Noms <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -142,23 +145,19 @@ export default function QuoteRequestPage() {
                   value={formData.noms}
                   onChange={handleChange}
                   placeholder="Nom et prénom"
-                  className="w-full px-4 py-3 border border-green-400 rounded-md focus:ring-2 focus:ring-green-600 focus:outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 />
               </div>
 
-              <div>
-                <label className="block text-green-800 font-medium mb-2">
-                  Pays
-                </label>
+              <div className="space-y-2">
+                <label className="block text-gray-800 font-medium">Pays</label>
                 <select
                   name="pays"
                   value={formData.pays}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-green-400 rounded-md focus:ring-2 focus:ring-green-600 focus:outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded bg-white text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 >
-                  <option value="République démocratique du Congo">
-                    République démocratique du Congo
-                  </option>
+                  <option value="République démocratique du Congo">République démocratique du Congo</option>
                   <option value="France">France</option>
                   <option value="Belgique">Belgique</option>
                   <option value="Canada">Canada</option>
@@ -169,9 +168,9 @@ export default function QuoteRequestPage() {
 
             {/* Téléphone & Organisation */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-green-800 font-medium mb-2">
-                  Téléphone 
+              <div className="space-y-2">
+                <label className="block text-gray-800 font-medium">
+                  Téléphone <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="tel"
@@ -179,101 +178,160 @@ export default function QuoteRequestPage() {
                   value={formData.telephone}
                   onChange={handleChange}
                   placeholder="Numéro de téléphone"
-                  className="w-full px-4 py-3 border border-green-400 rounded-md focus:ring-2 focus:ring-green-600 focus:outline-none"
+                  className="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 />
               </div>
 
-              <div>
-                <label className="block text-green-800 font-medium mb-2">
-                  Organisation / Société 
+              <div className="space-y-2">
+                <label className="block text-gray-800 font-medium">
+                  Organisation /Sté <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
                   name="organisation"
                   value={formData.organisation}
                   onChange={handleChange}
-                  placeholder="Nom de votre organisation"
-                  className="w-full px-4 py-3 border border-green-400 rounded-md focus:ring-2 focus:ring-green-600 focus:outline-none"
+                  placeholder="Préciser le nom de votre organisation/soc"
+                  className="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 />
               </div>
             </div>
 
             {/* Fonction & Site Web */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-green-800 font-medium mb-2">
-                  Fonction
-                </label>
+              <div className="space-y-2">
+                <label className="block text-gray-800 font-medium">Fonction</label>
                 <input
                   type="text"
                   name="fonction"
                   value={formData.fonction}
                   onChange={handleChange}
-                  placeholder="Votre poste ou fonction"
-                  className="w-full px-4 py-3 border border-green-400 rounded-md focus:ring-2 focus:ring-green-600 focus:outline-none"
+                  placeholder="Votre fonction ou poste dans votre organi"
+                  className="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 />
               </div>
 
-              <div>
-                <label className="block text-green-800 font-medium mb-2">
-                  Site Web
-                </label>
+              <div className="space-y-2">
+                <label className="block text-gray-800 font-medium">Site Web</label>
                 <input
                   type="url"
                   name="siteWeb"
                   value={formData.siteWeb}
                   onChange={handleChange}
-                  placeholder="www.votresite.com"
-                  className="w-full px-4 py-3 border border-green-400 rounded-md focus:ring-2 focus:ring-green-600 focus:outline-none"
+                  placeholder="votre site web"
+                  className="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
                 />
               </div>
             </div>
 
-            {/* Email */}
-            <div>
-              <label className="block text-green-800 font-medium mb-2">
-                E-mail 
+            {/* E-mail */}
+            <div className="space-y-2">
+              <label className="block text-gray-800 font-medium">
+                E-mail <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="Votre adresse e-mail"
-                className="w-full px-4 py-3 border border-green-400 rounded-md focus:ring-2 focus:ring-green-600 focus:outline-none"
+                placeholder="Votre adresse email privé ou professionnc"
+                className="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
               />
             </div>
 
-            {/* Description */}
-            <div>
-              <label className="block text-green-800 font-medium mb-2">
-                Description du projet / programme 
+            {/* Sujet/Objet */}
+            <div className="space-y-2">
+              <label className="block text-gray-800 font-medium">
+                Sujet /Objet <span className="text-red-500">*</span>
               </label>
-              <textarea
-                name="description"
-                value={formData.description}
+              <input
+                type="text"
+                name="sujet"
+                value={formData.sujet}
                 onChange={handleChange}
-                rows={6}
-                placeholder="Décrivez votre projet en détail..."
-                className="w-full px-4 py-3 border border-green-400 rounded-md focus:ring-2 focus:ring-green-600 focus:outline-none resize-none"
-              ></textarea>
+                placeholder="Renseignez ici l'objet de votre message"
+                className="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
+              />
             </div>
 
-            {/* Bouton d’envoi */}
-            <div className="text-center pt-6">
-              <button
-                type="submit"
-                className="w-full sm:w-auto px-10 py-4 bg-green-600 hover:bg-green-800 text-white font-bold rounded-lg transition-all duration-300 shadow-lg"
+            {/* Votre Message */}
+            <div className="space-y-2">
+              <label className="block text-gray-800 font-medium">
+                Votre Message <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={5}
+                placeholder="Saisissez votre message ici."
+                className="w-full px-4 py-2 border border-gray-300 rounded text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none resize-none"
+              />
+            </div>
+
+            {/* Catégorie des produits/Service */}
+            <div className="space-y-2">
+              <label className="block text-gray-800 font-medium">
+                Catégorie des produits /Service <span className="text-red-500">*</span>
+              </label>
+              <select
+                name="categorie"
+                value={formData.categorie}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-gray-300 rounded bg-white text-gray-700 focus:ring-2 focus:ring-emerald-500 focus:outline-none"
               >
-                Envoyer la demande
+                <option value=""></option>
+                <option value="nutrition">Nutrition</option>
+                <option value="logistique">Logistique</option>
+                <option value="transport">Transport</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+
+            {/* Souhaitez-vous préciser les produits */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+              <div className="font-medium text-gray-800">Souhaitez-vous préciser les produits</div>
+              <div className="flex gap-8">
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="preciserProduits"
+                    value="oui"
+                    checked={formData.preciserProduits === "oui"}
+                    onChange={() => handleRadioChange("preciserProduits", "oui")}
+                    className="w-4 h-4 text-emerald-600"
+                  />
+                  <span className="text-gray-700">Oui</span>
+                </label>
+
+                <label className="flex items-center gap-2 cursor-pointer">
+                  <input
+                    type="radio"
+                    name="preciserProduits"
+                    value="non"
+                    checked={formData.preciserProduits === "non"}
+                    onChange={() => handleRadioChange("preciserProduits", "non")}
+                    className="w-4 h-4 text-emerald-600"
+                  />
+                  <span className="text-gray-700">Non</span>
+                </label>
+              </div>
+            </div>
+
+            {/* Bouton d'envoi */}
+            <div className="flex justify-end pt-6">
+              <button
+                onClick={handleSubmit}
+                className="px-12 py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded transition-all duration-300 shadow-lg"
+              >
+                Envoyer le formulaire
               </button>
             </div>
-          </form>
+          </div>
         </div>
       </div>
 
       <Footer />
-     
     </>
   );
 }

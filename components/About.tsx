@@ -74,32 +74,32 @@ export default function AboutSection() {
               </div>
 
               {/* Decorative dots around the O */}
-              <div className="absolute top-10 right-10 w-4 h-4 bg-cyan-500 rounded-full shadow-lg animate-pulse"></div>
-              <div className="absolute bottom-10 left-10 w-4 h-4 bg-green-500 rounded-full shadow-lg animate-pulse" style={{animationDelay: '0.5s'}}></div>
+              <div className="absolute top-10 right-10 w-4 h-4 bg-green-700 rounded-full shadow-lg animate-pulse"></div>
+              <div className="absolute bottom-10 left-10 w-4 h-4 bg-blue-700 rounded-full shadow-lg animate-pulse" style={{animationDelay: '0.5s'}}></div>
 
             </div>
           </div>
 
           {/* Right Side - Content */}
           <div className="space-y-8">
-            <h2 className="text-3xl sm:text-5xl md:text-6xl  font-bold text-gray-900 leading-tight">
+            <h2 className="text-3xl sm:text-5xl md:text-6xl  font-bold text-blue-700 leading-tight">
              À propos de Olidor sarl
             </h2>
 
             <div className="space-y-6 text-lg text-gray-700">
-              <p className="leading-relaxed">
+              <p className=" text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
                Olidor Sarl est une entreprise engagée dans la production, la transformation, la commercialisation et la distribution d&#39;intrants nutritionnels et agroalimentaires, ainsi que dans la fourniture de services de location de véhicules, de transport et de logistique.
               </p>
 
-              <p className="leading-relaxed">
+              <p className=" text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
               Forte d'une expertise locale et d'une approche innovante, Olidor s'impose comme un acteur clé pour répondre aux besoins variés des ménages, des organismes humanitaires et des entreprises de la région.
               </p>
             </div>
 
-            <button className="px-10 py-4 border-3 border-green-800 text-gray-800 font-semibold rounded-full hover:bg-cyan-500 hover:text-white transition-all duration-300 text-lg">
+            <button className="px-10 py-4 border-3 border-green-700 text-gray-800 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-lg">
                  <Link 
-            href="/abouts" 
-            className="text-gray-900 font-medium hover:text-green-700 transition-colors"
+            href="/nos-produits" 
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-black font-medium hover:text-white transition-colors"
           >
            lire plus 
           </Link>
