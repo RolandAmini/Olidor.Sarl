@@ -24,65 +24,16 @@ const getParallaxStyle = (speed: number) => ({
       ========================== */}
       <section className="sticky top-0 h-screen flex flex-col items-center justify-center px-8 overflow-hidden relative">
   {/* Image de fond avec effet Parallax */}
-  <div
-    className="absolute inset-0 bg-cover bg-center"
-    style={{
-      backgroundImage: "url('/bg1.jpg')", // 📸 ton image dans /public/bg1.jpg
-      transform: 'translateY(-20%)',
-      willChange: 'transform',
-    }}
+ <div className="w-full h-full rounded-full overflow-hidden shadow-2xl relative">
+  {/* Changez ici le nom de votre image */}
+  <img 
+    src="/localisation.jpg"
+    alt="Oil & Gas Operations"
+    className="w-full h-full object-cover"
   />
-
-  {/* Overlay dégradé sombre pour lisibilité */}
-  <div className="absolute inset-0 bg-gradient-to-b from-green/80 via-green/50 to-transparent z-0" />
-
-  {/* Carte SVG avec opacité */}
-  <div
-    className="absolute inset-0 flex items-center justify-center opacity-40"
-    style={{
-      transform: 'translateY(-10%)', // léger mouvement pour parallax
-      transition: 'transform 0.2s ease-out',
-    }}
-  >
-    <svg viewBox="0 0 1200 600" className="w-full h-full">
-      {/* Continents */}
-      <path d="M550 180 L580 200 L600 250 L590 320 L560 350 L540 360 L520 340 L510 280 L520 220 Z"
-        fill="#4a4a4a" stroke="#666" strokeWidth="0.5" />
-      <path d="M600 200 L640 210 L660 240 L650 270 L630 280 L610 260 L600 230 Z"
-        fill="#4a4a4a" stroke="#666" strokeWidth="0.5" />
-      <path d="M520 120 L560 130 L580 150 L570 180 L540 170 L520 150 Z"
-        fill="#4a4a4a" stroke="#666" strokeWidth="0.5" />
-      <path d="M650 140 L750 160 L820 180 L850 220 L830 260 L780 280 L720 270 L680 240 L660 200 Z"
-        fill="#4a4a4a" stroke="#666" strokeWidth="0.5" />
-      <path d="M180 180 L220 200 L240 260 L250 340 L230 400 L200 420 L180 380 L170 300 L160 240 Z"
-        fill="#4a4a4a" stroke="#666" strokeWidth="0.5" />
-      <path d="M850 380 L900 390 L920 420 L910 450 L870 460 L840 440 L840 400 Z"
-        fill="#4a4a4a" stroke="#666" strokeWidth="0.5" />
-
-      {/* Markers */}
-      {[
-        { cx: 640, cy: 250, name: "Kinshasa" },
-        { cx: 635, cy: 235, name: "Masisi" },
-        { cx: 620, cy: 245, name: "Butembo" },
-        { cx: 655, cy: 265, name: "Benie" },
-        { cx: 530, cy: 290, name: "DRC congo" },
-        { cx: 540, cy: 350, name: "Goma" },
-      ].map((loc, i) => (
-        <g key={i}>
-          <circle cx={loc.cx} cy={loc.cy} r="4" fill="#00d9ff" className="animate-pulse" />
-          <text x={loc.cx + 15} y={loc.cy - 10} fill="white" fontSize="14">{loc.name}</text>
-        </g>
-      ))}
-    </svg>
-  </div>
-
-  {/* Texte au premier plan */}
-  <div className="relative z-10 text-center space-y-4 px-4 sm:px-6 max-w-3xl mx-auto">
-  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl leading-snug sm:leading-tight">
-    Votre partenaire de confiance pour l’innovation
-  </h1>
+  {/* Dark overlay for contrast */}
+  <div className="absolute inset-0 bg-black/20"></div>
 </div>
-
 </section>
 
 
@@ -234,7 +185,7 @@ const getParallaxStyle = (speed: number) => ({
         </div>
 
         <button className="mt-4 bg-blue-600 hover:bg-emerald-600 text-white font-medium py-1.5 px-4 rounded-full transition-all duration-300 self-center">
-       <Link href="/nos-produits">
+       <Link href="/About">
         En savoir plus
        </Link>
   </button>
@@ -281,7 +232,7 @@ const getParallaxStyle = (speed: number) => ({
         Des véhicules confortables et robustes (Land-Cruiser, Prado), disponibles pour tous vos déplacements, que ce soit en ville ou en milieu rural. Olidor Sarl propose des véhicules adaptés et bien entretenus pour garantir sécurité et sérénité à chaque trajet.
       </p>
       <a
-        href="#"
+        href="/abouts"
         className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors"
       >
         En savoir plus
@@ -313,7 +264,7 @@ const getParallaxStyle = (speed: number) => ({
         Nous assurons le transport sécurisé de vos marchandises et médicaments, en respectant les normes de sécurité et de qualité. Notre flotte et notre équipe garantissent une livraison fiable et dans les délais.
       </p>
       <a
-        href="#"
+        href="/abouts"
         className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors"
       >
         En savoir plus
@@ -363,7 +314,7 @@ const getParallaxStyle = (speed: number) => ({
         Que vous ayez besoin de solutions de stockage, de gestion de chaîne d'approvisionnement ou de services logistiques personnalisés, nous mettons notre expertise à votre service pour optimiser vos opérations et réduire vos coûts.
       </p>
       <a
-        href="#"
+        href="/abouts"
         className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors"
       >
         En savoir plus

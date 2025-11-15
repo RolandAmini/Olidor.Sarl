@@ -90,6 +90,7 @@ export default function AboutSection() {
               <p className=" text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
                Olidor Sarl est une entreprise engagée dans la production, la transformation, la commercialisation et la distribution d&#39;intrants nutritionnels et agroalimentaires, ainsi que dans la fourniture de services de location de véhicules, de transport et de logistique.
               </p>
+              
 
               <p className=" text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed">
               Forte d'une expertise locale et d'une approche innovante, Olidor s'impose comme un acteur clé pour répondre aux besoins variés des ménages, des organismes humanitaires et des entreprises de la région.
@@ -98,7 +99,7 @@ export default function AboutSection() {
 
             <button className="px-10 py-4 border-3 border-green-700 text-gray-800 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-lg">
                  <Link 
-            href="/nos-produits" 
+            href="/abouts" 
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-black font-medium hover:text-white transition-colors"
           >
            lire plus 

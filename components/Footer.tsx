@@ -11,7 +11,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="space-y-2">
-              <h3 className="text-3xl sm:text-5xl md:text-6xl  font-bold">Olidor Sarl</h3>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl  font-bold">Olidor Sarl</h3>
               <p className="text-gray-400 text-sm"> Plus sains, plus efficaces!</p>
             </div>
             <p className="text-gray-300 leading-relaxed">
@@ -155,7 +155,7 @@ des aliments de complément, solutions nutritionnelles et les services logistiqu
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <a href="mailto:info@olidor.com" className="text-gray-300 hover:text-green-700 transition-colors">
-                  info@olidor.com
+                  info@olidor.sarl
                 </a>
               </li>
               <li className="flex items-center gap-3">

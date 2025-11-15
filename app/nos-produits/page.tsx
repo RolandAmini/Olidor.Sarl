@@ -113,6 +113,14 @@ export default function ProductsCatalog() {
     <>
     <Navbar />
     <div className="min-h-screen mt-20 bg-gray-50 py-8 px-4">
+      <div className="max-w-4xl mx-auto text-center space-y-6 mb-16 px-4">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
+      Votre partenaire de confiance pour l'innovation
+    </h1>
+    <h2 className="text-xl sm:text-2xl md:text-3xl text-gray-700 leading-relaxed font-medium">
+      Production d'aliments de complément, solutions nutritionnelles et services logistiques intégrés
+    </h2>
+  </div>
       <div className="max-w-7xl mx-auto">
         <div className="flex gap-8">
           

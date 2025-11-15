@@ -11,12 +11,12 @@ export default function AboutPage() {
   const values = [
     {
       icon: <Target className="w-8 h-8" />,
-      title: "Excellence",
-      description: "Nous visons l'excellence dans tous nos services et produits"
+      title: "Autres produits disponibles chez Olidor",
+      description: "Olidor sarl propose également des intrants spécialisés destinés aux organismes humanitaires et partenaires de santé publique"
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Engagement",
+      title: "Notre gamme des produits",
       description: "Nous sommes engagés envers nos clients et partenaires"
     },
     {
@@ -32,20 +32,22 @@ export default function AboutPage() {
   ];
 
   const services = [
-    {
-      icon: <Leaf className="w-10 h-10" />,
-      title: "Production Agroalimentaire",
-      description: "Production et transformation d'intrants nutritionnels de haute qualité pour répondre aux besoins des ménages et des entreprises."
-    },
+
     {
       icon: <ShoppingCart className="w-10 h-10" />,
-      title: "Commercialisation",
+      title: "Location de véhicules",
       description: "Distribution et commercialisation de produits agroalimentaires avec un réseau étendu dans toute la région."
     },
     {
       icon: <Truck className="w-10 h-10" />,
       title: "Transport & Logistique",
       description: "Services de location de véhicules, transport et solutions logistiques adaptées à vos besoins spécifiques."
+    },
+
+    {
+      icon: <Building2 className="w-10 h-10" />,
+      title: "Transport de marchandises et de médicaments",
+      description: "Prestations logistiques complètes pour les organismes humanitaires et les entreprises."
     }
   ];
 
@@ -141,7 +143,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12 sm:mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-blue-700 mb-4">
-              Nos Valeurs
+              Nos Valeurs & Autre Produits
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Les principes qui guident notre action quotidienne
@@ -198,13 +200,13 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ménages</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">partenaires de santé publique</h3>
               <p className="text-gray-700">
                 Des produits nutritionnels de qualité pour les familles et les communautés locales.
               </p>
             </div>
             <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Organismes Humanitaires</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4"> organismes humanitaires </h3>
               <p className="text-gray-700">
                 Solutions adaptées pour les programmes d'aide alimentaire et de développement.
               </p>
@@ -212,7 +214,7 @@ export default function AboutPage() {
             <div className="bg-gradient-to-br from-cyan-50 to-green-100 p-8 rounded-2xl">
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Entreprises</h3>
               <p className="text-gray-700">
-                Services professionnels de transport, logistique et approvisionnement.
+                Services de transport, location de véhicules et logistique
               </p>
             </div>
           </div>
@@ -233,7 +235,7 @@ export default function AboutPage() {
       href="/contact"
       className="inline-block px-10 py-4 bg-blue-700 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
     >
-      Nous Contacter
+      Demander une Cotation 
     </Link>
           </button>
         </div>
