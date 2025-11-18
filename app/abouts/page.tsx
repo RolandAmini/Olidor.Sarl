@@ -1,55 +1,43 @@
 "use client";
 
-import React from 'react';
 import { Building2, Target, Users, Award, Leaf, Truck, ShoppingCart, Globe } from 'lucide-react';
-import Link from 'next/link';       
+import Link from 'next/link'; 
+import React, { useState } from 'react';
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 
 export default function AboutPage() {
-  const values = [
-    {
-      icon: <Target className="w-8 h-8" />,
-      title: "Autres produits disponibles chez Olidor",
-      description: "Olidor sarl propose également des intrants spécialisés destinés aux organismes humanitaires et partenaires de santé publique"
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: "Notre gamme des produits",
-      description: "Nous sommes engagés envers nos clients et partenaires"
-    },
-    {
-      icon: <Award className="w-8 h-8" />,
-      title: "Qualité",
-      description: "La qualité est au cœur de nos opérations quotidiennes"
-    },
-    {
-      icon: <Globe className="w-8 h-8" />,
-      title: "Innovation",
-      description: "Nous innovons pour répondre aux besoins émergents"
-    }
-  ];
+
 
   const services = [
 
     {
-      icon: <ShoppingCart className="w-10 h-10" />,
-      title: "Location de véhicules",
+      icon: <Globe className="w-10 h-10" />,
+      title: "Production agroalimentaire",
       description: "Distribution et commercialisation de produits agroalimentaires avec un réseau étendu dans toute la région."
     },
     {
-      icon: <Truck className="w-10 h-10" />,
-      title: "Transport & Logistique",
+      icon: <ShoppingCart className="w-10 h-10" />,
+      title: "Commercialisation et distribution",
       description: "Services de location de véhicules, transport et solutions logistiques adaptées à vos besoins spécifiques."
     },
 
     {
-      icon: <Building2 className="w-10 h-10" />,
-      title: "Transport de marchandises et de médicaments",
+      icon: <Truck className="w-10 h-10" />,
+      title: "Services de transport, location de véhicules et logistique",
       description: "Prestations logistiques complètes pour les organismes humanitaires et les entreprises."
     }
   ];
+   const [isExpanded, setIsExpanded] = useState(false);
+
+  const text = `
+  Expertise locale et savoir-faire reconnu, pour une transformation et une distribution de produits de qualité.
+  Engagement social : Lutte contre la malnutrition et appui aux initiatives humanitaires à travers sa structure mère dans l‘objectif de concrétiser la Responsabilité sociale.
+  Services souples et personnalisés, adaptés à chaque client et chaque contexte.
+  Réactivité et fiabilité dans la gestion logistique et le transport, aussi bien en milieu urbain qu’en zones rurales.
+  `;
 
   return (
     <>
@@ -88,6 +76,19 @@ export default function AboutPage() {
                 <p>
                   Aujourd'hui, nous servons fièrement les ménages, les organismes humanitaires et les entreprises à travers la région, contribuant au développement économique local.
                 </p>
+                 <h2 className="text-2xl font-bold mb-3">Pourquoi choisir Olidor Sarl ?</h2>
+
+                  <p className={`transition-all duration-300 ${isExpanded ? "" : "line-clamp-3"}`}>
+        {text}
+      </p>
+
+      {/* Bouton Lire plus / Lire moins */}
+      <button
+        onClick={() => setIsExpanded(!isExpanded)}
+        className="text-green-700 mt-2 font-semibold hover:underline"
+      >
+        {isExpanded ? "Lire moins ▲" : "Lire plus ▼"}
+      </button>
               </div>
             </div>
             <div className="relative">
@@ -139,88 +140,7 @@ export default function AboutPage() {
       </section>
 
       {/* Nos Valeurs */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-blue-700 mb-4">
-              Nos Valeurs & Autre Produits
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Les principes qui guident notre action quotidienne
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {values.map((value, index) => (
-              <div 
-                key={index}
-                className="text-center space-y-4 p-6 rounded-xl hover:bg-gray-50 transition-colors duration-300"
-              >
-                <div className="w-16 h-16 bg-green-700  rounded-full flex items-center justify-center text-white mx-auto">
-                  {value.icon}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900">
-                  {value.title}
-                </h3>
-                <p className="text-gray-600">
-                  {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Notre Mission */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-green-700 0 text-white">
-        <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto">
-            <Building2 className="w-10 h-10" />
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold">
-            Notre Mission
-          </h2>
-          <p className="text-xl sm:text-2xl leading-relaxed text-cyan-50">
-            Fournir des produits agroalimentaires de qualité supérieure et des services logistiques fiables, tout en contribuant au développement durable et à la sécurité alimentaire de notre région.
-          </p>
-        </div>
-      </section>
-
-      {/* Nos Clients */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Qui Nous Servons
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Nos solutions s'adressent à une clientèle diversifiée
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-cyan-50 to-cyan-100 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">partenaires de santé publique</h3>
-              <p className="text-gray-700">
-                Des produits nutritionnels de qualité pour les familles et les communautés locales.
-              </p>
-            </div>
-            <div className="bg-gradient-to-br from-green-50 to-green-100 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4"> organismes humanitaires </h3>
-              <p className="text-gray-700">
-                Solutions adaptées pour les programmes d'aide alimentaire et de développement.
-              </p>
-            </div>
-            <div className="bg-gradient-to-br from-cyan-50 to-green-100 p-8 rounded-2xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Entreprises</h3>
-              <p className="text-gray-700">
-                Services de transport, location de véhicules et logistique
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
+     
       {/* Call to Action */}
       <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-green-700 text-white">
         <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -230,13 +150,15 @@ export default function AboutPage() {
           <p className="text-xl text-gray-300">
             Contactez-nous dès aujourd'hui pour discuter de vos besoins
           </p>
-          <button className="px-10 py-4 bg-blue-700 text-white font-semibold rounded-full hover:from-green-700 hover:to-white transition-all duration-300 text-lg shadow-lg hover:shadow-xl">
-             <Link
-      href="/contact"
+          <button className="px-10 py-4 bg-emerald-200 text-white font-semibold rounded-full hover:from-green-700 hover:to-white transition-all duration-300 text-lg shadow-lg hover:shadow-xl">
+             <a
+      href="https://www.olidor.sarl/en/cotation"
       className="inline-block px-10 py-4 bg-blue-700 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
+       target="_blank"
+       rel="noopener noreferrer"
     >
       Demander une Cotation 
-    </Link>
+    </a>
           </button>
         </div>
       </section>

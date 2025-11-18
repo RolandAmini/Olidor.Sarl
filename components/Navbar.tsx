@@ -33,12 +33,15 @@ function Navbar() {
             >
               Nos produits
             </Link>
-            <Link
-              href="/cotation"
-              className="text-gray-700 font-medium hover:text-green-600 transition-colors"
-            >
-              Cotation
-            </Link>
+            <a
+  href="https://www.olidor.sarl/en/cotation"
+  className="text-gray-700 font-medium hover:text-green-600 transition-colors"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Cotation
+</a>
+
             <Link
               href="/shop"
               className="text-gray-700 font-medium hover:text-green-600 transition-colors"
@@ -88,20 +91,17 @@ function Navbar() {
             </div>
 
             {/* Sign In */}
-            <Link
-              href="/signin"
-              className="hidden md:block text-gray-700 font-medium hover:text-green-700 transition-colors"
-            >
-              Sign in
-            </Link>
+           
 
             {/* Contact Button */}
-            <Link
-              href="/contact"
+            <a
+             href="https://www.olidor.sarl/en/cotation"
               className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors font-medium"
+                target="_blank"
+                rel="noopener noreferrer"
             >
               Contact
-            </Link>
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -131,9 +131,15 @@ function Navbar() {
             <Link href="/nos-produits" className="block text-gray-700 font-medium hover:text-green-700 transition-colors" onClick={() => setIsOpen(false)}>
               Nos produits
             </Link>
-            <Link href="/cotation" className="block text-gray-700 font-medium hover:text-green-700 transition-colors" onClick={() => setIsOpen(false)}>
-              Cotation
-            </Link>
+           <a 
+  href="https://www.olidor.sarl/en/cotation"
+  className="block text-gray-700 font-medium hover:text-green-700 transition-colors"
+  onClick={() => setIsOpen(false)}
+  target="_blank" 
+  rel="noopener noreferrer"
+>
+  Cotation
+</a>
             <Link href="/shop" className="block text-gray-700 font-medium hover:text-green-700 transition-colors" onClick={() => setIsOpen(false)}>
               Shop
             </Link>

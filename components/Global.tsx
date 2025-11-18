@@ -22,19 +22,27 @@ const getParallaxStyle = (speed: number) => ({
       {/* =========================
           🌍 GLOBAL PRESENCE SECTION
       ========================== */}
-      <section className="sticky top-0 h-screen flex flex-col items-center justify-center px-8 overflow-hidden relative">
-  {/* Image de fond avec effet Parallax */}
- <div className="w-full h-full rounded-full overflow-hidden shadow-2xl relative">
-  {/* Changez ici le nom de votre image */}
-  <img 
-    src="/localisation.jpg"
-    alt="Oil & Gas Operations"
-    className="w-full h-full object-cover"
-  />
-  {/* Dark overlay for contrast */}
-  <div className="absolute inset-0 bg-black/20"></div>
-</div>
+    <section className="sticky top-0 h-screen flex items-center justify-center px-8 overflow-hidden relative">
+
+  {/* Image de fond */}
+  <div className="w-full h-full rounded-full overflow-hidden shadow-2xl relative">
+    <img 
+      src="/localisation.jpg"
+      alt="Oil & Gas Operations"
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute inset-0 bg-black/20"></div>
+  </div>
+
+  {/* Texte centré */}
+  <div className="absolute inset-0 flex items-center justify-center">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug">
+      Production agroalimentaire 
+    </h1>
+  </div>
+
 </section>
+
 
 
       {/* =========================
@@ -45,9 +53,9 @@ const getParallaxStyle = (speed: number) => ({
   <div className="absolute inset-0 bg-green-700"></div>
   
  <div className="relative z-10 max-w-3xl mx-auto space-y-4 px-4 sm:px-6 mb-8 sm:mb-12 text-center">
-  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl leading-snug sm:leading-tight">
+  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl leading-snug sm:leading-tight">
     Notre gamme des produits
-  </h1>
+  </h2>
 </div>
 
    
@@ -97,7 +105,14 @@ const getParallaxStyle = (speed: number) => ({
         </div>
 
         <button className="mt-4 bg-blue-600 hover:bg-emerald-200 text-white font-medium py-1.5 px-4 rounded-full transition-colors duration-300 self-center">
+          <a
+  href="https://www.olidor.sarl/en/cotation"
+  className="text-white font-medium hover:text-black transition-colors"
+  target="_blank"
+  rel="noopener noreferrer"
+>
           Plus d'information
+          </a>
         </button>
       </div>
     </div>
@@ -122,6 +137,11 @@ const getParallaxStyle = (speed: number) => ({
       // backgroundImage: "url('olidor.webp')", // Option 3
     }}
   ></div>
+    <div className="absolute inset-0 flex items-center justify-center">
+    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug">
+      Commercialisation et distribution 
+    </h1>
+  </div>
 
 
   
@@ -130,12 +150,10 @@ const getParallaxStyle = (speed: number) => ({
 <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-green-900 via-green-800 to-green-500 px-6 py-24">
   {/* Section Title */}
   <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
-    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug">
-      Autres produits disponibles chez Olidor Sarl
-    </h1>
-    <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed">
-      Olidor Sarl propose également des intrants spécialisés destinés aux organismes humanitaires et partenaires de santé publique.
-    </p>
+    <h2 className="text-2xl sm:text-3xl md:text-4xl mb-0 lg:text-5xl font-bold text-white drop-shadow-2xl leading-snug sm:leading-tight">
+      Autres produits disponibles
+    </h2>
+    
   </div>
 
   {/* Product Grid */}
@@ -185,9 +203,14 @@ const getParallaxStyle = (speed: number) => ({
         </div>
 
         <button className="mt-4 bg-blue-600 hover:bg-emerald-600 text-white font-medium py-1.5 px-4 rounded-full transition-all duration-300 self-center">
-       <Link href="/About">
+               <a
+  href="https://www.olidor.sarl/en/cotation"
+  className="text-white font-medium hover:text-black transition-colors"
+  target="_blank"
+  rel="noopener noreferrer"
+>
         En savoir plus
-       </Link>
+       </a>
   </button>
         </div>
       </div>

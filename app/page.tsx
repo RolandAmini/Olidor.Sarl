@@ -67,7 +67,7 @@ export default function HeroSection() {
            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 leading-relaxed drop-shadow-md max-w-3xl mx-auto animate-fade-in-up delay-300">
       Nous fournissons des solutions locales aux défis nutritionnels, et
       contribuons activement au développement du transport et de la logistique
-      en République Démocratique du Congo.
+      en République Démocratique du Congo et dans la région.
     </p>
 
             
