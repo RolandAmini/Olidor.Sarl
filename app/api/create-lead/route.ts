@@ -98,14 +98,13 @@ ${formData.message}
     console.error('Erreur lors de la création du lead:', error);
     const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
     return NextResponse.json(
-        { 
-            success: false, 
-            error: errorMessage 
-        },
-        { status: 500 }
+      { 
+        success: false, 
+        error: errorMessage 
+      },
+      { status: 500 }
     );
-}
-
+  }
 }
 
 // Fonction helper pour mapper les pays avec leurs IDs Odoo
