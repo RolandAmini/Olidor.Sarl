@@ -2,77 +2,108 @@
 import { NextResponse, NextRequest } from 'next/server';
 import xmlrpc from 'xmlrpc';
 
+interface LeadFormData {
+  sujet: string;
+  nom: string;
+  email: string;
+  telephone: string;
+  organisation: string;
+  ville: string;
+  pays: string;
+  fonction?: string;
+  siteWeb?: string;
+  civilite?: string;
+  userType: 'particulier' | 'organisation';
+  categorie: string;
+  preciserProduits: 'oui' | 'non';
+  message: string;
+}
+
 export async function POST(request: NextRequest) {
   try {
-    const formData = await request.json();
+    const formData: LeadFormData = await request.json();
 
-    // Configuration Odoo - REMPLACEZ CES VALEURS PAR VOS INFORMATIONS
-    const ODOO_URL = process.env.ODOO_URL || 'https://votre-instance.odoo.com';
-    const ODOO_DB = process.env.ODOO_DB || 'votre_base_de_donnees';
-    const ODOO_USERNAME = process.env.ODOO_USERNAME || 'votre_email@example.com';
-    const ODOO_PASSWORD = process.env.ODOO_PASSWORD || 'votre_mot_de_passe';
+    // Validation des données requises
+    if (!formData.sujet || !formData.nom || !formData.email) {
+      return NextResponse.json(
+        { success: false, error: 'Sujet, nom et email sont requis' },
+        { status: 400 }
+      );
+    }
 
-    // Étape 1: Authentification avec Odoo
+    // Configuration Odoo avec variables d'environnement
+    const ODOO_URL = process.env.ODOO_URL;
+    const ODOO_DB = process.env.ODOO_DB;
+    const ODOO_USERNAME = process.env.ODOO_USERNAME;
+    const ODOO_PASSWORD = process.env.ODOO_PASSWORD;
+
+    if (!ODOO_URL || !ODOO_DB || !ODOO_USERNAME || !ODOO_PASSWORD) {
+      return NextResponse.json(
+        { success: false, error: 'Configuration Odoo manquante' },
+        { status: 500 }
+      );
+    }
+
+    // Étape 1: Authentification Odoo
     const commonClient = xmlrpc.createSecureClient({
       host: new URL(ODOO_URL).hostname,
       port: 443,
       path: '/xmlrpc/2/common'
     });
 
-    const uid = await new Promise((resolve, reject) => {
+    const uid = await new Promise<number>((resolve, reject) => {
       commonClient.methodCall('authenticate', [
         ODOO_DB,
         ODOO_USERNAME,
         ODOO_PASSWORD,
         {}
-      ], (error, value) => {
-        if (error) reject(error);
+      ], (error: any, value: any) => {
+        if (error) reject(new Error(`Authentification échouée: ${error}`));
+        else if (!value) reject(new Error('UID vide reçu'));
         else resolve(value);
       });
     });
 
-    if (!uid) {
-      throw new Error('Échec de l\'authentification Odoo');
-    }
-
-    // Étape 2: Créer le Lead/Opportunité dans Odoo
+    // Étape 2: Créer le Lead dans Odoo
     const objectClient = xmlrpc.createSecureClient({
       host: new URL(ODOO_URL).hostname,
       port: 443,
       path: '/xmlrpc/2/object'
     });
 
+    // Mapper les pays
+    const countryId = getCountryId(formData.pays);
+
     // Préparer les données du Lead
     const leadData = {
-      name: formData.sujet, // Titre de l'opportunité
+      name: formData.sujet,
       contact_name: formData.nom,
       email_from: formData.email,
-      phone: formData.telephone,
-      partner_name: formData.organisation,
-      street: formData.ville,
-      country_id: getCountryId(formData.pays), // À mapper avec l'ID pays dans Odoo
+      phone: formData.telephone || false,
+      partner_name: formData.organisation || false,
+      street: formData.ville || false,
+      country_id: countryId || false,
       function: formData.fonction || false,
       website: formData.siteWeb || false,
       description: `
 Type: ${formData.userType === 'organisation' ? 'Organisation/Société' : 'Particulier'}
 Civilité: ${formData.civilite || 'Non spécifié'}
-Ville: ${formData.ville}
-Pays: ${formData.pays}
-Catégorie: ${formData.categorie}
-Préciser produits: ${formData.preciserProduits}
+Ville: ${formData.ville || 'Non spécifié'}
+Pays: ${formData.pays || 'Non spécifié'}
+Catégorie: ${formData.categorie || 'Non spécifiée'}
+Préciser produits: ${formData.preciserProduits === 'oui' ? 'Oui' : 'Non'}
 
 Message:
-${formData.message}
+${formData.message || 'Aucun message'}
       `.trim(),
-      type: 'opportunity', // Type: opportunité
-      stage_id: 1, // ID de l'étape (à adapter selon votre configuration)
-      // Vous pouvez ajouter des champs personnalisés ici
-      // x_studio_categorie: formData.categorie,
-      // x_studio_preciser_produits: formData.preciserProduits === 'oui',
+      type: 'opportunity',
+      stage_id: 1, // Adapter selon votre configuration Odoo
+      team_id: 1, // Optionnel: équipe de vente
+      user_id: false // Assigner à l'utilisateur connecté par défaut
     };
 
-    // Créer le Lead dans Odoo
-    const leadId = await new Promise((resolve, reject) => {
+    // Créer le lead
+    const leadId = await new Promise<number>((resolve, reject) => {
       objectClient.methodCall('execute_kw', [
         ODOO_DB,
         uid,
@@ -80,23 +111,24 @@ ${formData.message}
         'crm.lead',
         'create',
         [leadData]
-      ], (error, value) => {
-        if (error) reject(error);
+      ], (error: any, value: any) => {
+        if (error) reject(new Error(`Erreur création lead: ${error}`));
         else resolve(value);
       });
     });
 
-    console.log('Lead créé avec succès dans Odoo, ID:', leadId);
+    console.log('✅ Lead créé avec succès dans Odoo, ID:', leadId);
 
     return NextResponse.json({
       success: true,
-      message: 'Lead créé avec succès',
+      message: 'Lead créé avec succès dans Odoo',
       leadId: leadId
     });
 
   } catch (error: unknown) {
-    console.error('Erreur lors de la création du lead:', error);
+    console.error('❌ Erreur création lead:', error);
     const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
+    
     return NextResponse.json(
       { 
         success: false, 
@@ -107,13 +139,15 @@ ${formData.message}
   }
 }
 
-// Fonction helper pour mapper les pays avec leurs IDs Odoo
+// Mapping pays Odoo (IDs à vérifier dans votre instance)
 function getCountryId(countryName: string): number | false {
   const countryMapping: Record<string, number> = {
-    'République démocratique du Congo': 49, // CD
-    'France': 75, // FR
-    'Belgique': 21, // BE
-    'Canada': 39, // CA
+    'République démocratique du Congo': 49, // RDC
+    'France': 75,
+    'Belgique': 21,
+    'Canada': 39,
+    'Congo': 49, // Alias RDC
+    'RDC': 49
   };
   
   return countryMapping[countryName] || false;
