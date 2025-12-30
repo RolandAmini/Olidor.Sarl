@@ -115,24 +115,25 @@ des aliments de complément, solutions nutritionnelles et les services logistiqu
             <ul className="space-y-3">
               <li>
                 <a href="#rental" className="text-gray-300 hover:text-green-700 transition-colors">
-               Agroalimentaire & industrielle
+             À propos de Olidor sarl
+                </a>
+              </li>
+               <li>
+                <a href="#rental" className="text-gray-300 hover:text-green-700 transition-colors">
+              Notre gamme des produits
                 </a>
               </li>
               <li>
                 <a href="#sales" className="text-gray-300 hover:text-green-700 transition-colors">
-                 Transport et logistique                    
+                 Autres produits disponibles                  
                 </a>
               </li>
               <li>
                 <a href="#drilling" className="text-gray-300 hover:text-green-700 transition-colors">
-                  Commerce général
+                  Services de transport, location de véhicules et logistique
                 </a>
               </li>
-              <li>
-                <a href="#logistics" className="text-gray-300 hover:text-green-700 transition-colors">
-                  Etude et consultance
-                </a>
-              </li>
+              
              
             </ul>
           </div>
