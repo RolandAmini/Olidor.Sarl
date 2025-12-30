@@ -27,7 +27,7 @@ const getParallaxStyle = (speed: number) => ({
   {/* Image de fond */}
   <div className="w-full h-full rounded-full overflow-hidden shadow-2xl relative">
     <img 
-      src="/localisation.jpg"
+      src="/kivu.png"
       alt="Oil & Gas Operations"
       className="w-full h-full object-cover"
     />
@@ -77,7 +77,7 @@ const getParallaxStyle = (speed: number) => ({
       text: "Aliment de complément destiné aux enfants à partir de 6 mois, ainsi qu’aux femmes enceintes et allaitantes.",
     },
     {
-      img: "/cocoasrl.png",
+      img: "/unf.jpeg",
       title: "Grain de cacao",
       text: "Renforce la résistance des plantes face aux conditions extrêmes.",
     },
@@ -162,7 +162,7 @@ const getParallaxStyle = (speed: number) => ({
       {
         img: "/07bB0-02.webp",
         title: "Autres intrants et Équipements pour la PEC de la malnutrition ",
-        text: "Olidor collabore avec des entreprises accréditées à l’international dans la production des intrants nutritionnels.",
+        
       },
       {
         img: "/F100-2.webp",

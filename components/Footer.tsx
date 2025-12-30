@@ -70,7 +70,7 @@ des aliments de complément, solutions nutritionnelles et les services logistiqu
             href="/"
             className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
           >
-           Aceille
+           Page d'accueil
           </a>
               </li>
               <li>
