@@ -1,12 +1,28 @@
 "use client";
 
-
 import React, { useState } from 'react';
 import Navbar from '@/components/Navbar'; 
 import Footer from '@/components/Footer';
 
+interface FormData {
+  userType: 'organisation' | 'particulier';
+  civilite: string;
+  ville: string;
+  nom: string;
+  pays: string;
+  telephone: string;
+  organisation: string;
+  fonction: string;
+  siteWeb: string;
+  email: string;
+  sujet: string;
+  message: string;
+  categorie: string;
+  preciserProduits: 'oui' | 'non';
+}
+
 export default function QuoteRequestForm() {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     userType: 'organisation',
     civilite: '',
     ville: '',
@@ -23,7 +39,8 @@ export default function QuoteRequestForm() {
     preciserProduits: 'non'
   });
 
-  const handleChange = (e) => {
+  // ✅ CORRIGÉ - Type explicite pour handleChange
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
@@ -31,10 +48,47 @@ export default function QuoteRequestForm() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  // ✅ CORRIGÉ - Type explicite pour handleSubmit + intégration API
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Formulaire envoyé avec succès!');
+    
+    try {
+      const response = await fetch('/api/create-lead', {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json' 
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert('✅ Lead créé avec succès dans Odoo!');
+        // Reset form
+        setFormData({
+          userType: 'organisation',
+          civilite: '',
+          ville: '',
+          nom: '',
+          pays: 'République démocratique du Congo',
+          telephone: '',
+          organisation: '',
+          fonction: '',
+          siteWeb: '',
+          email: '',
+          sujet: '',
+          message: '',
+          categorie: '',
+          preciserProduits: 'non'
+        });
+      } else {
+        alert(`❌ Erreur: ${result.error}`);
+      }
+    } catch (error) {
+      alert('❌ Erreur réseau. Vérifiez votre connexion.');
+      console.error('Submit error:', error);
+    }
   };
 
   return (
@@ -263,15 +317,16 @@ export default function QuoteRequestForm() {
             <label className="block text-gray-700 font-medium mb-2">
               Votre Message <span className="text-red-500">*</span>
             </label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              placeholder="Saisissez votre message ici."
-              required
-              rows="6"
-              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none"
-            ></textarea>
+           <textarea
+  name="message"
+  value={formData.message}
+  onChange={handleChange}
+  placeholder="Saisissez votre message ici."
+  required
+  rows={6}  // ← Nombre sans guillemets
+  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none"
+></textarea>
+
           </div>
 
           {/* Catégorie */}
