@@ -1,8 +1,8 @@
-// app/api/create-lead/route.js
-import { NextResponse } from 'next/server';
+// app/api/create-lead/route.ts
+import { NextResponse, NextRequest } from 'next/server';
 import xmlrpc from 'xmlrpc';
 
-export async function POST(request) {
+export async function POST(request: NextRequest) {
   try {
     const formData = await request.json();
 
@@ -94,21 +94,23 @@ ${formData.message}
       leadId: leadId
     });
 
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Erreur lors de la création du lead:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
     return NextResponse.json(
-      { 
-        success: false, 
-        error: error.message || 'Erreur lors de la création du lead' 
-      },
-      { status: 500 }
+        { 
+            success: false, 
+            error: errorMessage 
+        },
+        { status: 500 }
     );
-  }
+}
+
 }
 
 // Fonction helper pour mapper les pays avec leurs IDs Odoo
-function getCountryId(countryName) {
-  const countryMapping = {
+function getCountryId(countryName: string): number | false {
+  const countryMapping: Record<string, number> = {
     'République démocratique du Congo': 49, // CD
     'France': 75, // FR
     'Belgique': 21, // BE
