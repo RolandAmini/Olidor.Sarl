@@ -74,7 +74,7 @@ export default function AboutPage() {
                   Depuis notre création, nous avons construit une réputation solide basée sur la qualité de nos produits, la fiabilité de nos services et notre engagement envers nos clients.
                 </p>
                 <p>
-                  Aujourd'hui, nous servons fièrement les ménages, les organismes humanitaires et les entreprises à travers la région, contribuant au développement économique local.
+                  Aujourd'hui, nous servons fièrement les ménages, les organisations humanitaires et les entreprises à travers la région, contribuant au développement économique local.
                 </p>
                  <h2 className="text-2xl font-bold mb-3">Pourquoi choisir Olidor Sarl ?</h2>
 

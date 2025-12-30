@@ -37,38 +37,23 @@ export default function AboutSection() {
                 <div className="w-48 h-48 bg-white rounded-full shadow-2xl flex items-center justify-center z-10 p-6">
                   {/* Olidor Logo - Green Octagon Pattern */}
                   <div className="relative w-full h-full">
-                    <svg viewBox="0 0 200 200" className="w-full h-full">
-                      {/* Outer octagon segments - dashed pattern */}
-                      <g>
-                        {/* Top segment */}
-                        <path d="M70 35 L130 35" stroke="#059669" strokeWidth="8" strokeLinecap="round" strokeDasharray="5 8" />
-                        {/* Top-right segment */}
-                        <path d="M135 40 L165 70" stroke="#059669" strokeWidth="8" strokeLinecap="round" strokeDasharray="5 8" />
-                        {/* Right segment */}
-                        <path d="M170 75 L170 125" stroke="#059669" strokeWidth="8" strokeLinecap="round" strokeDasharray="5 8" />
-                        {/* Bottom-right segment */}
-                        <path d="M165 130 L135 160" stroke="#059669" strokeWidth="8" strokeLinecap="round" strokeDasharray="5 8" />
-                        {/* Bottom segment */}
-                        <path d="M130 165 L70 165" stroke="#059669" strokeWidth="8" strokeLinecap="round" strokeDasharray="5 8" />
-                        {/* Bottom-left segment */}
-                        <path d="M65 160 L35 130" stroke="#059669" strokeWidth="8" strokeLinecap="round" strokeDasharray="5 8" />
-                        {/* Left segment */}
-                        <path d="M30 125 L30 75" stroke="#059669" strokeWidth="8" strokeLinecap="round" strokeDasharray="5 8" />
-                        {/* Top-left segment */}
-                        <path d="M35 70 L65 40" stroke="#059669" strokeWidth="8" strokeLinecap="round" strokeDasharray="5 8" />
-                      </g>
-                      
-                      {/* Inner diagonal cross lines */}
-                      <line x1="60" y1="60" x2="140" y2="140" stroke="#10b981" strokeWidth="5" opacity="0.6" />
-                      <line x1="140" y1="60" x2="60" y2="140" stroke="#10b981" strokeWidth="5" opacity="0.6" />
-                      
-                      {/* Horizontal and vertical lines */}
-                      <line x1="100" y1="50" x2="100" y2="150" stroke="#10b981" strokeWidth="5" opacity="0.6" />
-                      <line x1="50" y1="100" x2="150" y2="100" stroke="#10b981" strokeWidth="5" opacity="0.6" />
-                      
-                      {/* Center small circle */}
-                      <circle cx="100" cy="100" r="20" fill="none" stroke="#059669" strokeWidth="6" />
-                    </svg>
+                   <div className="absolute inset-0 flex items-center justify-center">
+  {/* Conteneur circulaire blanc */}
+ <div className="w-48 h-60 bg-white rounded-full shadow-2xl flex items-center justify-center z-10 p-4">
+  <img 
+    src="/cercle.png" 
+    alt="Olidor Logo"
+    className="w-full h-full object-cover rounded-full object-[25%_40%] scale-[1.8] transition-transform" 
+  />
+</div>
+
+
+  
+</div>
+
+{/* Points décoratifs conservés */}
+<div className="absolute top-10 right-10 w-4 h-4 bg-green-700 rounded-full shadow-lg animate-pulse"></div>
+<div className="absolute bottom-10 left-10 w-4 h-4 bg-blue-700 rounded-full shadow-lg animate-pulse" style={{animationDelay: '0.5s'}}></div>
                   </div>
                 </div>
               </div>

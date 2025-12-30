@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar';
 import About from '../components/About';
 import Global from '../components/Global';
 import ContactSection from "@/components/ContactSection";
-import Footer from '../components/Footer';
+  import Footer from '../components/Footer';
 
 // Hero Section Component
 export default function HeroSection() {
@@ -53,7 +53,7 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Content - Centered */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen px-6 sm:px-8 lg:px-12">
+        <div className="relative z-10 flex mt-20 items-center justify-center min-h-screen px-6 sm:px-8 lg:px-12">
           <div className="max-w-4xl text-center space-y-8 py-20">
             {/* Main Heading */}
              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-tight drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]">

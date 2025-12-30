@@ -161,7 +161,7 @@ const getParallaxStyle = (speed: number) => ({
     {[
       {
         img: "/07bB0-02.webp",
-        title: "Équipements pour malnutrition",
+        title: "Autres intrants et Équipements pour la PEC de la malnutrition ",
         text: "Olidor collabore avec des entreprises accréditées à l’international dans la production des intrants nutritionnels.",
       },
       {
@@ -240,7 +240,7 @@ const getParallaxStyle = (speed: number) => ({
     {/* Image Left */}
     <div className="bg-gray-200 h-56 sm:h-64 md:h-72">
       <img
-        src="/voituresrl.jpg"
+        src="/cuirser.jpg"
         alt="Location de véhicules"
         className="w-full h-full object-cover"
       />

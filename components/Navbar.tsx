@@ -15,7 +15,7 @@ function Navbar() {
             <img
               src="/logo.jpg"
               alt="Olidor Sarl Logo"
-              className="h-12 w-auto object-contain md:h-16"
+              className="h-18 w-auto object-contain md:h-24"
             />
           </div>
 
@@ -25,7 +25,7 @@ function Navbar() {
               href="/"
               className="text-gray-700 font-medium hover:text-green-600 transition-colors"
             >
-              Home
+              Page d'accueil
             </Link>
             <Link
               href="/nos-produits"
@@ -33,20 +33,19 @@ function Navbar() {
             >
               Nos produits
             </Link>
-            <a
-  href="https://www.olidor.sarl/en/cotation"
-  className="text-gray-700 font-medium hover:text-green-600 transition-colors"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Cotation
-</a>
+             <Link
+              href="/cotation"
+              className="text-gray-700 font-medium hover:text-green-600 transition-colors"
+            >
+              Cotation
+            </Link>
+
 
             <Link
               href="/shop"
               className="text-gray-700 font-medium hover:text-green-600 transition-colors"
             >
-              Shop
+              Boutique
             </Link>
             <button className="text-gray-700 hover:text-green-600">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -94,14 +93,14 @@ function Navbar() {
            
 
             {/* Contact Button */}
-            <a
-             href="https://www.olidor.sarl/en/cotation"
+            <Link
+              href="/cotation"
               className="hidden md:block bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition-colors font-medium"
-                target="_blank"
-                rel="noopener noreferrer"
+               
             >
               Contact
-            </a>
+            </Link>
+             
 
             {/* Mobile Menu Button */}
             <button
@@ -132,7 +131,7 @@ function Navbar() {
               Nos produits
             </Link>
            <a 
-  href="https://www.olidor.sarl/en/cotation"
+  href="/cotation"
   className="block text-gray-700 font-medium hover:text-green-700 transition-colors"
   onClick={() => setIsOpen(false)}
   target="_blank" 
