@@ -39,7 +39,7 @@ export default function AboutSection() {
                   <div className="relative w-full h-full">
                    <div className="absolute inset-0 flex items-center justify-center">
   {/* Conteneur circulaire blanc */}
- <div className="w-48 h-60 bg-white rounded-full shadow-2xl flex items-center justify-center z-10 p-4">
+ <div className="w-48 h-60 sm:w-40 sm:h-20 md:w-48 md:h-60 lg:w-56 lg:h-50 bg-white rounded-full shadow-2xl flex items-center justify-center z-10 p-4 sm:p-4">
   <img 
     src="/cercle.png" 
     alt="Olidor Logo"

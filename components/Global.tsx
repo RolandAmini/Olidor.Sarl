@@ -122,29 +122,22 @@ const getParallaxStyle = (speed: number) => ({
 </section>
 
 
-      {/* =========================
-          Page 1 - Nos Capacités
-      ========================== */}
-   <section
+  <section
   className="sticky top-0 h-screen flex items-center justify-center overflow-hidden relative bg-gradient-to-br from-gray-50 to-cyan-50 to-emerald-900"
 >
-  {/* Image de fond - Essayez ces différentes options */}
+  {/* Image de fond */}
   <div
     className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
     style={{
-      backgroundImage: "url('/olidoresarl.webp')", // Option 1
-      // backgroundImage: "url('./olidor.webp')", // Option 2
-      // backgroundImage: "url('olidor.webp')", // Option 3
+      backgroundImage: "url('/olidoresarl.webp')",
     }}
   ></div>
-    <div className="absolute inset-0 flex items-center justify-center">
-    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug">
+  
+  <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug text-center max-w-5xl">
       Commercialisation et distribution 
     </h1>
   </div>
-
-
-  
 </section>
      {/* Page 2 - Location & Vente (01) */}
 <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-green-900 via-green-800 to-green-500 px-6 py-24">
