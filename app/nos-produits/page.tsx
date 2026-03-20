@@ -52,7 +52,7 @@ const products: Product[] = [
     id: 3,
     name: "Boule Totale",
     price: 0.00,
-    image: "/cacaosrl.jpeg",
+    image: "/unga.webp",
     weights: [
       { weight: "5kg", price: 3.20 },
       { weight: "10kg", price: 6.40 },

@@ -7,7 +7,7 @@ export default function RealisationsPage() {
   return (
     <>
       <Navbar />
-      <section className="min-h-screen bg-white py-12 md:py-20 px-4 md:px-8">
+      <section className="min-h-screen  bg-white py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           
           {/* Grid Layout - 2 colonnes sur desktop */}

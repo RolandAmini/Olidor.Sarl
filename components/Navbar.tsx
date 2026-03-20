@@ -1,10 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import { useCart } from "@/contexts/CartContext";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
+  const { 
+    cart, 
+    isOpen: cartOpen, 
+    setIsOpen: setCartOpen, 
+    removeFromCart, 
+    updateQuantity, 
+    getCartTotal, 
+    getCartCount 
+  } = useCart();
 
   return (
     <>
@@ -12,11 +21,13 @@ function Navbar() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center flex-shrink-0">
-            <img
-              src="/logo.jpg"
-              alt="Olidor Sarl Logo"
-              className="h-12 w-auto object-contain sm:h-16 md:h-20 lg:h-24"
-            />
+            <Link href="/">
+              <img
+                src="/logo.jpg"
+                alt="Olidor Sarl Logo"
+                className="h-12 w-auto object-contain sm:h-16 md:h-20 lg:h-24 cursor-pointer"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -25,7 +36,7 @@ function Navbar() {
               href="/"
               className="text-sm xl:text-base text-gray-700 font-medium hover:text-green-600 transition-colors whitespace-nowrap"
             >
-              Page d'accueil
+              Accueil 
             </Link>
             <Link
               href="/nos-produits"
@@ -39,12 +50,12 @@ function Navbar() {
             >
               Cotation
             </Link>
-            <Link
-              href="/shop"
+            {/* <Link
+              href="/Boutique"
               className="text-sm xl:text-base text-gray-700 font-medium hover:text-green-600 transition-colors whitespace-nowrap"
             >
               Boutique
-            </Link>
+            </Link> */}
             <button className="text-gray-700 hover:text-green-600">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -54,7 +65,7 @@ function Navbar() {
 
           {/* Right Side Icons */}
           <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-            {/* Cart Icon */}
+            {/* Cart Icon with Badge */}
             <button
               onClick={() => setCartOpen(!cartOpen)}
               className="text-gray-700 hover:text-green-600 transition-colors relative p-1 sm:p-2"
@@ -63,6 +74,11 @@ function Navbar() {
               <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
+              {getCartCount() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {getCartCount()}
+                </span>
+              )}
             </button>
 
             {/* Search Icon */}
@@ -82,8 +98,8 @@ function Navbar() {
             {/* Language Selector */}
             <div className="hidden lg:block">
               <select className="text-xs xl:text-sm text-gray-700 bg-transparent border-none cursor-pointer focus:outline-none">
-                <option>English (US)</option>
                 <option>Français</option>
+                <option>English (US)</option>
               </select>
             </div>
 
@@ -122,7 +138,7 @@ function Navbar() {
               className="block text-sm sm:text-base text-gray-700 font-medium hover:text-green-700 transition-colors py-1" 
               onClick={() => setIsOpen(false)}
             >
-              Page d'accueil
+              Accueil
             </Link>
             <Link 
               href="/nos-produits" 
@@ -139,7 +155,7 @@ function Navbar() {
               Cotation
             </Link>
             <Link 
-              href="/shop" 
+              href="/Boutique" 
               className="block text-sm sm:text-base text-gray-700 font-medium hover:text-green-700 transition-colors py-1" 
               onClick={() => setIsOpen(false)}
             >
@@ -147,8 +163,8 @@ function Navbar() {
             </Link>
             <div className="pt-2">
               <select className="w-full text-sm text-gray-700 bg-gray-50 border border-gray-300 rounded px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <option>English (US)</option>
                 <option>Français</option>
+                <option>English (US)</option>
               </select>
             </div>
             <Link 
@@ -176,20 +192,14 @@ function Navbar() {
             <div className="p-4 sm:p-6">
               {/* Header */}
               <div className="flex items-center justify-between mb-4 sm:mb-6 pb-3 sm:pb-4 border-b border-gray-200">
-                <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto">
-                  <span className="text-sm sm:text-base lg:text-lg font-semibold text-gray-900 whitespace-nowrap">Review Order</span>
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                  <span className="text-xs sm:text-sm text-gray-400 whitespace-nowrap">Delivery</span>
-                  <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                  <span className="text-xs sm:text-sm text-gray-400 whitespace-nowrap">Payment</span>
+                <div className="flex items-center gap-1 sm:gap-2">
+                  <h2 className="text-base sm:text-lg font-bold text-gray-900">
+                    Mon Panier ({getCartCount()})
+                  </h2>
                 </div>
                 <button
                   onClick={() => setCartOpen(false)}
-                  className="text-gray-400 hover:text-gray-600 flex-shrink-0 ml-2"
+                  className="text-gray-400 hover:text-gray-600 flex-shrink-0"
                   aria-label="Close cart"
                 >
                   <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -198,13 +208,96 @@ function Navbar() {
                 </button>
               </div>
 
-              {/* Order Overview Title */}
-              <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Order overview</h2>
+              {/* Cart Items */}
+              {cart.length === 0 ? (
+                <div className="text-center py-12">
+                  <svg className="w-16 h-16 mx-auto text-gray-300 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                  </svg>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Votre panier est vide</h3>
+                  <p className="text-sm text-gray-500 mb-4">Ajoutez des produits pour commencer vos achats</p>
+                  <Link 
+                    href="/Boutique"
+                    onClick={() => setCartOpen(false)}
+                    className="inline-block bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition-colors font-medium"
+                  >
+                    Voir la boutique
+                  </Link>
+                </div>
+              ) : (
+                <>
+                  <div className="space-y-4 mb-6 max-h-[calc(100vh-350px)] overflow-y-auto">
+                    {cart.map(item => (
+                      <div key={item.id} className="flex gap-3 sm:gap-4 border-b border-gray-200 pb-4">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg flex-shrink-0"
+                          onError={(e) => {
+                            e.target.src = '/placeholder-product.jpg';
+                          }}
+                        />
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-gray-900 text-sm sm:text-base truncate">{item.name}</h3>
+                          <p className="text-xs sm:text-sm text-gray-500 mb-2">{item.category}</p>
+                          <div className="flex items-center justify-between">
+                            <p className="text-sm sm:text-base font-bold text-gray-900">${item.price}</p>
+                            <div className="flex items-center gap-2">
+                              <button
+                                onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center border border-gray-300 rounded hover:bg-gray-100 text-sm"
+                              >
+                                -
+                              </button>
+                              <span className="text-sm font-medium w-6 text-center">{item.quantity}</span>
+                              <button
+                                onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                className="w-6 h-6 sm:w-7 sm:h-7 flex items-center justify-center border border-gray-300 rounded hover:bg-gray-100 text-sm"
+                              >
+                                +
+                              </button>
+                            </div>
+                          </div>
+                          <button
+                            onClick={() => removeFromCart(item.id)}
+                            className="mt-2 text-xs sm:text-sm text-red-600 hover:text-red-700 font-medium"
+                          >
+                            Supprimer
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
 
-              {/* Empty Cart Message */}
-              <div className="bg-cyan-50 border border-cyan-200 rounded-lg p-3 sm:p-4 text-sm sm:text-base text-cyan-700">
-                Your cart is empty!
-              </div>
+                  {/* Total and Checkout */}
+                  <div className="border-t border-gray-200 pt-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-gray-600">Sous-total:</span>
+                      <span className="text-base font-semibold text-gray-900">${getCartTotal().toFixed(2)}</span>
+                    </div>
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-base font-bold text-gray-900">Total:</span>
+                      <span className="text-xl sm:text-2xl font-bold text-green-600">${getCartTotal().toFixed(2)}</span>
+                    </div>
+                    <button 
+                      onClick={() => {
+                        setCartOpen(false);
+                        // Redirect to checkout page
+                        window.location.href = '/checkout';
+                      }}
+                      className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors font-medium text-sm sm:text-base"
+                    >
+                      Passer la commande
+                    </button>
+                    <button 
+                      onClick={() => setCartOpen(false)}
+                      className="w-full mt-2 bg-gray-100 text-gray-700 py-2 rounded-lg hover:bg-gray-200 transition-colors font-medium text-sm"
+                    >
+                      Continuer mes achats
+                    </button>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </>

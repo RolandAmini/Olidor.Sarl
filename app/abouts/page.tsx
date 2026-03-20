@@ -42,7 +42,7 @@ export default function AboutPage() {
   return (
     <>
     <Navbar />
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen mt-10 bg-white">
       {/* Hero Section */}
       <section className="relative bg-green-700  text-white py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">

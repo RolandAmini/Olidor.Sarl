@@ -94,10 +94,10 @@ export default function QuoteRequestForm() {
   return (
      <>
         <Navbar />
-    <div className="min-h-screen mt-20 bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen mt-25 bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto bg-white rounded-lg shadow-sm">
         {/* Header */}
-        <div className="bg-gradient-to-r from-teal-700 to-teal-600 px-6 py-8 rounded-t-lg">
+        <div className="bg-green-700 px-6 py-8 rounded-t-lg">
           <h1 className="text-3xl md:text-4xl font-bold text-white text-center">
             Demande de cotation
           </h1>
