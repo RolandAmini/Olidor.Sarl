@@ -33,10 +33,10 @@ export default function AboutPage() {
    const [isExpanded, setIsExpanded] = useState(false);
 
   const text = `
-  Expertise locale et savoir-faire reconnu, pour une transformation et une distribution de produits de qualité.
-  Engagement social : Lutte contre la malnutrition et appui aux initiatives humanitaires à travers sa structure mère dans l‘objectif de concrétiser la Responsabilité sociale.
-  Services souples et personnalisés, adaptés à chaque client et chaque contexte.
-  Réactivité et fiabilité dans la gestion logistique et le transport, aussi bien en milieu urbain qu’en zones rurales.
+Expertise locale et savoir-faire reconnu, pour une transformation et une distribution des produits de qualité.
+Engagement social : Lutte contre la malnutrition et appui aux actions humanitaires à travers sa structure mère (voir) www.actionofthefuture.org, dans l‘objectif de concrétiser la responsabilité sociale.
+Services souples et personnalisés, adaptés à chaque client et chaque contexte.
+
   `;
 
   return (
@@ -63,19 +63,15 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-bold text-blue-700">
-                Notre Histoire
-              </h2>
+             
               <div className="space-y-4 text-gray-700 text-lg leading-relaxed">
                 <p>
-                  Olidor SARL a été fondée avec une vision claire : devenir un acteur majeur dans le secteur agroalimentaire et logistique en offrant des solutions innovantes et durables.
+                 Olidor Sarl est une entreprise engagée dans la production, la transformation, la commercialisation et la distribution des intrants nutritionnels et agroalimentaires, ainsi que dans la fourniture de services de location véhicules, de transport et de logistique.
                 </p>
                 <p>
-                  Depuis notre création, nous avons construit une réputation solide basée sur la qualité de nos produits, la fiabilité de nos services et notre engagement envers nos clients.
+                 Forte d'une expertise locale et d'une approche innovante, Olidor s'impose comme un acteur clé pour répondre aux besoins variés des ménages, des organismes humanitaires et des entreprises de la région.
                 </p>
-                <p>
-                  Aujourd'hui, nous servons fièrement les ménages, les organisations humanitaires et les entreprises à travers la région, contribuant au développement économique local.
-                </p>
+                
                  <h2 className="text-2xl font-bold mb-3">Pourquoi choisir Olidor Sarl ?</h2>
 
                   <p className={`transition-all duration-300 ${isExpanded ? "" : "line-clamp-3"}`}>

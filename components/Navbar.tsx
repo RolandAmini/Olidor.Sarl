@@ -50,12 +50,12 @@ function Navbar() {
             >
               Cotation
             </Link>
-            {/* <Link
-              href="/Boutique"
+             <Link
+              href="/Apropos"
               className="text-sm xl:text-base text-gray-700 font-medium hover:text-green-600 transition-colors whitespace-nowrap"
             >
-              Boutique
-            </Link> */}
+              Apropos
+            </Link> 
             <button className="text-gray-700 hover:text-green-600">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
