@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { useCart } from "@/contexts/CartContext";
+import { useCart } from "@/contexts/CartContext.";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -233,9 +233,9 @@ function Navbar() {
                           src={item.image}
                           alt={item.name}
                           className="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded-lg flex-shrink-0"
-                          onError={(e) => {
-                            e.target.src = '/placeholder-product.jpg';
-                          }}
+                         onError={(e) => {
+  (e.target as HTMLImageElement).src = '/placeholder-product.jpg';
+}}
                         />
                         <div className="flex-1 min-w-0">
                           <h3 className="font-semibold text-gray-900 text-sm sm:text-base truncate">{item.name}</h3>

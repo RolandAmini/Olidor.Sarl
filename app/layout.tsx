@@ -1,7 +1,6 @@
-// app/layout.js
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { CartProvider } from '@/contexts/CartContext';
+import { CartProvider } from '@/contexts/CartContext.';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -10,7 +9,8 @@ export const metadata = {
   description: 'Solutions nutritionnelles en RDC',
 };
 
-export default function RootLayout({ children }) {
+// On ajoute le typage ici : { children }: { children: React.ReactNode }
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
       <body className={inter.className}>
