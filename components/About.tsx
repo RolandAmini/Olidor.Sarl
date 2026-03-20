@@ -84,7 +84,7 @@ export default function AboutSection() {
 
             <button className="px-10 py-4 border-3 border-green-700 text-gray-800 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 text-lg">
                  <Link 
-            href="/abouts" 
+            href="/Apropos" 
             className="text-base sm:text-lg md:text-xl lg:text-2xl text-black font-medium hover:text-white transition-colors"
           >
            lire plus 

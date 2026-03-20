@@ -153,7 +153,7 @@ export default function AboutPage() {
         <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-green-700 text-white">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             <h2 className="text-3xl sm:text-4xl font-bold">
-              Prêt à Travailler Avec Nous ?
+              Prêt à travailler avec nous ?
             </h2>
             <p className="text-xl text-gray-300">
               Contactez-nous dès aujourd'hui pour discuter de vos besoins
