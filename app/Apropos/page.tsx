@@ -1,6 +1,6 @@
 "use client";
 
-import { Globe, ShoppingCart, Truck } from 'lucide-react';
+import { Globe, ShoppingCart, Truck,Leaf } from 'lucide-react';
 import React, { useState } from 'react';
 
 import Navbar from '@/components/Navbar';
@@ -10,7 +10,7 @@ export default function AboutPage() {
 
   const services = [
     {
-      icon: <Globe className="w-10 h-10" />,
+      icon: <Leaf className="w-10 h-10" />,
       title: "Production agroalimentaire",
       description: "Distribution et commercialisation de produits agroalimentaires avec un réseau étendu dans toute la région."
     },
@@ -30,23 +30,37 @@ export default function AboutPage() {
 
   // Utilisation de JSX avec un vrai lien <a>
   const text = (
-    <span className="block text-gray-700">
+   <ul className="space-y-4 text-gray-700">
+  <li className="flex items-start gap-3">
+    <span className="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-emerald-500"></span>
+    <span>
       Expertise locale et savoir-faire reconnu, pour une transformation et une distribution des produits de qualité.
-      <br /><br />
-      Engagement social : Lutte contre la malnutrition et appui aux actions humanitaires à travers sa structure mère 
-      <a 
-        href="https://actionofthefuture.org/" 
-        target="_blank" 
+    </span>
+  </li>
+
+  <li className="flex items-start gap-3">
+    <span className="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-emerald-500"></span>
+    <span>
+      Engagement social : Lutte contre la malnutrition et appui aux actions humanitaires à travers sa structure mère{" "}
+      <a
+        href="https://actionofthefuture.org/"
+        target="_blank"
         rel="noopener noreferrer"
-        className="text-blue-600 underline font-bold mx-1 hover:text-blue-800"
-        style={{ cursor: 'pointer', display: 'inline-block' }}
+        className="text-blue-600 underline font-bold hover:text-blue-800 transition-colors"
       >
         voir
-      </a> 
-      www.actionofthefuture.org, dans l'objectif de concrétiser la responsabilité sociale.
-      <br /><br />
+      </a>{" "}
+      dans l'objectif de concrétiser la responsabilité sociale.
+    </span>
+  </li>
+
+  <li className="flex items-start gap-3">
+    <span className="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-emerald-500"></span>
+    <span>
       Services souples et personnalisés, adaptés à chaque client et chaque contexte.
     </span>
+  </li>
+</ul>
   );
 
   return (
@@ -83,14 +97,12 @@ export default function AboutPage() {
 
                   <h2 className="text-2xl font-bold mb-3">Pourquoi choisir Olidor Sarl ?</h2>
 
-                  {/* CORRECTION ICI : On utilise un <div> et max-height au lieu de <p> et line-clamp 
-                    pour permettre au lien d'être cliquable.
-                  */}
+                
                   <div className={`transition-all duration-500 overflow-hidden ${isExpanded ? "max-h-[1000px]" : "max-h-28"}`}>
                     {text}
                   </div>
 
-                  {/* Bouton Lire plus / Lire moins */}
+                  
                   <button
                     onClick={() => setIsExpanded(!isExpanded)}
                     className="text-green-700 mt-2 font-semibold hover:underline"

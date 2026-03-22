@@ -33,20 +33,28 @@ export default function GlobalPresencePage() {
   ];
 
   return (
-    <main className="bg-black text-white">
+    <main className=" text-white">
 
       {/* ========================= GLOBAL PRESENCE ========================== */}
-      <section className="sticky top-0 h-screen flex items-center justify-center px-8 overflow-hidden relative">
-        <div className="w-full h-full rounded-full overflow-hidden shadow-2xl relative">
-          <img src="/kivu.png" alt="Oil & Gas Operations" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-black/20"></div>
-        </div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug">
-            Production agroalimentaire
-          </h1>
-        </div>
-      </section>
+     <section className="sticky top-0 h-screen w-full overflow-hidden relative">
+  {/* L'image prend maintenant tout l'espace de la section sans interférence */}
+  <div className="absolute inset-0 w-full h-full">
+    <img 
+      src="/logafri.png" 
+      alt="Oil & Gas Operations" 
+      className="w-full h-full object-contain" 
+    />
+    {/* Optionnel : Ajouter un léger overlay sombre pour rendre le texte plus lisible */}
+    <div className="absolute inset-0 bg-black/30"></div>
+  </div>
+
+  {/* Contenu textuel par-dessus */}
+  <div className="relative z-10 flex items-center justify-center h-full px-8">
+    <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug">
+      Production agroalimentaire
+    </h1>
+  </div>
+</section>
 
       {/* ========================= SECTION 1 : GAMME PRODUITS ========================== */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-20">
