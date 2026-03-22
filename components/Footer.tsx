@@ -63,14 +63,14 @@ des aliments de complément, solutions nutritionnelles et les services logistiqu
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-xl font-bold">racourci</h4>
+            <h4 className="text-xl font-bold">Racourci</h4>
             <ul className="space-y-3">
               <li>
                 <a
             href="/"
             className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
           >
-           Page d'accueil
+           Accueil
           </a>
               </li>
               <li>
@@ -83,7 +83,7 @@ des aliments de complément, solutions nutritionnelles et les services logistiqu
               </li>
               <li>
                  <a
-            href="/abouts"
+            href="/Apropos"
             className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
           >
            À Propos
@@ -91,20 +91,13 @@ des aliments de complément, solutions nutritionnelles et les services logistiqu
               </li>
               <li>
                <a
-            href="/productsCatalog"
+            href="/produits"
             className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
           >
-           produits
+           Produits
           </a>
               </li>
-              <li>
-               <a
-            href="/realisation"
-            className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap"
-          >
-           Réalisations
-          </a>
-              </li>
+              
               
             </ul>
           </div>
