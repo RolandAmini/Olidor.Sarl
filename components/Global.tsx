@@ -155,7 +155,7 @@ export default function GlobalPresencePage() {
             Services de transport, location de véhicules et logistique
           </h2>
           <p className="text-lg md:text-xl text-white/90 max-w-4xl">
-            Fidèle à sa mission de faciliter vos activités, Olidor sarl offre une gamme complète de services logistiques adaptés à chaque besoin :
+            Fidèle à sa mission de faciliter vos activités, Olidor sarl offre une gamme complète de services logistiques adaptés à chaque besoin 
           </p>
         </div>
 
@@ -166,11 +166,11 @@ export default function GlobalPresencePage() {
               <img src="/act.png" alt="Location de véhicules" className="w-full h-full object-cover" />
             </div>
             <div className="p-6 sm:p-8 flex flex-col justify-center text-gray-800">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Location de véhicules :</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Location de véhicules </h3>
               <p className="text-sm sm:text-base leading-relaxed mb-5 text-gray-700">
                 Des véhicules confortables et robustes (Land-Cruiser, Prado), disponibles pour tous vos déplacements, que ce soit en ville ou en milieu rural. Olidor Sarl propose des véhicules adaptés et bien entretenus pour garantir sécurité et sérénité à chaque trajet.
               </p>
-              <a href="/abouts" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors">
+              <a href="/transport" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors">
                 En savoir plus
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -181,11 +181,11 @@ export default function GlobalPresencePage() {
 
           <div className="grid md:grid-cols-2 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
             <div className="p-6 sm:p-8 flex flex-col justify-center order-2 md:order-1 text-gray-800">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Transport de marchandises et de médicaments :</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Transport de marchandises et de médicaments </h3>
               <p className="text-sm sm:text-base leading-relaxed mb-5 text-gray-700">
                 Nous assurons le transport sécurisé de vos marchandises et médicaments, en respectant les normes de sécurité et de qualité. Notre flotte et notre équipe garantissent une livraison fiable et dans les délais.
               </p>
-              <a href="/Appropos" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors">
+              <a href="/transport" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors">
                 En savoir plus
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -202,11 +202,11 @@ export default function GlobalPresencePage() {
               <img src="/container.jpg" alt="Prestations logistiques" className="w-full h-full object-cover" />
             </div>
             <div className="p-6 sm:p-8 flex flex-col justify-center text-gray-800">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Prestations logistiques sur mesure :</h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Prestations logistiques sur mesure </h3>
               <p className="text-sm sm:text-base leading-relaxed mb-5 text-gray-700">
                 Que vous ayez besoin de solutions de stockage, de gestion de chaîne d'approvisionnement ou de services logistiques personnalisés, nous mettons notre expertise à votre service pour optimiser vos opérations et réduire vos coûts.
               </p>
-              <a href="/abouts" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors">
+              <a href="/transport" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors">
                 En savoir plus
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

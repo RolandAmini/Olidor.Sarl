@@ -39,7 +39,7 @@ export default function AboutSection() {
                         <img
                           src="/cercle.png"
                           alt="Olidor Logo"
-                          className="w-full h-full object-cover rounded-full object-[25%_40%] scale-[1.8] transition-transform"
+                          className="w-full h-full object-cover rounded-full object-[15%_30%] scale-[1.8] transition-transform"
                         />
                       </div>
                     </div>
