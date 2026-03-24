@@ -67,10 +67,10 @@ export default function TransportPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/50 to-transparent" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-20">
+       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-0">
          
 
-           <h1 className="text-5xl sm:text-6xl  lg:text-8xl font-black leading-none mb-6 tracking-tight">
+           <h1 className="text-3xl mt-5 sm:text-5xl md:text-6xl font-bold font-black leading-none mb-6 tracking-tight">
             Transport
             <br />
             <span className="text-green-700">&amp; Logistique</span>
@@ -84,7 +84,7 @@ export default function TransportPage() {
       </section>
 
       {/* ── SERVICES LIST ── */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 py-24">
+      <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-10 pb-24">
         <div className="grid grid-cols-1 gap-12">
           {SERVICES_DATA.map((service, index) => (
             <div
@@ -119,7 +119,7 @@ export default function TransportPage() {
                   href="/cotation"
                   className="inline-flex items-center gap-3 text-white bg-green-700 hover:bg-green-600 px-6 py-3 rounded-full transition-all text-sm font-bold"
                 >
-                  Demander une cotation
+                   Cotation
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
@@ -135,7 +135,7 @@ export default function TransportPage() {
         <div className="max-w-7xl mx-auto rounded-[3rem] bg-green-700 p-12 sm:p-20 relative overflow-hidden">
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="text-center lg:text-left">
-              <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
+              <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-black text-white mb-6">
                 Prêt à organiser <br /> votre transport ?
               </h2>
               <p className="text-emerald-100 text-lg opacity-80">
