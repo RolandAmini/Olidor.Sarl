@@ -39,14 +39,15 @@ export default function GlobalPresencePage() {
      <section className="sticky top-0 h-screen w-full overflow-hidden relative">
   {/* L'image prend maintenant tout l'espace de la section sans interférence */}
   <div className="absolute inset-0 w-full h-full">
-    <img 
-      src="/logafri.png" 
-      alt="Oil & Gas Operations" 
-      className="w-full h-full object-contain" 
-    />
-    {/* Optionnel : Ajouter un léger overlay sombre pour rendre le texte plus lisible */}
-    <div className="absolute inset-0 bg-black/30"></div>
-  </div>
+  <img 
+    src="/olilo.png" 
+    alt="Oil & Gas Operations" 
+    className="w-full h-full object-cover" 
+  />
+  
+  {/* L'overlay sombre pour le contraste du texte */}
+  <div className="absolute inset-0 bg-black/40"></div>
+</div>
 
   {/* Contenu textuel par-dessus */}
   <div className="relative z-10 flex items-center justify-center h-full px-8">
