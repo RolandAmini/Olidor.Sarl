@@ -163,7 +163,7 @@ export default function GlobalPresencePage() {
 
           <div className="grid md:grid-cols-2 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
             <div className="bg-gray-200 h-56 sm:h-64 md:h-72">
-              <img src="/cuirser.jpg" alt="Location de véhicules" className="w-full h-full object-cover" />
+              <img src="/act.png" alt="Location de véhicules" className="w-full h-full object-cover" />
             </div>
             <div className="p-6 sm:p-8 flex flex-col justify-center text-gray-800">
               <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Location de véhicules :</h3>

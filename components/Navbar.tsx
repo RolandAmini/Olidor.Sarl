@@ -35,7 +35,7 @@ function Navbar() {
               {[
                 { href: "/", label: "Accueil" },
                 { href: "/produits", label: "Nos produits" },
-                { href: "/Cotation", label: "Cotation" },
+                { href: "/cotation", label: "Cotation" },
                 { href: "/Apropos", label: "À propos" },
               ].map(({ href, label }) => (
                 <Link
@@ -111,7 +111,7 @@ function Navbar() {
             {[
               { href: "/", label: "Accueil" },
               { href: "/produits", label: "Nos produits" },
-               { href: "/Cotation", label: "Cotation" },
+              { href: "/cotation", label: "Cotation" },
               { href: "/Apropos", label: "À propos" },
             ].map(({ href, label }) => (
               <Link
