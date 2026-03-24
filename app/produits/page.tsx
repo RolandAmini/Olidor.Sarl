@@ -20,7 +20,7 @@ export default function ProduitsPage() {
         <section className="max-w-7xl mx-auto mt-4 px-4 sm:px-6 lg:px-8 pt-16 pb-12">
           <div className="flex items-center gap-4 mb-10">
             <div className="h-px flex-1 bg-gray-200" />
-            <span className="bg-emerald-100 text-emerald-800 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+            <span className="bg-emerald-100 text-green-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
               Production agroalimentaire
             </span>
             <div className="h-px flex-1 bg-gray-200" />
@@ -56,7 +56,7 @@ export default function ProduitsPage() {
         </section>
 
         {/* ─── CTA CONTACT ──────────────────────────────────────────────── */}
-        <section className="bg-emerald-800 py-16 px-6 text-center">
+        <section className="bg-green-700 py-16 px-6 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
             Besoin d'un produit spécifique ?
           </h2>
@@ -65,7 +65,7 @@ export default function ProduitsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-block bg-white text-emerald-800 font-bold py-3.5 px-8 rounded-full hover:bg-emerald-50 transition-colors duration-200"
+            className="inline-block bg-white text-green-700 font-bold py-3.5 px-8 rounded-full hover:bg-emerald-50 transition-colors duration-200"
           >
             Nous contacter
           </Link>

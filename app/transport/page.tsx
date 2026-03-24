@@ -59,7 +59,7 @@ export default function TransportPage() {
       <Navbar />
 
       {/* ── HERO SECTION ── */}
-      <section className="relative h-[90vh] min-h-[700px] flex items-end overflow-hidden">
+     <section className="relative h-[90vh] min-h-[700px] flex items-center overflow-hidden">
         <img
           src="/transmed.jpg"
           alt="Transport Olidor Sarl"
@@ -70,7 +70,7 @@ export default function TransportPage() {
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pb-20">
          
 
-           <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black leading-none mb-6 tracking-tight">
+           <h1 className="text-5xl sm:text-6xl  lg:text-8xl font-black leading-none mb-6 tracking-tight">
             Transport
             <br />
             <span className="text-green-700">&amp; Logistique</span>
@@ -99,7 +99,7 @@ export default function TransportPage() {
 
               {/* Contenu Droite */}
               <div className="space-y-8">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold group-hover:text-emerald-400 transition-colors">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold group-hover:text-green-700 transition-colors">
                   {service.title}
                 </h2>
                 <p className="text-gray-400 text-lg leading-relaxed max-w-3xl">
@@ -109,7 +109,7 @@ export default function TransportPage() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {service.points.map((point, pIdx) => (
                     <div key={pIdx} className="flex items-center gap-4 bg-white/[0.02] border border-white/5 p-4 rounded-xl">
-                      <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                      <div className="w-1.5 h-1.5 bg-green-700 rounded-full" />
                       <span className="text-gray-300 text-sm font-medium">{point}</span>
                     </div>
                   ))}
@@ -117,7 +117,7 @@ export default function TransportPage() {
 
                 <Link
                   href="/cotation"
-                  className="inline-flex items-center gap-3 text-white bg-emerald-600 hover:bg-emerald-500 px-6 py-3 rounded-full transition-all text-sm font-bold"
+                  className="inline-flex items-center gap-3 text-white bg-green-700 hover:bg-green-600 px-6 py-3 rounded-full transition-all text-sm font-bold"
                 >
                   Demander une cotation
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,7 +132,7 @@ export default function TransportPage() {
 
       {/* ── CTA FINAL ── */}
       <section className="px-6 sm:px-10 lg:px-16 pb-32">
-        <div className="max-w-7xl mx-auto rounded-[3rem] bg-emerald-600 p-12 sm:p-20 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto rounded-[3rem] bg-green-700 p-12 sm:p-20 relative overflow-hidden">
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12">
             <div className="text-center lg:text-left">
               <h2 className="text-4xl sm:text-5xl font-black text-white mb-6">
@@ -144,7 +144,7 @@ export default function TransportPage() {
             </div>
             <Link
               href="/cotation"
-              className="bg-white text-emerald-700 px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform"
+              className="bg-white text-green-700 px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform"
             >
               Contactez-nous
             </Link>
