@@ -146,7 +146,7 @@ export default function TransportPage() {
               href="/cotation"
               className="bg-white text-green-700 px-10 py-5 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-transform"
             >
-              Contactez-nous
+              Cotation
             </Link>
           </div>
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-[100px] -mr-32 -mt-32" />
