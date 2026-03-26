@@ -32,11 +32,11 @@ function SmallProductCard({ product }: { product: Product }) {
   );
 }
 
-// MISE À JOUR ICI : Ajout de { initialProductSlug } dans les arguments
+
 export default function ProductDetailPage({ initialProductSlug }: { initialProductSlug: string }) {
   const params = useParams();
   
-  // On utilise en priorité le slug passé par le serveur, sinon celui de l'URL
+
   const currentSlug = initialProductSlug || (params?.slug as string);
 
   // État initial basé sur le slug reçu
@@ -63,14 +63,11 @@ export default function ProductDetailPage({ initialProductSlug }: { initialProdu
             className="absolute inset-0 bg-cover bg-center opacity-30 transition-all duration-700"
             style={{ backgroundImage: `url('${selectedProduct.image}')` }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-emerald-900/80 to-emerald-800/90" />
+          <div className="absolute inset-0 bg-green-700" />
           <div className="relative z-20"><Navbar /></div>
           <div className="relative z-10 flex items-end h-full pb-8 px-6 sm:px-10 lg:px-16">
             <nav className="flex items-center gap-2 text-white/70 text-sm">
-              <Link href="/" className="hover:text-white">Accueil</Link>
-              <span>/</span>
-              <Link href="/produits" className="hover:text-white">Produits</Link>
-              <span>/</span>
+            
               <span className="text-white font-medium">{selectedProduct.name}</span>
             </nav>
           </div>
@@ -87,18 +84,18 @@ export default function ProductDetailPage({ initialProductSlug }: { initialProdu
                 <p className="text-gray-500 text-lg mb-8">{selectedProduct.fullDesc}</p>
                 
                 <div className="mb-8">
-                  <h2 className="text-sm font-semibold text-emerald-700 uppercase mb-4">Bénéfices clés</h2>
+                  <h2 className="text-sm font-semibold text-green-700 uppercase mb-4">Bénéfices clés</h2>
                   <ul className="space-y-2">
                     {selectedProduct.benefits?.map((b, i) => (
                       <li key={i} className="flex items-start gap-3 text-sm text-gray-700">
-                        <span className="text-emerald-600 font-bold">✓</span> {b}
+                        <span className="text-green-700 font-bold">✓</span> {b}
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div className="mt-8 flex gap-3">
-                  <button className="flex-1 bg-emerald-600 text-white font-semibold py-3 px-6 rounded-xl hover:bg-emerald-700 transition">
+                  <button className="flex-1 bg-green-700 text-white font-semibold py-3 px-6 rounded-xl hover:bg-emerald-700 transition">
                     Demander un devis
                   </button>
                 </div>
@@ -107,7 +104,7 @@ export default function ProductDetailPage({ initialProductSlug }: { initialProdu
           </div>
 
           <div>
-            <h2 className="text-xl font-bold text-gray-800 mb-6">Découvrir d'autres produits</h2>
+            <h2 className="text-xl font-bold text-blue-600 mb-6">Découvrir d'autres produits</h2>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               {otherProducts.slice(0, 4).map((p) => (
                 <SmallProductCard key={p.id} product={p} />

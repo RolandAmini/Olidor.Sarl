@@ -16,7 +16,7 @@ export default function GlobalPresencePage() {
     willChange: 'transform'
   });
 
-  // Section 1 : produits agroalimentaires (ids 1-4)
+ 
   const firstProducts = [
     { ...products[0], img: "/unga.webp" },
     { ...products[1], img: "/mamunga.webp" },
@@ -24,7 +24,7 @@ export default function GlobalPresencePage() {
     { ...products[3], img: "/unf.jpeg" },
   ];
 
-  // Section 2 : autres produits (ids 5-8)
+ 
   const secondProducts = [
     { ...products[4], img: "/07bB0-02.webp" },
     { ...products[5], img: "/F100-2.webp" },
@@ -37,7 +37,7 @@ export default function GlobalPresencePage() {
 
       {/* ========================= GLOBAL PRESENCE ========================== */}
      <section className="sticky top-0 h-screen w-full overflow-hidden relative">
-  {/* L'image prend maintenant tout l'espace de la section sans interférence */}
+ 
   <div className="absolute inset-0 w-full h-full">
   <img 
     src="/olilo.png" 
@@ -45,11 +45,11 @@ export default function GlobalPresencePage() {
     className="w-full h-full object-cover" 
   />
   
-  {/* L'overlay sombre pour le contraste du texte */}
+
   <div className="absolute inset-0 bg-black/40"></div>
 </div>
 
-  {/* Contenu textuel par-dessus */}
+ 
   <div className="relative z-10 flex items-center justify-center h-full px-8">
     <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug">
       Production agroalimentaire

@@ -64,7 +64,7 @@ export default function ProduitsPage() {
             Contactez notre équipe pour un devis personnalisé ou pour plus d'informations sur nos produits.
           </p>
           <Link
-            href="/contact"
+            href="/cotation"
             className="inline-block bg-white text-green-700 font-bold py-3.5 px-8 rounded-full hover:bg-emerald-50 transition-colors duration-200"
           >
             Nous contacter
@@ -82,7 +82,7 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
   return (
     <Link
       href={`/produits/${product.slug}`}
-      className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-emerald-300 hover:shadow-xl transition-all duration-300"
+      className="group flex flex-col bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-green-700 hover:shadow-xl transition-all duration-300"
     >
       {/* Image */}
       <div className="relative h-52 bg-gradient-to-br from-emerald-50 to-green-100 overflow-hidden">
@@ -95,14 +95,14 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
           }}
         />
         {/* Category badge */}
-        <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-emerald-700 text-xs font-semibold px-2.5 py-1 rounded-full">
+        <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">
           {product.category}
         </span>
       </div>
 
       {/* Content */}
       <div className="flex flex-col flex-1 p-5">
-        <h3 className="font-bold text-gray-900 text-base mb-2 group-hover:text-emerald-700 transition-colors leading-snug">
+        <h3 className="font-bold text-gray-900 text-base mb-2 group-hover:text-green-700 transition-colors leading-snug">
           {product.name}
         </h3>
         <p className="text-gray-500 text-sm leading-relaxed flex-1 line-clamp-3 mb-5">
@@ -110,7 +110,7 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
         </p>
 
         {/* CTA */}
-        <span className="inline-flex items-center gap-2 text-emerald-700 font-semibold text-sm group-hover:gap-3 transition-all duration-200">
+        <span className="inline-flex items-center gap-2 text-green-700 font-semibold text-sm group-hover:gap-3 transition-all duration-200">
           Plus d'information
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

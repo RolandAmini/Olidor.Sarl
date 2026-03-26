@@ -60,6 +60,13 @@ export default function AboutPage() {
       Services souples et personnalisés, adaptés à chaque client et chaque contexte.
     </span>
   </li>
+
+  <li className="flex items-start gap-3">
+    <span className="mt-1.5 flex-shrink-0 w-2 h-2 rounded-full bg-emerald-500"></span>
+    <span>
+     Réactivité et fiabilité dans la gestion logistique et le transport, aussi bien en milieu urbain qu’en zones rurales.
+    </span>
+  </li>
 </ul>
   );
 
@@ -171,7 +178,7 @@ export default function AboutPage() {
               Contactez-nous dès aujourd'hui pour discuter de vos besoins
             </p>
             <a
-              href="https://www.olidor.sarl/en/cotation"
+              href="/cotation"
               className="inline-block px-10 py-4 bg-blue-700 text-white font-semibold rounded-full hover:bg-green-700 transition-all duration-300 text-lg shadow-lg hover:shadow-xl"
               target="_blank"
               rel="noopener noreferrer"
