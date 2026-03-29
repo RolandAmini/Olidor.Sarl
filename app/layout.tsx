@@ -1,23 +1,40 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { CartProvider } from '@/contexts/CartContext.';
+import Script from 'next/script'; // <--- On importe l'outil de Next.js
 
 const inter = Inter({ subsets: ['latin'] });
+
+// REMPLACEZ CECI par votre ID de mesure récupéré sur Google Analytics
+const GA_MEASUREMENT_ID = "G-YJSNBKEGJ6";
 
 export const metadata = {
   title: 'Olidor Sarl - Plus sain, plus efficace',
   description: 'Solutions nutritionnelles en RDC',
-  // Next.js cherchera automatiquement un fichier nommé icon ou favicon dans /app
-  // Mais vous pouvez le forcer ici pour être sûr :
   icons: {
     icon: '/icon.png', 
-    apple: '/icon.png', // Pour les iPhones
+    apple: '/icon.png',
   },
 };
-// On ajoute le typage ici : { children }: { children: React.ReactNode }
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr">
+      <head>
+        {/* Chargement du script Google Analytics */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
+      </head>
       <body className={inter.className}>
         <CartProvider>
           {children}
