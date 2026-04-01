@@ -1,4 +1,3 @@
-// app/api/create-lead/route.ts
 import { NextResponse, NextRequest } from 'next/server';
 import xmlrpc from 'xmlrpc';
 
@@ -23,7 +22,7 @@ export async function POST(request: NextRequest) {
   try {
     const formData: LeadFormData = await request.json();
 
-    // Validation des données requises
+    // 1. Validation des données
     if (!formData.sujet || !formData.nom || !formData.email) {
       return NextResponse.json(
         { success: false, error: 'Sujet, nom et email sont requis' },
@@ -31,124 +30,120 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Configuration Odoo avec variables d'environnement
+    // 2. Configuration Odoo
     const ODOO_URL = process.env.ODOO_URL;
     const ODOO_DB = process.env.ODOO_DB;
     const ODOO_USERNAME = process.env.ODOO_USERNAME;
-    const ODOO_PASSWORD = process.env.ODOO_PASSWORD;
+    const ODOO_PASSWORD = process.env.ODOO_PASSWORD; // Utilisez votre API KEY ici
 
     if (!ODOO_URL || !ODOO_DB || !ODOO_USERNAME || !ODOO_PASSWORD) {
       return NextResponse.json(
-        { success: false, error: 'Configuration Odoo manquante' },
+        { success: false, error: 'Configuration Odoo manquante dans le .env' },
         { status: 500 }
       );
     }
 
-    // Étape 1: Authentification Odoo
-    const commonClient = xmlrpc.createSecureClient({
-      host: new URL(ODOO_URL).hostname,
-      port: 443,
-      path: '/xmlrpc/2/common'
-    });
+    const host = new URL(ODOO_URL).hostname;
 
+    // Étape 3: Authentification pour obtenir l'UID
+    const commonClient = xmlrpc.createSecureClient({ host, port: 443, path: '/xmlrpc/2/common' });
+    
     const uid = await new Promise<number>((resolve, reject) => {
-      commonClient.methodCall('authenticate', [
-        ODOO_DB,
-        ODOO_USERNAME,
-        ODOO_PASSWORD,
-        {}
-      ], (error: any, value: any) => {
-        if (error) reject(new Error(`Authentification échouée: ${error}`));
-        else if (!value) reject(new Error('UID vide reçu'));
+      commonClient.methodCall('authenticate', [ODOO_DB, ODOO_USERNAME, ODOO_PASSWORD, {}], (error: any, value: any) => {
+        if (error) reject(new Error(`Auth failure: ${error}`));
+        else if (!value) reject(new Error('UID non valide'));
         else resolve(value);
       });
     });
 
-    // Étape 2: Créer le Lead dans Odoo
-    const objectClient = xmlrpc.createSecureClient({
-      host: new URL(ODOO_URL).hostname,
-      port: 443,
-      path: '/xmlrpc/2/object'
-    });
+    const objectClient = xmlrpc.createSecureClient({ host, port: 443, path: '/xmlrpc/2/object' });
 
-    // Mapper les pays
-    const countryId = getCountryId(formData.pays);
-
-    // Préparer les données du Lead
-    const leadData = {
-      name: formData.sujet,
-      contact_name: formData.nom,
-      email_from: formData.email,
-      phone: formData.telephone || false,
-      partner_name: formData.organisation || false,
-      street: formData.ville || false,
-      country_id: countryId || false,
-      function: formData.fonction || false,
-      website: formData.siteWeb || false,
-      description: `
-Type: ${formData.userType === 'organisation' ? 'Organisation/Société' : 'Particulier'}
-Civilité: ${formData.civilite || 'Non spécifié'}
-Ville: ${formData.ville || 'Non spécifié'}
-Pays: ${formData.pays || 'Non spécifié'}
-Catégorie: ${formData.categorie || 'Non spécifiée'}
-Préciser produits: ${formData.preciserProduits === 'oui' ? 'Oui' : 'Non'}
-
-Message:
-${formData.message || 'Aucun message'}
-      `.trim(),
-      type: 'opportunity',
-      stage_id: 1, // Adapter selon votre configuration Odoo
-      team_id: 1, // Optionnel: équipe de vente
-      user_id: false // Assigner à l'utilisateur connecté par défaut
-    };
-
-    // Créer le lead
-    const leadId = await new Promise<number>((resolve, reject) => {
+    // Étape 4: Créer le Partenaire (Client) dans Odoo
+    const partnerId = await new Promise<number>((resolve, reject) => {
       objectClient.methodCall('execute_kw', [
-        ODOO_DB,
-        uid,
-        ODOO_PASSWORD,
-        'crm.lead',
-        'create',
-        [leadData]
+        ODOO_DB, uid, ODOO_PASSWORD,
+        'res.partner', 'create',
+        [{
+          name: formData.nom,
+          email: formData.email,
+          phone: formData.telephone || false,
+          city: formData.ville || false,
+          country_id: getCountryId(formData.pays),
+          company_type: formData.userType === 'organisation' ? 'company' : 'person',
+          function: formData.fonction || false,
+          website: formData.siteWeb || false,
+          comment: `Organisation: ${formData.organisation}`
+        }]
       ], (error: any, value: any) => {
-        if (error) reject(new Error(`Erreur création lead: ${error}`));
+        if (error) reject(new Error(`Erreur Partner: ${error}`));
         else resolve(value);
       });
     });
 
-    console.log('✅ Lead créé avec succès dans Odoo, ID:', leadId);
+    // Étape 5: Créer le Devis (Sale Order)
+    const orderId = await new Promise<number>((resolve, reject) => {
+      const descriptionMessage = `
+--- Détails du Site Web ---
+Catégorie: ${formData.categorie}
+Préciser produits: ${formData.preciserProduits}
+Message du client: ${formData.message}
+      `.trim();
+
+      objectClient.methodCall('execute_kw', [
+        ODOO_DB, uid, ODOO_PASSWORD,
+        'sale.order', 'create',
+        [{
+          partner_id: partnerId,
+          origin: 'Site Web Olidor Sarl',
+          note: descriptionMessage,
+        }]
+      ], (error: any, value: any) => {
+        if (error) reject(new Error(`Erreur Order: ${error}`));
+        else resolve(value);
+      });
+    });
+
+    // Étape 6: Ajouter une ligne d'article descriptive (pour que le devis ne soit pas vide)
+    await new Promise((resolve, reject) => {
+      objectClient.methodCall('execute_kw', [
+        ODOO_DB, uid, ODOO_PASSWORD,
+        'sale.order.line', 'create',
+        [{
+          order_id: orderId,
+          name: `Demande de cotation : ${formData.sujet}`,
+          product_uom_qty: 1,
+          price_unit: 0.0, // Le boss fixera le prix dans Odoo
+        }]
+      ], (error: any, value: any) => {
+        if (error) reject(error);
+        else resolve(value);
+      });
+    });
+
+    console.log(`✅ Devis Olidor Sarl créé: ID ${orderId}`);
 
     return NextResponse.json({
       success: true,
-      message: 'Lead créé avec succès dans Odoo',
-      leadId: leadId
+      message: 'Votre demande a été envoyée avec succès',
+      orderId
     });
 
-  } catch (error: unknown) {
-    console.error('❌ Erreur création lead:', error);
-    const errorMessage = error instanceof Error ? error.message : 'Erreur inconnue';
-    
+  } catch (error: any) {
+    console.error('❌ Erreur Odoo:', error);
     return NextResponse.json(
-      { 
-        success: false, 
-        error: errorMessage 
-      },
+      { success: false, error: error.message || 'Erreur interne au serveur' },
       { status: 500 }
     );
   }
 }
 
-// Mapping pays Odoo (IDs à vérifier dans votre instance)
+// Mapping des pays (vérifiez les IDs dans votre Odoo spécifique)
 function getCountryId(countryName: string): number | false {
   const countryMapping: Record<string, number> = {
-    'République démocratique du Congo': 49, // RDC
+    'République démocratique du Congo': 49,
     'France': 75,
     'Belgique': 21,
     'Canada': 39,
-    'Congo': 49, // Alias RDC
-    'RDC': 49
   };
-  
   return countryMapping[countryName] || false;
 }
