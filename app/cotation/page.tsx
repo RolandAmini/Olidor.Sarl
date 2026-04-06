@@ -210,9 +210,10 @@ export default function QuoteRequestForm() {
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
               >
                 <option value="République démocratique du Congo">République démocratique du Congo</option>
-                <option value="France">France</option>
-                <option value="Belgique">Belgique</option>
-                <option value="Canada">Canada</option>
+                <option value="France">kenya</option>
+                <option value="Belgique">Zambia</option>
+                <option value="Canada">Ghana</option>
+                <option value="Canada">Gabon</option>
               </select>
             </div>
 
@@ -342,10 +343,11 @@ export default function QuoteRequestForm() {
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-teal-500 focus:border-transparent"
             >
               <option value=""></option>
-              <option value="logiciels">Logiciels</option>
-              <option value="materiel">Matériel informatique</option>
-              <option value="services">Services</option>
-              <option value="formation">Formation</option>
+              <option value="logiciels">Intrant nutritionnels</option>
+              <option value="materiel">Kit PCI</option>
+              <option value="services">Équipement médicaux</option>
+              <option value="formation">Location de véhicules</option>
+               <option value="formation">Transport de marchandises et de médicaments</option>
             </select>
           </div>
 

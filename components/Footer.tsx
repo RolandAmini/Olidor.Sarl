@@ -133,7 +133,7 @@ des aliments de complément, solutions nutritionnelles et les services logistiqu
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <h4 className="text-xl font-bold">Contact Us</h4>
+            <h4 className="text-xl font-bold">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <svg className="w-6 h-6 text-green-700  mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
