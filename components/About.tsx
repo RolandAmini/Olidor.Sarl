@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function AboutSection() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-gray-50 to-cyan-50 py-12 sm:py-16 lg:py-20 px-4 sm:px-8">
+    <section className="bg-gradient-to-br from-gray-50 to-cyan-50 py-6 sm:py-8 lg:py-10 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
 

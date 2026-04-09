@@ -48,8 +48,9 @@ export default function HeroSection() {
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-12 mt-0 sm:mt-10 lg:mt-16">
-          <div className="w-full max-w-xs sm:max-w-xl md:max-w-3xl lg:max-w-4xl text-center space-y-4 sm:space-y-6 lg:space-y-8 py-24 sm:py-20">
+  {/* Hero Content */}
+<div className="relative z-10 flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-12 mt-0 sm:mt-0 lg:mt-0">
+  <div className="w-full max-w-xs sm:max-w-xl md:max-w-3xl lg:max-w-4xl text-center space-y-4 sm:space-y-6 lg:space-y-8 py-8 sm:py-10">
             {/* Main Heading */}
             <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold text-white leading-tight drop-shadow-[0_4px_10px_rgba(0,0,0,0.6)]">
               <span className="block animate-fade-in-up">Olidor Sarl</span>

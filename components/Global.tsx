@@ -36,7 +36,7 @@ export default function GlobalPresencePage() {
     <main className=" text-white">
 
       {/* ========================= GLOBAL PRESENCE ========================== */}
-     <section className="sticky top-0 h-screen w-full overflow-hidden relative">
+    <section className="sticky top-0 h-[60vh] sm:h-[50vh] w-full overflow-hidden relative">
  
   <div className="absolute inset-0 w-full h-full">
   <img 
@@ -98,7 +98,7 @@ export default function GlobalPresencePage() {
       </section>
 
       {/* ========================= TRANSITION ========================== */}
-      <section className="sticky top-0 h-screen flex items-center justify-center overflow-hidden relative bg-gradient-to-br from-gray-50 to-cyan-50 to-emerald-900">
+      <section className="sticky top-0 h-[60vh] flex items-center justify-center overflow-hidden relative bg-gradient-to-br from-gray-50 to-cyan-50 to-emerald-900">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
           style={{ backgroundImage: "url('/olidoresarl.webp')" }}
@@ -111,7 +111,7 @@ export default function GlobalPresencePage() {
       </section>
 
       {/* ========================= SECTION 2 : AUTRES PRODUITS ========================== */}
-      <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-green-900 via-green-800 to-green-500 px-6 py-24">
+      <section className="py-20 mb-16 flex flex-col items-center justify-center bg-gradient-to-b from-green-900 via-green-800 to-green-500 px-6 py-24">
         <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl mb-0 lg:text-5xl font-bold text-white drop-shadow-2xl leading-snug sm:leading-tight">
             Autres produits disponibles
