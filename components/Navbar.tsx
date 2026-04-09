@@ -40,7 +40,7 @@ function Navbar() {
               <div className="hidden lg:block">
                 <select 
                   value={lang} 
-                  onChange={(e) => setLang(e.target.value)}
+                  onChange={(e) => setLang(e.target.value as "fr" | "en")}
                   className="text-xs border rounded px-2 py-1 outline-none"
                 >
                   <option value="fr">Français</option>
@@ -65,7 +65,7 @@ function Navbar() {
             ))}
             <select 
               value={lang} 
-              onChange={(e) => setLang(e.target.value)}
+             onChange={(e) => setLang(e.target.value as "fr" | "en")}
               className="w-full mt-2 p-2 border rounded"
             >
               <option value="fr">Français</option>
