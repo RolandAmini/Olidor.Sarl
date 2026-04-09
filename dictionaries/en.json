@@ -1,0 +1,24 @@
+{
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "quotation": "Quotation",
+    "about": "About",
+    "contact": "Contact",
+    "cart": "My Cart",
+    "emptyCart": "Your cart is empty",
+    "checkout": "Checkout",
+    "continue": "Continue shopping"
+  },
+  "hero": {
+    "subtitle": "Healthier, More Effective",
+    "description": "We provide local solutions to nutritional challenges and actively contribute to the development of transportation and logistics in the Democratic Republic of Congo and the region."
+  },
+  "about": {
+    "title": "About Olidor sarl",
+    "p1": "Olidor Sarl is a company committed to the production, processing, marketing and distribution of nutritional and agri-food inputs, as well as the provision of vehicle rental, transport and logistics services.",
+    "p2": "With local expertise and an innovative approach, Olidor has established itself as a key player in meeting the varied needs of households, humanitarian organizations and companies in the region.",
+    "button": "Read more"
+  }
+  
+}

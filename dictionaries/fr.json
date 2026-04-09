@@ -1,0 +1,24 @@
+{
+  "navbar": {
+    "home": "Accueil",
+    "products": "Nos produits",
+    "quotation": "Cotation",
+    "about": "À propos",
+    "contact": "Contact",
+    "cart": "Mon Panier",
+    "emptyCart": "Votre panier est vide",
+    "checkout": "Passer la commande",
+    "continue": "Continuer mes achats"
+  },
+  "hero": {
+    "subtitle": "Plus sain, plus efficace",
+    "description": "Nous fournissons des solutions locales aux défis nutritionnels, et contribuons activement au développement du transport et de la logistique en République Démocratique du Congo et dans la région."
+  },
+  "about": {
+    "title": "À propos de Olidor sarl",
+    "p1": "Olidor Sarl est une entreprise engagée dans la production, la transformation, la commercialisation et la distribution d'intrants nutritionnels et agroalimentaires, ainsi que dans la fourniture de services de location de véhicules, de transport et de logistique.",
+    "p2": "Forte d'une expertise locale et d'une approche innovante, Olidor s'impose comme un acteur clé pour répondre aux besoins variés des ménages, des organismes humanitaires et des entreprises de la région.",
+    "button": "Lire plus"
+  }
+  
+}

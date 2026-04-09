@@ -2,8 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function AboutSection() {
+  const { dict } = useLanguage();
+
   return (
     <section className="bg-gradient-to-br from-gray-50 to-cyan-50 py-6 sm:py-8 lg:py-10 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
@@ -60,16 +63,16 @@ export default function AboutSection() {
           {/* Right Side - Content */}
           <div className="space-y-5 sm:space-y-6 lg:space-y-8 text-center lg:text-left">
             <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-blue-700 leading-tight">
-              À propos de Olidor sarl
+             {dict.about.title}
             </h2>
 
             <div className="space-y-4 sm:space-y-6 text-gray-700">
               <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
-                Olidor Sarl est une entreprise engagée dans la production, la transformation, la commercialisation et la distribution d&#39;intrants nutritionnels et agroalimentaires, ainsi que dans la fourniture de services de location de véhicules, de transport et de logistique.
+                {dict.about.p1}
               </p>
 
               <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
-                Forte d'une expertise locale et d'une approche innovante, Olidor s'impose comme un acteur clé pour répondre aux besoins variés des ménages, des organismes humanitaires et des entreprises de la région.
+                {dict.about.p2}
               </p>
             </div>
 
@@ -79,7 +82,7 @@ export default function AboutSection() {
                   href="/Apropos"
                   className="text-sm sm:text-base lg:text-lg text-black font-medium hover:text-white transition-colors"
                 >
-                  Lire plus
+                 {dict.about.button}
                 </Link>
               </button>
             </div>

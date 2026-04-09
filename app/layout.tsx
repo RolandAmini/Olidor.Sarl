@@ -1,11 +1,11 @@
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { CartProvider } from '@/contexts/CartContext.';
-import Script from 'next/script'; // <--- On importe l'outil de Next.js
+import { CartProvider } from '@/contexts/CartContext';
+import { LanguageProvider } from '@/contexts/LanguageContext'; // 1. Ajoutez cet import
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ['latin'] });
 
-// REMPLACEZ CECI par votre ID de mesure récupéré sur Google Analytics
 const GA_MEASUREMENT_ID = "G-YJSNBKEGJ6";
 
 export const metadata = {
@@ -21,7 +21,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr">
       <head>
-        {/* Chargement du script Google Analytics */}
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
           strategy="afterInteractive"
@@ -36,9 +35,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </Script>
       </head>
       <body className={inter.className}>
-        <CartProvider>
-          {children}
-        </CartProvider>
+        {/* 2. Enveloppez tout avec le LanguageProvider */}
+        <LanguageProvider>
+          <CartProvider>
+            {children}
+          </CartProvider>
+        </LanguageProvider>
       </body>
     </html>
   );
