@@ -111,7 +111,7 @@ export default function GlobalPresencePage() {
       </section>
 
       {/* ========================= SECTION 2 : AUTRES PRODUITS ========================== */}
-      <section className="py-20 mb-16 flex flex-col items-center justify-center bg-gradient-to-b from-green-900 via-green-800 to-green-500 px-6 py-24">
+<section className="flex flex-col items-center justify-center bg-gradient-to-b from-green-900 via-green-800 to-green-500 px-6 py-10">
         <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl mb-0 lg:text-5xl font-bold text-white drop-shadow-2xl leading-snug sm:leading-tight">
             Autres produits disponibles
