@@ -8,9 +8,16 @@ import ContactSection from "@/components/ContactSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Footer from '../components/Footer';
 
+type Dict = {
+  hero: {
+    subtitle: string;
+    description: string;
+  };
+};
+
 export default function HeroSection() {
   const [currentImage, setCurrentImage] = useState(0);
-    const { lang, setLang, dict } = useLanguage();
+  const { dict } = useLanguage() as { lang: string; setLang: (l: string) => void; dict: Dict };
 
   const images = [
     '/home1.jpg',
@@ -26,6 +33,7 @@ export default function HeroSection() {
 
     return () => clearInterval(interval);
   }, []);
+
 
 return (
   <>
