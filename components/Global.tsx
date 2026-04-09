@@ -36,7 +36,7 @@ export default function GlobalPresencePage() {
     <main className=" text-white">
 
       {/* ========================= GLOBAL PRESENCE ========================== */}
-    <section className="sticky top-0 h-[60vh] sm:h-[50vh] w-full overflow-hidden relative">
+    <section className="sticky top-0 h-[30vh] sm:h-[40vh] w-full overflow-hidden relative">
  
   <div className="absolute inset-0 w-full h-full">
   <img 
@@ -98,7 +98,7 @@ export default function GlobalPresencePage() {
       </section>
 
       {/* ========================= TRANSITION ========================== */}
-      <section className="sticky top-0 h-[60vh] flex items-center justify-center overflow-hidden relative bg-gradient-to-br from-gray-50 to-cyan-50 to-emerald-900">
+      <section className="sticky top-0 h-[30vh] sm:h-[60vh] flex items-center justify-center overflow-hidden relative bg-gradient-to-br from-gray-50 to-cyan-50 to-emerald-900">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
           style={{ backgroundImage: "url('/olidoresarl.webp')" }}
