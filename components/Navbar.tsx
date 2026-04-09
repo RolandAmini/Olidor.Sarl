@@ -35,10 +35,10 @@ function Navbar() {
                 <Link
                   key={href}
                   href={href}
-                  className="relative px-4 py-2 text-sm font-semibold tracking-wide text-gray-700 hover:text-green-600 transition-colors duration-300 rounded-full group"
+                  className="relative px-4 py-2 text-sm font-semibold tracking-wide text-blue-600 hover:text-green-700 transition-colors duration-300 rounded-full group"
                 >
                   {label}
-                  <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
+                  <span className="absolute bottom-1 left-4 right-4 h-0.5 bg-green-700 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 rounded-full" />
                 </Link>
               ))}
             </div>
@@ -50,7 +50,7 @@ function Navbar() {
                 <button
                   onClick={() => setLang("fr" as "fr" | "en")}
                   className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all duration-200 ${
-                    lang === "fr" ? "bg-green-600 text-white" : "text-gray-500 hover:text-gray-700"
+                    lang === "fr" ? "bg-green-700 text-white" : "text-gray-500 hover:text-blue-600"
                   }`}
                 >
                   FR
@@ -58,7 +58,7 @@ function Navbar() {
                 <button
                   onClick={() => setLang("en" as "fr" | "en")}
                   className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all duration-200 ${
-                    lang === "en" ? "bg-green-600 text-white" : "text-gray-500 hover:text-gray-700"
+                    lang === "en" ? "bg-green-700 text-white" : "text-blue-600 hover:text-gray-700"
                   }`}
                 >
                   EN
@@ -68,7 +68,7 @@ function Navbar() {
               {/* CTA Button */}
               <Link
                 href="/cotation"
-                className="hidden sm:inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-green-200 hover:shadow-lg hover:-translate-y-0.5"
+                className="hidden sm:inline-flex items-center gap-2 bg-green-700 hover:bg-green-700 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-green-200 hover:shadow-lg hover:-translate-y-0.5"
               >
                 {dict.navbar.contact}
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -78,7 +78,7 @@ function Navbar() {
 
               {/* Hamburger - Mobile */}
               <button
-                className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-all duration-300"
+                className="lg:hidden relative w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 text-blue-600 transition-all duration-300"
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label="Toggle menu"
               >
@@ -104,7 +104,7 @@ function Navbar() {
                 key={href}
                 href={href}
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-between px-4 py-3 text-sm font-semibold text-gray-700 hover:text-green-600 hover:bg-green-50 rounded-xl transition-all duration-200 group"
+                className="flex items-center justify-between px-4 py-3 text-sm font-semibold text-blue-600 hover:text-green-700 hover:bg-green-50 rounded-xl transition-all duration-200 group"
               >
                 {label}
                 <svg className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,7 +119,7 @@ function Navbar() {
                 <button
                   onClick={() => setLang("fr" as "fr" | "en")}
                   className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all duration-200 ${
-                    lang === "fr" ? "bg-green-600 text-white" : "text-gray-500"
+                    lang === "fr" ? "bg-green-700 text-white" : "text-blue-600"
                   }`}
                 >
                   FR
@@ -127,7 +127,7 @@ function Navbar() {
                 <button
                   onClick={() => setLang("en" as "fr" | "en")}
                   className={`text-xs font-bold px-2 py-0.5 rounded-full transition-all duration-200 ${
-                    lang === "en" ? "bg-green-600 text-white" : "text-gray-500"
+                    lang === "en" ? "bg-green-700 text-white" : "text-blue-600"
                   }`}
                 >
                   EN
@@ -137,7 +137,7 @@ function Navbar() {
               <Link
                 href="/cotation"
                 onClick={() => setIsOpen(false)}
-                className="flex-1 text-center bg-green-600 hover:bg-green-700 text-white px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300"
+                className="flex-1 text-center bg-green-700 hover:bg-green-700 text-white px-4 py-2.5 rounded-full text-sm font-semibold transition-all duration-300"
               >
                 {dict.navbar.contact}
               </Link>
