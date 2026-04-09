@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Olidor SARL - Plateforme de Logistique et d'Export
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-blue?style=flat-square&logo=typescript)
+![Tailwind](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=flat-square&logo=tailwind-css)
+![Odoo](https://img.shields.io/badge/Integration-Odoo_ERP-875A7B?style=flat-square&logo=odoo)
 
-First, run the development server:
+##  Présentation du Projet
+Olidor SARL est une solution numérique dédiée à la gestion logistique et à l'exportation. Cette plateforme permet de digitaliser les processus métiers, d'optimiser le suivi des marchandises et de centraliser la communication avec les clients.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Statut :** En cours de développement (Phase d'intégration ERP).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##  Stack Technique
+- **Frontend :** Next.js 15 (App Router), React 19, Tailwind CSS.
+- **Backend :** Next.js API Routes.
+- **Base de données / ERP :** Intégration Odoo via API XML-RPC / JSON-RPC.
+- **Sécurité :** Validation des données avec Zod, Protection contre XSS et SQL Injection.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+##  Architecture & Bonnes Pratiques (Engineering)
+Ce projet suit les standards de l'industrie pour garantir la scalabilité :
+- **Layered Architecture :** Séparation claire entre les composants UI, la logique métier (Services), et les appels API.
+- **Type Safety :** Utilisation stricte de TypeScript pour minimiser les erreurs en production.
+- **Performance :** Optimisation des images (Next/Image) et chargement différé pour un temps de réponse < 2s.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Installation
+1. Clonez le dépôt :
+   ```bash
+   git clone [https://github.com/RolandAmini/Olidor.Sarl.git](https://github.com/RolandAmini/Olidor.Sarl.git)
+2. Installez les dépendances :
+   npm install
+3.Configurez les variables d'environnement (voir .env.example).
+4.Lancez le serveur de développement :
+   npm run dev
 
-## Learn More
+  
+ 
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
