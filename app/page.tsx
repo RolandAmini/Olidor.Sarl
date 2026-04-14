@@ -26,13 +26,13 @@ export default function HeroSection() {
     '/mamunga.webp'
   ];
 
-  useEffect(() => {
+useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [images.length]);
 
 
 return (

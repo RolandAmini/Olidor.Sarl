@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Image from 'next/image';
 
 const SERVICES_DATA = [
   {
@@ -60,7 +61,7 @@ export default function TransportPage() {
 
       {/* ── HERO SECTION ── */}
      <section className="relative h-[90vh] min-h-[700px] flex items-center overflow-hidden">
-        <img
+        <Image
           src="/transmed.jpg"
           alt="Transport Olidor Sarl"
           className="absolute inset-0 w-full h-full object-cover"

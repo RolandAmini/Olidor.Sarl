@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from 'next/image';
 import { useLanguage } from "../contexts/LanguageContext";
 
 function Navbar() {
@@ -22,11 +23,14 @@ function Navbar() {
 
             {/* Logo */}
             <Link href="/" className="flex-shrink-0 group">
-              <img
-                src="/logo.jpg"
-                alt="Olidor Sarl"
-                className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-              />
+              <Image
+  src="/logo.jpg"
+  alt="Olidor Sarl"
+  width={200} // Ajoutez une largeur de base (en pixels)
+  height={60}  // Ajoutez une hauteur de base (en pixels)
+  className="h-10 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+  priority // Optionnel : charge le logo plus rapidement
+/>
             </Link>
 
             {/* Desktop Nav Links */}

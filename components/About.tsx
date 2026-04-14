@@ -2,89 +2,56 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ArrowRight } from 'lucide-react';
 
 export default function AboutSection() {
   const { dict } = useLanguage();
+
+  if (!dict) return null;
 
   return (
     <section className="bg-gradient-to-br from-gray-50 to-cyan-50 py-6 sm:py-8 lg:py-10 px-4 sm:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
 
-          {/* Left Side - O Shape Logo Design with Images */}
-          <div className="relative">
-            <div className="relative w-full aspect-square max-w-[280px] sm:max-w-[400px] md:max-w-[500px] lg:max-w-[600px] mx-auto">
-
-              {/* Large O Shape - Outer Ring */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full h-full rounded-full overflow-hidden shadow-2xl relative">
-                  <img
-                    src="/home1.jpg"
-                    alt="Oil & Gas Operations"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-black/20"></div>
-                </div>
-              </div>
-
-              {/* Inner White Circle - Creates the O shape */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-[65%] h-[65%] bg-gradient-to-br from-gray-50 to-white rounded-full shadow-inner"></div>
-              </div>
-
-              {/* Center - Olidor Logo Circle */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-28 h-28 sm:w-36 sm:h-36 md:w-44 md:h-44 lg:w-48 lg:h-48 bg-white rounded-full shadow-2xl flex items-center justify-center z-10 p-4 sm:p-5 lg:p-6">
-                  <div className="relative w-full h-full">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-full h-full bg-white rounded-full shadow-2xl flex items-center justify-center z-10 p-2">
-                        <img
-                          src="/cercle.png"
-                          alt="Olidor Logo"
-                          className="w-full h-full object-cover rounded-full object-[15%_30%] scale-[1.8] transition-transform"
-                        />
-                      </div>
-                    </div>
-
-                    {/* Points décoratifs internes */}
-                    <div className="absolute top-2 right-2 sm:top-4 sm:right-4 w-2 h-2 sm:w-3 sm:h-3 bg-green-700 rounded-full shadow-lg animate-pulse"></div>
-                    <div className="absolute bottom-2 left-2 sm:bottom-4 sm:left-4 w-2 h-2 sm:w-3 sm:h-3 bg-blue-700 rounded-full shadow-lg animate-pulse" style={{ animationDelay: '0.5s' }}></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Decorative dots around the O */}
-              <div className="absolute top-4 right-4 sm:top-8 sm:right-8 lg:top-10 lg:right-10 w-3 h-3 sm:w-4 sm:h-4 bg-green-700 rounded-full shadow-lg animate-pulse"></div>
-              <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 lg:bottom-10 lg:left-10 w-3 h-3 sm:w-4 sm:h-4 bg-blue-700 rounded-full shadow-lg animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+          {/* Left Side - Image ronde */}
+          <div className="flex justify-center">
+            <div className="relative w-[280px] h-[280px] sm:w-[400px] sm:h-[400px] md:w-[500px] md:h-[500px] lg:w-[550px] lg:h-[550px] rounded-full overflow-hidden shadow-2xl">
+             <Image
+  src="/aboutimg.png"
+  alt="Olidor Logo"
+  fill
+  sizes="(max-width: 640px) 280px, (max-width: 768px) 400px, (max-width: 1024px) 500px, 550px"
+  className="object-contain"
+/>
             </div>
           </div>
 
           {/* Right Side - Content */}
           <div className="space-y-5 sm:space-y-6 lg:space-y-8 text-center lg:text-left">
             <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-bold text-blue-700 leading-tight">
-             {dict.about.title}
+              {dict.about.title}
             </h2>
 
             <div className="space-y-4 sm:space-y-6 text-gray-700">
               <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
                 {dict.about.p1}
               </p>
-
               <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed">
                 {dict.about.p2}
               </p>
             </div>
 
             <div className="flex justify-center lg:justify-start">
-              <button className="px-6 sm:px-8 lg:px-10 py-3 sm:py-4 border-2 border-green-700 text-gray-800 font-semibold rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300">
-                <Link
-                  href="/Apropos"
-                  className="text-sm sm:text-base lg:text-lg text-black font-medium hover:text-white transition-colors"
-                >
-                 {dict.about.button}
-                </Link>
-              </button>
+              <Link
+                href="/Apropos"
+                className="group px-8 py-3 border-2 border-green-700 text-green-700 font-bold rounded-full hover:bg-blue-700 hover:text-white transition-all flex items-center gap-2"
+              >
+                {dict.about.button || dict.about.readMore || "En savoir plus"}
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </div>
 

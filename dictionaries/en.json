@@ -16,9 +16,39 @@
   },
   "about": {
     "title": "About Olidor sarl",
+    "heroSubtitle": "Your trusted partner in agri-food and logistics",
     "p1": "Olidor Sarl is a company committed to the production, processing, marketing and distribution of nutritional and agri-food inputs, as well as the provision of vehicle rental, transport and logistics services.",
     "p2": "With local expertise and an innovative approach, Olidor has established itself as a key player in meeting the varied needs of households, humanitarian organizations and companies in the region.",
-    "button": "Read more"
+    "whyChooseUs": "Why choose Olidor Sarl?",
+    "button": "Learn more",
+    "reasons": [
+      "Local expertise and recognized know-how for quality product transformation and distribution.",
+      "Social commitment: Fighting malnutrition and supporting humanitarian actions through its parent organization to achieve social responsibility.",
+      "Flexible and personalized services, adapted to each client and context.",
+      "Responsiveness and reliability in logistics and transport management, in both urban and rural areas."
+    ],
+    "servicesTitle": "Our Services",
+    "servicesSubtitle": "Comprehensive solutions to meet all your needs",
+    "servicesList": [
+      {
+        "title": "Agri-food Production",
+        "description": "Distribution and marketing of agri-food products with an extensive network throughout the region."
+      },
+      {
+        "title": "Marketing and Distribution",
+        "description": "Vehicle rental services, transport, and logistics solutions tailored to your specific needs."
+      },
+      {
+        "title": "Transport, Rental & Logistics",
+        "description": "Complete logistics services for humanitarian organizations and businesses."
+      }
+    ],
+    "cta": {
+      "title": "Ready to work with us?",
+      "subtitle": "Contact us today to discuss your needs",
+      "button": "Request a Quotation"
+    },
+    "readMore": "Read more",
+    "readLess": "Read less"
   }
-  
 }

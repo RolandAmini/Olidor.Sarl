@@ -39,7 +39,7 @@ export default function RealisationsPage() {
                     Olidor Sarl enregistre un taux de satisfaction de 90% dans la fourniture de produits nutritionnels.
                   </p>
                   <p>
-                    Nos clients apprécient la qualité, la conformité et l'efficacité de nos solutions validées par les autorités.
+                    Nos clients apprécient la qualité, la conformité et l&apos;efficacité de nos solutions validées par les autorités.
                   </p>
                   <p>
                     Nous restons engagés à répondre aux besoins nutritionnels avec rigueur et innovation.
@@ -65,10 +65,10 @@ export default function RealisationsPage() {
                     Nos services logistiques atteignent un taux de satisfaction de 85%, grâce à une offre fiable et flexible.
                   </p>
                   <p>
-                    Les clients reconnaissent notre réactivité, même en zones difficiles d'accès.
+                    Les clients reconnaissent notre réactivité, même en zones difficiles d&apos;accès.
                   </p>
                   <p>
-                    Olidor continue d'optimiser ses opérations pour renforcer la performance et la confiance.
+                    Olidor continue d&apos;optimiser ses opérations pour renforcer la performance et la confiance.
                   </p>
                 </div>
 

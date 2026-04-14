@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
+import Image from 'next/image';
 import { products } from '../productsData';
 
 export default function ProduitsPage() {
@@ -58,10 +59,10 @@ export default function ProduitsPage() {
         {/* ─── CTA CONTACT ──────────────────────────────────────────────── */}
         <section className="bg-green-700 py-16 px-6 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-            Besoin d'un produit spécifique ?
+            Besoin d&apos;un produit spécifique ?
           </h2>
           <p className="text-emerald-200 text-base mb-8 max-w-lg mx-auto">
-            Contactez notre équipe pour un devis personnalisé ou pour plus d'informations sur nos produits.
+            Contactez notre équipe pour un devis personnalisé ou pour plus d&apos;informations sur nos produits.
           </p>
           <Link
             href="/cotation"
@@ -86,7 +87,7 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
     >
       {/* Image */}
       <div className="relative h-52 bg-gradient-to-br from-emerald-50 to-green-100 overflow-hidden">
-        <img
+        <Image
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -111,7 +112,7 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
 
         {/* CTA */}
         <span className="inline-flex items-center gap-2 text-green-700 font-semibold text-sm group-hover:gap-3 transition-all duration-200">
-          Plus d'information
+          Plus d&apos;information
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>

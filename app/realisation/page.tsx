@@ -36,7 +36,7 @@ export default function RealisationsPage() {
                 Olidor Sarl enregistre un taux de satisfaction de 90% dans la fourniture de produits nutritionnels.
               </p>
               <p className="leading-relaxed">
-                Nos clients apprécient la qualité, la conformité et l'efficacité de nos solutions validées par les autorités.
+                Nos clients apprécient la qualité, la conformité et l&apos;efficacité de nos solutions validées par les autorités.
               </p>
               <p className="leading-relaxed">
                 Nous restons engagés à répondre aux besoins nutritionnels avec rigueur et innovation.
@@ -103,7 +103,7 @@ export default function RealisationsPage() {
         {/* Additional Info Card */}
         <div className="bg-white border-l-4 border-green-600 rounded-2xl p-8 shadow-lg mb-20">
           <p className="text-gray-700 leading-relaxed">
-            Avec un <span className="font-bold text-green-600">taux de satisfaction client de 85%</span>, Olidor Sarl confirme la confiance accordée par ses partenaires dans les domaines de la nutrition et de la logistique. Ce chiffre reflète la qualité de nos produits, la fiabilité de nos services et notre engagement continu envers l'excellence.
+            Avec un <span className="font-bold text-green-600">taux de satisfaction client de 85%</span>, Olidor Sarl confirme la confiance accordée par ses partenaires dans les domaines de la nutrition et de la logistique. Ce chiffre reflète la qualité de nos produits, la fiabilité de nos services et notre engagement continu envers l&apos;excellence.
           </p>
         </div>
 
@@ -116,7 +116,7 @@ export default function RealisationsPage() {
             
             <div className="space-y-4 text-gray-700">
               <p className="text-lg leading-relaxed">
-                Nos services logistiques atteignent un taux de satisfaction de 85%, démontrant notre capacité à gérer efficacement les chaînes d'approvisionnement.
+                Nos services logistiques atteignent un taux de satisfaction de 85%, démontrant notre capacité à gérer efficacement les chaînes d&apos;approvisionnement.
               </p>
               <p className="leading-relaxed">
                 Grâce à notre réseau étendu et à notre expertise en transport, nous assurons des livraisons ponctuelles et sécurisées sur tout le territoire.

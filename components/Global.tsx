@@ -1,22 +1,13 @@
-import React, { useEffect, useState } from 'react';
+"use client";
+
+import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { products } from '../app/productsData';
 
 export default function GlobalPresencePage() {
-  const [scrollY, setScrollY] = useState(0);
+  // ✅ Suppression de scrollY et _getParallaxStyle (code inutilisé supprimé)
 
-  useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const getParallaxStyle = (speed: number) => ({
-    transform: `translateY(${scrollY * speed}px)`,
-    willChange: 'transform'
-  });
-
- 
   const firstProducts = [
     { ...products[0], img: "/unga.webp" },
     { ...products[1], img: "/mamunga.webp" },
@@ -24,7 +15,6 @@ export default function GlobalPresencePage() {
     { ...products[3], img: "/unf.jpeg" },
   ];
 
- 
   const secondProducts = [
     { ...products[4], img: "/07bB0-02.webp" },
     { ...products[5], img: "/F100-2.webp" },
@@ -33,29 +23,27 @@ export default function GlobalPresencePage() {
   ];
 
   return (
-    <main className=" text-white">
+    <main className="text-white">
 
       {/* ========================= GLOBAL PRESENCE ========================== */}
-    <section className="sticky top-0 h-[30vh] sm:h-[40vh] w-full overflow-hidden relative">
- 
-  <div className="absolute inset-0 w-full h-full">
-  <img 
-    src="/olilo.png" 
-    alt="Oil & Gas Operations" 
-    className="w-full h-full object-cover" 
-  />
-  
+      <section className="sticky top-0 h-[30vh] sm:h-[40vh] w-full overflow-hidden relative">
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src="/olilo.png"
+            alt="Oil & Gas Operations"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
 
-  <div className="absolute inset-0 bg-black/40"></div>
-</div>
-
- 
-  <div className="relative z-10 flex items-center justify-center h-full px-8">
-    <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug">
-      Production agroalimentaire
-    </h1>
-  </div>
-</section>
+        <div className="relative z-10 flex items-center justify-center h-full px-8">
+          <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug">
+            Production agroalimentaire
+          </h1>
+        </div>
+      </section>
 
       {/* ========================= SECTION 1 : GAMME PRODUITS ========================== */}
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 py-20">
@@ -73,7 +61,9 @@ export default function GlobalPresencePage() {
               key={i}
               className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300 border border-gray-700 flex flex-col h-full"
             >
-              <img src={product.img} alt={product.name} className="w-full h-44 object-cover" />
+              <div className="relative w-full h-44">
+                <Image src={product.img} alt={product.name} fill className="object-cover" />
+              </div>
 
               <div className="flex flex-col justify-between flex-grow p-4">
                 <div>
@@ -89,7 +79,7 @@ export default function GlobalPresencePage() {
                   href={`/produits/${product.slug}`}
                   className="mt-4 inline-block bg-blue-600 hover:bg-emerald-200 hover:text-gray-900 text-white font-medium py-1.5 px-4 rounded-full transition-colors duration-300 self-center"
                 >
-                  Plus d'information
+                  Plus d&apos;information
                 </Link>
               </div>
             </div>
@@ -98,11 +88,13 @@ export default function GlobalPresencePage() {
       </section>
 
       {/* ========================= TRANSITION ========================== */}
-      <section className="sticky top-0 h-[30vh] sm:h-[60vh] flex items-center justify-center overflow-hidden relative bg-gradient-to-br from-gray-50 to-cyan-50 to-emerald-900">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-          style={{ backgroundImage: "url('/olidoresarl.webp')" }}
-        ></div>
+      <section className="sticky top-0 h-[30vh] sm:h-[60vh] flex items-center justify-center overflow-hidden relative bg-emerald-900">
+        <Image 
+          src="/olidoresarl.webp" 
+          alt="Transition background" 
+          fill 
+          className="object-cover opacity-40"
+        />
         <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8 lg:px-12">
           <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)] leading-snug text-center max-w-5xl">
             Commercialisation et distribution
@@ -111,9 +103,9 @@ export default function GlobalPresencePage() {
       </section>
 
       {/* ========================= SECTION 2 : AUTRES PRODUITS ========================== */}
-<section className="flex flex-col items-center justify-center bg-gradient-to-b from-green-900 via-green-800 to-green-500 px-6 py-10">
+      <section className="flex flex-col items-center justify-center bg-gradient-to-b from-green-900 via-green-800 to-green-500 px-6 py-10">
         <div className="max-w-3xl mx-auto text-center space-y-6 mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl mb-0 lg:text-5xl font-bold text-white drop-shadow-2xl leading-snug sm:leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white drop-shadow-2xl leading-snug sm:leading-tight">
             Autres produits disponibles
           </h2>
         </div>
@@ -124,7 +116,9 @@ export default function GlobalPresencePage() {
               key={i}
               className="flex flex-col h-full bg-white/10 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden border border-white/10 hover:scale-105 hover:border-emerald-400 transition-transform duration-300"
             >
-              <img src={product.img} alt={product.name} className="w-full h-52 object-cover" />
+              <div className="relative w-full h-52">
+                <Image src={product.img} alt={product.name} fill className="object-cover" />
+              </div>
 
               <div className="flex flex-col justify-between flex-grow p-5">
                 <div>
@@ -155,69 +149,50 @@ export default function GlobalPresencePage() {
             Services de transport, location de véhicules et logistique
           </h2>
           <p className="text-lg md:text-xl text-white/90 max-w-4xl">
-            Fidèle à sa mission de faciliter vos activités, Olidor sarl offre une gamme complète de services logistiques adaptés à chaque besoin 
+            Fidèle à sa mission de faciliter vos activités, Olidor sarl offre une gamme complète de services logistiques adaptés à chaque besoin
           </p>
         </div>
 
         <div className="max-w-7xl mx-auto space-y-12">
-
+          {/* Card 1 */}
           <div className="grid md:grid-cols-2 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <div className="bg-gray-200 h-56 sm:h-64 md:h-72">
-              <img src="/olicar.jpeg" alt="Location de véhicules" className="w-full h-full object-cover" />
+            <div className="h-56 sm:h-64 md:h-72 relative">
+              <Image src="/olicar.jpeg" alt="Location de véhicules" fill className="object-cover" />
             </div>
             <div className="p-6 sm:p-8 flex flex-col justify-center text-gray-800">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Location de véhicules </h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Location de véhicules</h3>
               <p className="text-sm sm:text-base leading-relaxed mb-5 text-gray-700">
-                Des véhicules confortables et robustes (Land-Cruiser, Prado), disponibles pour tous vos déplacements, que ce soit en ville ou en milieu rural. Olidor Sarl propose des véhicules adaptés et bien entretenus pour garantir sécurité et sérénité à chaque trajet.
+                Des véhicules confortables et robustes (Land-Cruiser, Prado), disponibles pour tous vos déplacements...
               </p>
-              <a href="/transport" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors">
+              <Link href="/transport" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2">
                 En savoir plus
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
 
+          {/* Card 2 */}
           <div className="grid md:grid-cols-2 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
             <div className="p-6 sm:p-8 flex flex-col justify-center order-2 md:order-1 text-gray-800">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Transport de marchandises et de médicaments </h3>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Transport de marchandises</h3>
               <p className="text-sm sm:text-base leading-relaxed mb-5 text-gray-700">
-                Nous assurons le transport sécurisé de vos marchandises et médicaments, en respectant les normes de sécurité et de qualité. Notre flotte et notre équipe garantissent une livraison fiable et dans les délais.
+                Nous assurons le transport sécurisé de vos marchandises et médicaments...
               </p>
-              <a href="/transport" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors">
+              <Link href="/transport" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2">
                 En savoir plus
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </a>
+              </Link>
             </div>
-            <div className="bg-gray-200 h-56 sm:h-64 md:h-72 order-1 md:order-2">
-              <img src="/transmed.jpg" alt="Transport de marchandises" className="w-full h-full object-cover" />
-            </div>
-          </div>
-
-          <div className="grid md:grid-cols-2 bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300">
-            <div className="bg-gray-200 h-56 sm:h-64 md:h-72">
-              <img src="/container.jpg" alt="Prestations logistiques" className="w-full h-full object-cover" />
-            </div>
-            <div className="p-6 sm:p-8 flex flex-col justify-center text-gray-800">
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 text-gray-900">Prestations logistiques sur mesure </h3>
-              <p className="text-sm sm:text-base leading-relaxed mb-5 text-gray-700">
-                Que vous ayez besoin de solutions de stockage, de gestion de chaîne d'approvisionnement ou de services logistiques personnalisés, nous mettons notre expertise à votre service pour optimiser vos opérations et réduire vos coûts.
-              </p>
-              <a href="/transport" className="text-blue-600 hover:text-green-700 font-semibold inline-flex items-center gap-2 transition-colors">
-                En savoir plus
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </a>
+            <div className="h-56 sm:h-64 md:h-72 order-1 md:order-2 relative">
+              <Image src="/transmed.jpg" alt="Transport" fill className="object-cover" />
             </div>
           </div>
-
         </div>
       </section>
-
     </main>
   );
 }

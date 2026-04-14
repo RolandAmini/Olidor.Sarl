@@ -15,10 +15,40 @@
     "description": "Nous fournissons des solutions locales aux défis nutritionnels, et contribuons activement au développement du transport et de la logistique en République Démocratique du Congo et dans la région."
   },
   "about": {
-    "title": "À propos de Olidor sarl",
-    "p1": "Olidor Sarl est une entreprise engagée dans la production, la transformation, la commercialisation et la distribution d'intrants nutritionnels et agroalimentaires, ainsi que dans la fourniture de services de location de véhicules, de transport et de logistique.",
+    "title": "À Propos de Olidor SARL",
+    "heroSubtitle": "Votre partenaire de confiance en agroalimentaire et logistique",
+    "p1": "Olidor Sarl est une entreprise engagée dans la production, la transformation, la commercialisation et la distribution des intrants nutritionnels et agroalimentaires, ainsi que dans la fourniture de services de location véhicules, de transport et de logistique.",
     "p2": "Forte d'une expertise locale et d'une approche innovante, Olidor s'impose comme un acteur clé pour répondre aux besoins variés des ménages, des organismes humanitaires et des entreprises de la région.",
-    "button": "Lire plus"
+    "button": "En savoir plus",
+    "whyChooseUs": "Pourquoi choisir Olidor Sarl ?",
+    "reasons": [
+      "Expertise locale et savoir-faire reconnu, pour une transformation et une distribution des produits de qualité.",
+      "Engagement social : Lutte contre la malnutrition et appui aux actions humanitaires à travers sa structure mère dans l'objectif de concrétiser la responsabilité sociale.",
+      "Services souples et personnalisés, adaptés à chaque client et chaque contexte.",
+      "Réactivité et fiabilité dans la gestion logistique et le transport, aussi bien en milieu urbain qu’en zones rurales."
+    ],
+    "servicesTitle": "Nos Services",
+    "servicesSubtitle": "Des solutions complètes pour répondre à tous vos besoins",
+    "servicesList": [
+      {
+        "title": "Production agroalimentaire",
+        "description": "Distribution et commercialisation de produits agroalimentaires avec un réseau étendu dans toute la région."
+      },
+      {
+        "title": "Commercialisation et distribution",
+        "description": "Services de location de véhicules, transport et solutions logistiques adaptées à vos besoins spécifiques."
+      },
+      {
+        "title": "Services de transport, location de véhicules et logistique",
+        "description": "Prestations logistiques complètes pour les organismes humanitaires et les entreprises."
+      }
+    ],
+    "cta": {
+      "title": "Prêt à travailler avec nous ?",
+      "subtitle": "Contactez-nous dès aujourd'hui pour discuter de vos besoins",
+      "button": "Demander une Cotation"
+    },
+    "readMore": "Lire plus ▼",
+    "readLess": "Lire moins ▲"
   }
-  
 }
