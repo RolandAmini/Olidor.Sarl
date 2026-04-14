@@ -1,18 +1,20 @@
-"use client" ;
+"use client";
 
 import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
 import { products } from '../productsData';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function ProduitsPage() {
+  const { dict } = useLanguage();
+
   const firstProducts = products.slice(0, 4);
   const secondProducts = products.slice(4, 8);
 
   return (
     <>
-      
       <Navbar />
 
       <div className="bg-gray-50 min-h-screen">
@@ -22,7 +24,7 @@ export default function ProduitsPage() {
           <div className="flex items-center gap-4 mb-10">
             <div className="h-px flex-1 bg-gray-200" />
             <span className="bg-emerald-100 text-green-700 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
-              Production agroalimentaire
+              {dict.globalPresence.heroTitle}
             </span>
             <div className="h-px flex-1 bg-gray-200" />
           </div>
@@ -44,7 +46,7 @@ export default function ProduitsPage() {
           <div className="flex items-center gap-4 mb-10">
             <div className="h-px flex-1 bg-gray-200" />
             <span className="bg-blue-100 text-blue-800 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
-              Commercialisation & distribution
+              {dict.globalPresence.distributionTitle}
             </span>
             <div className="h-px flex-1 bg-gray-200" />
           </div>
@@ -59,16 +61,16 @@ export default function ProduitsPage() {
         {/* ─── CTA CONTACT ──────────────────────────────────────────────── */}
         <section className="bg-green-700 py-16 px-6 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
-            Besoin d&apos;un produit spécifique ?
+            {dict.about.cta.title}
           </h2>
           <p className="text-emerald-200 text-base mb-8 max-w-lg mx-auto">
-            Contactez notre équipe pour un devis personnalisé ou pour plus d&apos;informations sur nos produits.
+            {dict.about.cta.subtitle}
           </p>
           <Link
             href="/cotation"
             className="inline-block bg-white text-green-700 font-bold py-3.5 px-8 rounded-full hover:bg-emerald-50 transition-colors duration-200"
           >
-            Nous contacter
+            {dict.about.cta.button}
           </Link>
         </section>
       </div>
@@ -80,6 +82,8 @@ export default function ProduitsPage() {
 
 // ─── Carte produit ─────────────────────────────────────────────────────────────
 function ProductCard({ product }: { product: (typeof products)[0] }) {
+  const { dict } = useLanguage();
+
   return (
     <Link
       href={`/produits/${product.slug}`}
@@ -90,10 +94,10 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
         <Image
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = 'none';
-          }}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          className="object-cover group-hover:scale-105 transition-transform duration-500"
+          priority={false}
         />
         {/* Category badge */}
         <span className="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-green-700 text-xs font-semibold px-2.5 py-1 rounded-full">
@@ -112,7 +116,7 @@ function ProductCard({ product }: { product: (typeof products)[0] }) {
 
         {/* CTA */}
         <span className="inline-flex items-center gap-2 text-green-700 font-semibold text-sm group-hover:gap-3 transition-all duration-200">
-          Plus d&apos;information
+          {dict.globalPresence.moreInfo}
           <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>

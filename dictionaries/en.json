@@ -50,5 +50,64 @@
     },
     "readMore": "Read more",
     "readLess": "Read less"
+  },
+  "globalPresence": {
+    "heroTitle": "Agri-food Production",
+    "productsTitle": "Our Product Range",
+    "moreInfo": "More information",
+    "distributionTitle": "Commercialization and Distribution",
+    "otherProductsTitle": "Other Products Available",
+    "learnMore": "Learn more",
+    "logistics": {
+      "title": "Transport, Vehicle Rental & Logistics Services",
+      "description": "True to its mission of facilitating your activities, Olidor sarl offers a complete range of logistics services adapted to every need.",
+      "rentalTitle": "Vehicle Rental",
+      "rentalDesc": "Comfortable and robust vehicles (Land-Cruiser, Prado), available for all your travels, whether in town or rural areas. Olidor Sarl offers adapted and well-maintained vehicles to guarantee safety and serenity on every journey.",
+      "transportTitle": "Transport of Goods and Logistics",
+      "transportDesc": "We ensure the secure transport of your goods and medicines, respecting safety and quality standards. Our fleet and team guarantee reliable and on-time delivery."
+    }
+  },
+  "realisations": {
+    "title": "Achievements",
+    "description": "Our performance reflects our commitment to providing quality nutritional and logistical solutions.",
+    "subtitle": "Discover the concrete results that strengthen the trust of our clients and partners.",
+    "nutrition": {
+      "title": "Nutrition – 85% Client Satisfaction",
+      "p1": "Olidor Sarl records a 90% satisfaction rate in the supply of nutritional products.",
+      "p2": "Our clients appreciate the quality, compliance, and effectiveness of our government-validated solutions.",
+      "p3": "We remain committed to meeting nutritional needs with rigor and innovation."
+    },
+    "logistics": {
+      "title": "Logistics – 80% Satisfaction",
+      "p1": "Our logistics services achieve an 85% satisfaction rate, thanks to a reliable and flexible offer.",
+      "p2": "Clients recognize our responsiveness, even in difficult-to-access areas.",
+      "p3": "Olidor continues to optimize its operations to strengthen performance and trust."
+    },
+    "chart": {
+      "p1": "With an 85% client satisfaction rate, Olidor Sarl confirms the trust placed by its partners in the fields of nutrition and logistics.",
+      "p2": "This figure reflects the quality of our products, the reliability of our services, and our ability to meet the specific needs of each client.",
+      "p3": "We remain committed to continuously improving our services to aim for even higher satisfaction."
+    }
+  },
+  "footer": {
+    "slogan": "Healthier, more efficient!",
+    "description": "Your trusted partner for innovation in complementary food production, nutritional solutions, and integrated logistics services.",
+    "quickLinksTitle": "Quick Links",
+    "links": {
+      "home": "Home",
+      "quotation": "Quotation",
+      "about": "About Us",
+      "products": "Products"
+    },
+    "servicesTitle": "Services",
+    "services": {
+      "about": "About Olidor sarl",
+      "range": "Our product range",
+      "others": "Other products available",
+      "logistics": "Transport, rental, and logistics services"
+    },
+    "contactTitle": "Contact",
+    "address": "Our address: Goma, North-Kivu, DR Congo",
+    "rights": "All rights reserved."
   }
 }

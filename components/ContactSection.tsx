@@ -2,12 +2,16 @@
 
 import React from 'react';
 import Navbar from '@/components/Navbar';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function RealisationsPage() {
+  const { dict } = useLanguage();
+  const t = dict.realisations; // Accès direct à tes nouvelles clés
+
   return (
     <>
       <Navbar />
-      <section className="min-h-screen  bg-white py-12 md:py-20 px-4 md:px-8">
+      <section className="min-h-screen bg-white py-12 md:py-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           
           {/* Grid Layout - 2 colonnes sur desktop */}
@@ -18,32 +22,26 @@ export default function RealisationsPage() {
               {/* Header */}
               <div>
                 <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-                  Réalisations
+                  {t.title}
                 </h1>
                 <p className="text-lg text-gray-700 mb-2">
-                  Nos performances témoignent de notre engagement à fournir des solutions nutritionnelles et logistiques de qualité.
+                  {t.description}
                 </p>
                 <p className="text-base text-gray-700">
-                  Découvrez les résultats concrets qui renforcent la confiance de nos clients et partenaires.
+                  {t.subtitle}
                 </p>
               </div>
 
               {/* Section 1 - Nutrition */}
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-gray-900">
-                  Nutrition – 85% de satisfaction client
+                  {t.nutrition.title}
                 </h2>
                 
                 <div className="space-y-3 text-gray-700">
-                  <p>
-                    Olidor Sarl enregistre un taux de satisfaction de 90% dans la fourniture de produits nutritionnels.
-                  </p>
-                  <p>
-                    Nos clients apprécient la qualité, la conformité et l&apos;efficacité de nos solutions validées par les autorités.
-                  </p>
-                  <p>
-                    Nous restons engagés à répondre aux besoins nutritionnels avec rigueur et innovation.
-                  </p>
+                  <p>{t.nutrition.p1}</p>
+                  <p>{t.nutrition.p2}</p>
+                  <p>{t.nutrition.p3}</p>
                 </div>
 
                 {/* Progress Bar */}
@@ -57,19 +55,13 @@ export default function RealisationsPage() {
               {/* Section 2 - Logistique */}
               <div className="space-y-4">
                 <h2 className="text-2xl font-bold text-gray-900">
-                  Logistique – 80% de satisfaction
+                  {t.logistics.title}
                 </h2>
                 
                 <div className="space-y-3 text-gray-700">
-                  <p>
-                    Nos services logistiques atteignent un taux de satisfaction de 85%, grâce à une offre fiable et flexible.
-                  </p>
-                  <p>
-                    Les clients reconnaissent notre réactivité, même en zones difficiles d&apos;accès.
-                  </p>
-                  <p>
-                    Olidor continue d&apos;optimiser ses opérations pour renforcer la performance et la confiance.
-                  </p>
+                  <p>{t.logistics.p1}</p>
+                  <p>{t.logistics.p2}</p>
+                  <p>{t.logistics.p3}</p>
                 </div>
 
                 {/* Progress Bar */}
@@ -88,9 +80,7 @@ export default function RealisationsPage() {
                 {/* Graphique circulaire */}
                 <div className="flex justify-center mb-8">
                   <div className="relative w-64 h-64">
-                    {/* SVG Circle Chart */}
                     <svg className="w-full h-full transform -rotate-90" viewBox="0 0 200 200">
-                      {/* Background Circle */}
                       <circle
                         cx="100"
                         cy="100"
@@ -99,7 +89,6 @@ export default function RealisationsPage() {
                         stroke="#e5e7eb"
                         strokeWidth="20"
                       />
-                      {/* Progress Circle - 87.5% */}
                       <circle
                         cx="100"
                         cy="100"
@@ -112,23 +101,22 @@ export default function RealisationsPage() {
                       />
                     </svg>
                     
-                    {/* Center Text */}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <span className="text-7xl font-bold text-gray-900">87.5%</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Description */}
+                {/* Description du graphique */}
                 <div className="text-center space-y-4 text-gray-700">
                   <p className="text-base leading-relaxed">
-                    Avec un <span className="font-semibold text-gray-900">taux de satisfaction client de 85%</span>, Olidor Sarl confirme la confiance accordée par ses partenaires dans les domaines de la nutrition et de la logistique.
+                    {t.chart.p1}
                   </p>
                   <p className="text-base leading-relaxed">
-                    Ce chiffre reflète la qualité de nos produits, la fiabilité de nos services et notre capacité à répondre aux besoins spécifiques de chaque client.
+                    {t.chart.p2}
                   </p>
                   <p className="text-base leading-relaxed">
-                    Nous restons engagés à améliorer continuellement nos prestations pour viser une satisfaction encore plus élevée.
+                    {t.chart.p3}
                   </p>
                 </div>
 

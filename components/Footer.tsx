@@ -1,7 +1,13 @@
+"use client";
+
 import React from 'react';
-import Link from 'next/link'; // Déjà bien importé
+import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 export default function Footer() {
+  const { dict } = useLanguage();
+  const t = dict.footer;
+
   return (
     <footer className="bg-black text-white">
       
@@ -13,10 +19,10 @@ export default function Footer() {
           <div className="space-y-6">
             <div className="space-y-2">
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold">Olidor Sarl</h3>
-              <p className="text-gray-400 text-sm"> Plus sains, plus efficaces!</p>
+              <p className="text-gray-400 text-sm">{t.slogan}</p>
             </div>
             <p className="text-gray-300 leading-relaxed">
-               Votre partenaire de confiance pour l&apos;innovation dans la production des aliments de complément, solutions nutritionnelles et les services logistiques intégrés. 
+              {t.description}
             </p>
             
             {/* Social Media Links */}
@@ -37,26 +43,26 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-xl font-bold">Racourci</h4>
+            <h4 className="text-xl font-bold">{t.quickLinksTitle}</h4>
             <ul className="space-y-3">
               <li>
                 <Link href="/" className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap">
-                  Accueil
+                  {t.links.home}
                 </Link>
               </li>
               <li>
                 <Link href="/cotation" className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap">
-                  Cotation
+                  {t.links.quotation}
                 </Link>
               </li>
               <li>
                 <Link href="/Apropos" className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap">
-                  À Propos
+                  {t.links.about}
                 </Link>
               </li>
               <li>
                 <Link href="/produits" className="text-gray-300 font-medium hover:text-green-700 transition-colors whitespace-nowrap">
-                  Produits
+                  {t.links.products}
                 </Link>
               </li>
             </ul>
@@ -64,26 +70,26 @@ export default function Footer() {
 
           {/* Services */}
           <div className="space-y-6">
-            <h4 className="text-xl font-bold">Services</h4>
+            <h4 className="text-xl font-bold">{t.servicesTitle}</h4>
             <ul className="space-y-3">
               <li>
                 <Link href="#rental" className="text-gray-300 hover:text-green-700 transition-colors">
-                  À propos de Olidor sarl
+                  {t.services.about}
                 </Link>
               </li>
               <li>
                 <Link href="#rental" className="text-gray-300 hover:text-green-700 transition-colors">
-                  Notre gamme des produits
+                  {t.services.range}
                 </Link>
               </li>
               <li>
                 <Link href="#sales" className="text-gray-300 hover:text-green-700 transition-colors">
-                  Autres produits disponibles
+                  {t.services.others}
                 </Link>
               </li>
               <li>
                 <Link href="#drilling" className="text-gray-300 hover:text-green-700 transition-colors">
-                  Services de transport, location de véhicules et logistique
+                  {t.services.logistics}
                 </Link>
               </li>
             </ul>
@@ -91,7 +97,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <h4 className="text-xl font-bold">Contact</h4>
+            <h4 className="text-xl font-bold">{t.contactTitle}</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <svg className="w-6 h-6 text-green-700 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -99,14 +105,13 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
                 <span className="text-gray-300">
-                  Notre adresse: Goma, North-Kivu, DR Congo
+                  {t.address}
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <svg className="w-6 h-6 text-green-700 " fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                {/* Pour les emails et téléphones, il est préférable d'utiliser <a> classique */}
                 <a href="mailto:info@olidor.sarl" className="text-gray-300 hover:text-green-700 transition-colors">
                   info@olidor.sarl
                 </a>
@@ -130,7 +135,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} Olidor Sarl. Tous droits réservés.
+              © {new Date().getFullYear()} Olidor Sarl. {t.rights}
             </p>
           </div>
         </div>
