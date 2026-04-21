@@ -80,7 +80,8 @@ const leadId = await new Promise<number>((resolve, reject) => {
   phone: formData.telephone || false,
   description: descriptionMessage,
   // C'EST CETTE LIGNE QUI EST LA PLUS SÛRE :
-  type: 'opportunity', 
+  type: 'opportunity',
+  company_id: 4, 
   priority: '2',
 }]
     ],
