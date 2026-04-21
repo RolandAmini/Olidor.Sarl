@@ -65,34 +65,36 @@ Message: ${formData.message}
     `.trim();
 
     // 5. Création de la Piste
-    const leadId = await new Promise<number>((resolve, reject) => {
-      objectClient.methodCall(
-        'execute_kw',
-        [
-          ODOO_DB, uid, ODOO_PASSWORD,
-          'crm.lead', 'create',
-          [{
-            name: `[Web] ${formData.sujet} - ${formData.nom}`,
-            contact_name: formData.nom,
-            partner_name: formData.organisation || false,
-            email_from: formData.email,
-            phone: formData.telephone || false,
-            city: formData.ville || false,
-            description: descriptionMessage,
-            type: 'lead',
-            priority: '2',
-          }]
-        ],
-        (error: unknown, value: unknown) => { // ✅ Utilisation de unknown
-          if (error) {
-            reject(error instanceof Error ? error : new Error(String(error)));
-          } else {
-            // On force le type ici car on attend un ID (number)
-            resolve(value as number);
-          }
-        }
-      );
-    });
+    // 5. Création de la Piste / Opportunité
+const leadId = await new Promise<number>((resolve, reject) => {
+  objectClient.methodCall(
+    'execute_kw',
+    [
+      ODOO_DB, uid, ODOO_PASSWORD,
+      'crm.lead', 'create',
+      [// ... dans ton bloc de création
+{
+  name: `[SITE WEB] ${formData.sujet}`,
+  contact_name: formData.nom,
+  email_from: formData.email,
+  phone: formData.telephone || false,
+  description: descriptionMessage,
+  // C'EST CETTE LIGNE QUI EST LA PLUS SÛRE :
+  type: 'opportunity', 
+  priority: '2',
+}]
+    ],
+    (error: unknown, value: unknown) => {
+      if (error) {
+        reject(error instanceof Error ? error : new Error(String(error)));
+      } else {
+        // Log de debug pour voir ce que Odoo renvoie exactement
+        console.log('✅ Odoo Response ID:', value);
+        resolve(value as number);
+      }
+    }
+  );
+});
 
     return NextResponse.json({ success: true, id: leadId });
 
