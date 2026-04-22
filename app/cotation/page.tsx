@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Navbar from '@/components/Navbar'; 
 import Footer from '@/components/Footer';
 import { QuoteSchema } from '@/lib/validations/quote';
+import Link from 'next/link';
 
 interface FormData {
   userType: 'organisation' | 'particulier';
@@ -24,6 +25,7 @@ interface FormData {
 
 export default function QuoteRequestForm() {
   const [isLoading, setIsLoading] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false); // Changement : État pour le succès
   const [formData, setFormData] = useState<FormData>({
     userType: 'organisation',
     civilite: '',
@@ -49,42 +51,31 @@ export default function QuoteRequestForm() {
     }));
   };
 
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    
 
     const validation = QuoteSchema.safeParse(formData);
     
     if (!validation.success) {
-      // AJOUTEZ CETTE LIGNE ICI :
       console.log("DÉTAILS DES ERREURS ZOD:", validation.error.format());
-
-      const firstError = validation.error.flatten().fieldErrors;
-// Pour obtenir juste le premier message d'erreur :
-const errorMsg = Object.values(validation.error.flatten().fieldErrors)[0]?.[0] || "Erreur de validation";
-
-alert(`⚠️ ${errorMsg}`);
-      alert(`⚠️ ${firstError}`);
+      const errorMsg = Object.values(validation.error.flatten().fieldErrors)[0]?.[0] || "Erreur de validation";
+      alert(`⚠️ ${errorMsg}`);
       setIsLoading(false);
       return;
     }
     
-    
     try {
-      // 2. Envoi à l'API
       const response = await fetch('/api/create-lead', {
         method: 'POST',
-        headers: { 
-          'Content-Type': 'application/json' 
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
       });
 
       const result = await response.json();
 
       if (result.success) {
-        alert('✅ Votre demande de cotation a été envoyée avec succès !');
+        setIsSubmitted(true); // Changement : On active la vue de succès au lieu de l'alert
         setFormData({
           userType: 'organisation',
           civilite: '',
@@ -111,6 +102,33 @@ alert(`⚠️ ${errorMsg}`);
       setIsLoading(false);
     }
   };
+
+  // --- LOGIQUE DE LA PAGE DE SUCCÈS ---
+  if (isSubmitted) {
+    return (
+      <>
+        <Navbar />
+        <div className="min-h-screen mt-25 flex items-center justify-center bg-gray-50 px-4">
+          <div className="max-w-2xl w-full bg-white p-12 rounded-lg shadow-sm text-center">
+            <div className="bg-green-100 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-8">
+              <svg className="w-12 h-12 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Merci !</h2>
+            <p className="text-xl text-gray-600 mb-10">
+              Votre demande de cotation a été envoyée avec succès.<br />
+              L&apos;équipe d&apos;Olidor SARL reviendra vers vous très prochainement.
+            </p>
+            <Link href="/" className="inline-block bg-blue-700 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-800 transition">
+              Retour à l&apos;accueil
+            </Link>
+          </div>
+        </div>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
@@ -230,44 +248,49 @@ alert(`⚠️ ${errorMsg}`);
                 />
               </div>
 
-              {/* Organisation */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-2">Organisation *</label>
-                <input
-                  type="text"
-                  name="organisation"
-                  value={formData.organisation}
-                  onChange={handleChange}
-                  placeholder="Nom de la société"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
-                />
-              </div>
+              {/* CHAMPS CONDITIONNELS : Masqués si Particulier */}
+              {formData.userType === 'organisation' && (
+                <>
+                  {/* Organisation */}
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">Organisation *</label>
+                    <input
+                      type="text"
+                      name="organisation"
+                      value={formData.organisation}
+                      onChange={handleChange}
+                      placeholder="Nom de la société"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
+                    />
+                  </div>
 
-              {/* Fonction */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-2">Fonction</label>
-                <input
-                  type="text"
-                  name="fonction"
-                  value={formData.fonction}
-                  onChange={handleChange}
-                  placeholder="Votre poste"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
-                />
-              </div>
+                  {/* Fonction */}
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">Fonction</label>
+                    <input
+                      type="text"
+                      name="fonction"
+                      value={formData.fonction}
+                      onChange={handleChange}
+                      placeholder="Votre poste"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
+                    />
+                  </div>
 
-              {/* Site Web */}
-              <div>
-                <label className="block text-gray-700 font-medium mb-2">Site Web</label>
-                <input
-                  type="url"
-                  name="siteWeb"
-                  value={formData.siteWeb}
-                  onChange={handleChange}
-                  placeholder="https://..."
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
-                />
-              </div>
+                  {/* Site Web */}
+                  <div>
+                    <label className="block text-gray-700 font-medium mb-2">Site Web</label>
+                    <input
+                      type="url"
+                      name="siteWeb"
+                      value={formData.siteWeb}
+                      onChange={handleChange}
+                      placeholder="https://..."
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
+                    />
+                  </div>
+                </>
+              )}
             </div>
 
             {/* Email & Sujet */}
@@ -317,7 +340,6 @@ alert(`⚠️ ${errorMsg}`);
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
               >
-                
                 <option value="nutrition">Intrant nutritionnels</option>
                 <option value="pci">Kit PCI</option>
                 <option value="medical">Équipement médicaux</option>

@@ -56,46 +56,49 @@ export async function POST(request: NextRequest) {
       );
     });
 
-    const descriptionMessage = `
---- Demande Site Web Olidor SARL ---
-Organisation: ${formData.organisation || 'N/A'}
-Ville: ${formData.ville}
-Pays: ${formData.pays}
-Message: ${formData.message}
-    `.trim();
+    // 2. Génération du titre avec numéro de cotation (ex: COT-12345)
+    const cotationNumber = Math.floor(10000 + Math.random() * 90000);
+    const titreFinal = `Demande de cotation N° ${cotationNumber} - ${formData.sujet}`;
+
+    
 
     // 5. Création de la Piste
     // 5. Création de la Piste / Opportunité
-const leadId = await new Promise<number>((resolve, reject) => {
-  objectClient.methodCall(
-    'execute_kw',
-    [
-      ODOO_DB, uid, ODOO_PASSWORD,
-      'crm.lead', 'create',
-      [// ... dans ton bloc de création
-{
-  name: `[SITE WEB] ${formData.sujet}`,
-  contact_name: formData.nom,
-  email_from: formData.email,
-  phone: formData.telephone || false,
-  description: descriptionMessage,
-  // C'EST CETTE LIGNE QUI EST LA PLUS SÛRE :
-  type: 'opportunity',
-  company_id: 4, 
-  priority: '2',
-}]
-    ],
-    (error: unknown, value: unknown) => {
-      if (error) {
-        reject(error instanceof Error ? error : new Error(String(error)));
-      } else {
-        // Log de debug pour voir ce que Odoo renvoie exactement
-        console.log('✅ Odoo Response ID:', value);
-        resolve(value as number);
-      }
-    }
-  );
-});
+// 3. Création de l'Opportunité avec champs structurés
+    const leadId = await new Promise<number>((resolve, reject) => {
+      objectClient.methodCall(
+        'execute_kw',
+        [
+          ODOO_DB, uid, ODOO_PASSWORD,
+          'crm.lead', 'create',
+          [{
+            name: titreFinal,               // Nouveau Titre
+            contact_name: formData.nom,     // Nom du client
+            partner_name: formData.organisation || false, // Organisation (au même niveau que l'email)
+            email_from: formData.email,     // Email
+            phone: formData.telephone,      // Téléphone
+            city: formData.ville,           // Ville (affichée dans les infos contact)
+            street: formData.pays,          // Pays (mis dans l'adresse pour être visible)
+            function: formData.fonction || false, // Fonction/Poste
+            
+            // On laisse le champ description UNIQUEMENT pour le message
+            description: `MESSAGE DU CLIENT :\n\n${formData.message}`,
+            
+            type: 'opportunity',
+            company_id: 4,                  // Olidor SARL
+            priority: '3',                  // Haute importance
+          }]
+        ],
+        (error: unknown, value: unknown) => {
+          if (error) {
+            reject(error instanceof Error ? error : new Error(String(error)));
+          } else {
+            console.log('✅ Odoo Response ID:', value);
+            resolve(value as number);
+          }
+        }
+      );
+    });
 
     return NextResponse.json({ success: true, id: leadId });
 

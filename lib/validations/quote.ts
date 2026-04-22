@@ -32,4 +32,13 @@ export const QuoteSchema = z.object({
   
   categorie: z.string().min(1, "Veuillez choisir une catégorie"),
   preciserProduits: z.enum(['oui', 'non']),
+  }).superRefine((data, ctx) => {
+  // LOGIQUE : Si c'est une entreprise, le nom de l'organisation doit être rempli
+  if (data.userType === 'organisation' && (!data.organisation || data.organisation.trim() === "")) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: "Le nom de l'organisation est requis pour les professionnels",
+      path: ["organisation"],
+    });
+  }
 });
