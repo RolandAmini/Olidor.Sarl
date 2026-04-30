@@ -4,14 +4,29 @@ import Link from 'next/link';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import Image from 'next/image';
-import { products } from '../productsData';
+import { products, Product } from '../productsData';
 import { useLanguage } from '@/contexts/LanguageContext';
+
+interface EnrichedProduct extends Product {
+  name: string;
+  category: string;
+  shortDesc: string;
+  fullDesc: string;
+  benefits: string[];
+  usage: string;
+  tags: string[];
+}
 
 export default function ProduitsPage() {
   const { dict } = useLanguage();
 
-  const firstProducts = products.slice(0, 4);
-  const secondProducts = products.slice(4, 8);
+  const enrichedProducts = products.map((p) => ({
+    ...p,
+    ...(dict.products[p.slug as keyof typeof dict.products] as object),
+  })) as EnrichedProduct[];
+
+  const firstProducts = enrichedProducts.slice(0, 4);
+  const secondProducts = enrichedProducts.slice(4, 8);
 
   return (
     <>
@@ -81,7 +96,7 @@ export default function ProduitsPage() {
 }
 
 // ─── Carte produit ─────────────────────────────────────────────────────────────
-function ProductCard({ product }: { product: (typeof products)[0] }) {
+function ProductCard({ product }: { product: EnrichedProduct }) {
   const { dict } = useLanguage();
 
   return (

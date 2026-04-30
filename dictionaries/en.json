@@ -89,6 +89,131 @@
       "p3": "We remain committed to continuously improving our services to aim for even higher satisfaction."
     }
   },
+  "products": {
+    "benefitsTitle": "Key benefits",
+    "quoteButton": "Request a quote",
+    "discoverMore": "Discover other products",
+    "boule-totale": {
+      "name": "Boule totale",
+      "category": "Food",
+      "shortDesc": "A fortified semolina made from local maize, designed for the whole family.",
+      "fullDesc": "Boule Totale is a fortified semolina made from carefully selected local maize. Enriched with vitamins A, B, C and essential minerals such as iron and zinc, it covers the daily nutritional needs of the whole family. Its fine texture and quick preparation make it an ideal complete meal for rural and urban families.",
+      "benefits": [
+        "Rich in vitamins A, B and C",
+        "Fortified with iron and zinc",
+        "Easy and quick to prepare",
+        "Suitable for all age groups",
+        "High-quality local product"
+      ],
+      "usage": "Mix 3 to 4 tablespoons in hot water. Stir until smooth and homogeneous. Serve hot with milk or vegetables.",
+      "tags": ["Local maize", "Fortified", "Whole family", "Vitamins"]
+    },
+    "mwisho-mam": {
+      "name": "Mwisho MAM",
+      "category": "Therapeutic nutrition",
+      "shortDesc": "A nutritional input specially formulated for the management of moderate acute malnutrition.",
+      "fullDesc": "Mwisho MAM is a therapeutic nutritional supplement developed specifically for the management of moderate acute malnutrition (MAM). Its balanced formulation provides the macro and micronutrients needed for the rapid and lasting recovery of malnourished children and adults.",
+      "benefits": [
+        "Balanced macro and micronutrient formula",
+        "Promotes rapid nutritional recovery",
+        "Suitable for children and adults",
+        "Rigorous quality control",
+        "Recommended by health professionals"
+      ],
+      "usage": "To be administered under medical supervision. Dosage according to the current MAM protocol. Consult a health professional before use.",
+      "tags": ["MAM", "Therapeutic", "Children", "Recovery"]
+    },
+    "uji-total": {
+      "name": "Uji - total",
+      "category": "Infant nutrition",
+      "shortDesc": "A complementary food for children from 6 months, as well as pregnant and breastfeeding women.",
+      "fullDesc": "Uji Total is an enriched complementary food specially designed to support the growth of infants from 6 months and the health of pregnant and breastfeeding women. Its essential micronutrient composition promotes optimal cognitive and physical development in children while strengthening maternal health.",
+      "benefits": [
+        "Suitable from 6 months",
+        "Supports infant growth",
+        "Enriched for pregnant women",
+        "Cognitive and physical development",
+        "Essential micronutrients"
+      ],
+      "usage": "For infants: 2 to 3 spoons in lukewarm water. For adults: 4 to 5 spoons in hot water or milk. Serve twice a day.",
+      "tags": ["From 6 months", "Complementary food", "Pregnant women", "Micronutrients"]
+    },
+    "grain-de-cacao": {
+      "name": "Cocoa bean",
+      "category": "Agriculture",
+      "shortDesc": "Strengthens plant resistance against extreme conditions.",
+      "fullDesc": "Olidor's Cocoa Bean is an agricultural product selected from the best varieties, known for its exceptional resistance to difficult climatic conditions. It promotes vigorous growth, improves plantation productivity and guarantees a superior quality harvest, even in water-stressed areas.",
+      "benefits": [
+        "Resistance to extreme conditions",
+        "High productivity",
+        "Superior harvest quality",
+        "Suited to water-stressed areas",
+        "Selected varieties"
+      ],
+      "usage": "Plant in well-drained soil with partial sun exposure. Water regularly for the first 3 months. Fertilize with a suitable organic fertilizer.",
+      "tags": ["High quality", "Resistance", "Crops", "Productivity"]
+    },
+    "intrants-pec": {
+      "name": "Other PEC inputs",
+      "category": "Medical equipment",
+      "shortDesc": "Inputs and equipment for comprehensive malnutrition management.",
+      "fullDesc": "This range of inputs and equipment covers all the needs for malnutrition management (PEC) in community and hospital settings. It includes precision anthropometric measurement tools, diagnostic equipment, and supplies for continuous nutritional monitoring of patients.",
+      "benefits": [
+        "Anthropometric measurement tools",
+        "Reliable diagnostic equipment",
+        "Suitable for hospital and community settings",
+        "International standards complied with",
+        "Continuous nutritional monitoring"
+      ],
+      "usage": "Use according to current malnutrition management protocols. Staff training recommended before use.",
+      "tags": ["PEC", "Malnutrition", "Equipment", "Diagnosis"]
+    },
+    "f100-f75": {
+      "name": "F100 and F75",
+      "category": "Therapeutic nutrition",
+      "shortDesc": "Therapeutic milks used in the management of severe acute malnutrition.",
+      "fullDesc": "F100 and F75 are internationally recognized therapeutic milks for the treatment of severe acute malnutrition (SAM) in hospital settings. F75 is used during the stabilization phase to prevent complications, while F100 supports the intensive nutritional recovery phase.",
+      "benefits": [
+        "WHO protocol compliant",
+        "F75 for stabilization",
+        "F100 for recovery",
+        "High energy density formula",
+        "Proven clinical results"
+      ],
+      "usage": "Strictly under medical supervision. Prepare according to WHO clinical instructions. Administer in small frequent amounts according to the stage of management.",
+      "tags": ["SAM", "F75 stabilization", "F100 recovery", "Therapeutic milk"]
+    },
+    "plumpy-nut": {
+      "name": "Plumpy-nut",
+      "category": "Therapeutic nutrition",
+      "shortDesc": "Ready-to-use therapeutic food for community-based management of severe malnutrition.",
+      "fullDesc": "Plumpy-nut is the world's most widely used ready-to-use therapeutic food (RUTF) for the community treatment of severe acute malnutrition. Based on peanut paste enriched with vitamins and minerals, it enables treatment outside the hospital, thereby reducing the burden on health systems.",
+      "benefits": [
+        "Ready to use, no preparation needed",
+        "Home-based treatment possible",
+        "Rich in energy and nutrients",
+        "Long shelf life",
+        "Recognized by WHO and UNICEF"
+      ],
+      "usage": "Administer 1 to 3 sachets per day according to the child's weight. Provide sufficient clean drinking water. Regular medical follow-up recommended.",
+      "tags": ["RUTF", "Peanut", "Community", "Ready to use"]
+    },
+    "kit-pci": {
+      "name": "IPC Kit",
+      "category": "Hospital hygiene",
+      "shortDesc": "Infection prevention and control in hospital settings and communities.",
+      "fullDesc": "The IPC Kit (Infection Prevention and Control) brings together all the equipment and supplies needed to prevent and control the spread of infections in healthcare facilities and communities. It includes personal protective equipment (PPE), sterilization materials, and supplies for the safe management of biomedical waste.",
+      "benefits": [
+        "Complete personal protection (PPE)",
+        "Certified sterilization materials",
+        "Safe management of biomedical waste",
+        "Reduced risk of cross-contamination",
+        "WHO standards complied with"
+      ],
+      "usage": "Use according to the infection prevention protocols in place at your facility. Train staff in the correct use of PPE before deployment.",
+      "tags": ["Prevention", "Infections", "PPE", "Biomedical waste"]
+    }
+  },
   "footer": {
     "slogan": "Healthier, more efficient!",
     "description": "Your trusted partner for innovation in complementary food production, nutritional solutions, and integrated logistics services.",

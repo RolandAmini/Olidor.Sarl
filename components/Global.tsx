@@ -3,29 +3,30 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { products } from '../app/productsData';
+import { products, Product } from '../app/productsData';
 import { useLanguage } from '@/contexts/LanguageContext';
 
+interface EnrichedProduct extends Product {
+  name: string;
+  category: string;
+  shortDesc: string;
+  fullDesc: string;
+  benefits: string[];
+  usage: string;
+  tags: string[];
+}
+
 export default function GlobalPresencePage() {
-  // On récupère le dictionnaire (dict) depuis ton contexte
   const { dict } = useLanguage();
-  
-  // On cible la section globalPresence de ton JSON
   const t = dict.globalPresence;
 
-  const firstProducts = [
-    { ...products[0], img: "/unga.webp" },
-    { ...products[1], img: "/mamunga.webp" },
-    { ...products[2], img: "/uji.webp" },
-    { ...products[3], img: "/unf.jpeg" },
-  ];
+  const enrichedProducts = products.map((p) => ({
+    ...p,
+    ...(dict.products[p.slug as keyof typeof dict.products] as object),
+  })) as EnrichedProduct[];
 
-  const secondProducts = [
-    { ...products[4], img: "/07bB0-02.webp" },
-    { ...products[5], img: "/F100-2.webp" },
-    { ...products[6], img: "/PLUMP.webp" },
-    { ...products[7], img: "/PCI.webp" },
-  ];
+  const firstProducts = enrichedProducts.slice(0, 4);
+  const secondProducts = enrichedProducts.slice(4, 8);
 
   return (
     <main className="text-white">
@@ -64,7 +65,7 @@ export default function GlobalPresencePage() {
             <div key={i} className="bg-white/10 backdrop-blur-md rounded-xl shadow-lg overflow-hidden hover:scale-105 transition-transform duration-300 border border-gray-700 flex flex-col h-full">
               <div className="relative w-full h-44">
                 <Image
-                  src={product.img}
+                  src={product.image}
                   alt={product.name}
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
@@ -114,7 +115,7 @@ export default function GlobalPresencePage() {
             <div key={i} className="flex flex-col h-full bg-white/10 backdrop-blur-md rounded-2xl shadow-lg overflow-hidden border border-white/10 hover:scale-105 hover:border-emerald-400 transition-transform duration-300">
               <div className="relative w-full h-52">
                 <Image
-                  src={product.img}
+                  src={product.image}
                   alt={product.name}
                   fill
                   sizes="(max-width: 768px) 100vw, 25vw"
