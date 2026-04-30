@@ -234,5 +234,54 @@
     "contactTitle": "Contact",
     "address": "Our address: Goma, North-Kivu, DR Congo",
     "rights": "All rights reserved."
+  },
+  "quotation": {
+  "title": "Request a Quotation",
+  "description": "To obtain a quotation, please fill in this form. Fields marked with an asterisk (*) are required.",
+  "subDescription": "By providing accurate information, you will allow our teams to respond quickly to your request for Olidor.",
+  "userTypeLabel": "Are you a",
+  "userTypes": {
+    "organisation": "Organization / Company",
+    "particulier": "Individual"
+  },
+  "fields": {
+    "civilite": "Title",
+    "civiliteOptions": { "mr": "Mr.", "mme": "Mrs.", "mlle": "Ms." },
+    "ville": "City *",
+    "villePlaceholder": "Ex: Goma",
+    "nom": "Full Name *",
+    "nomPlaceholder": "Full name",
+    "pays": "Country",
+    "telephone": "Phone *",
+    "telephonePlaceholder": "+243 ...",
+    "organisation": "Organization *",
+    "organisationPlaceholder": "Company name",
+    "fonction": "Position",
+    "fonctionPlaceholder": "Your position",
+    "siteWeb": "Website",
+    "siteWebPlaceholder": "https://...",
+    "email": "E-mail *",
+    "emailPlaceholder": "email@example.com",
+    "sujet": "Subject *",
+    "sujetPlaceholder": "Subject of your request",
+    "message": "Your Message *",
+    "messagePlaceholder": "Details of your quotation request...",
+    "categorie": "Category *",
+    "categorieOptions": {
+      "nutrition": "Nutritional inputs",
+      "pci": "IPC Kit",
+      "medical": "Medical equipment",
+      "vehicules": "Vehicle rental",
+      "transport": "Goods transport"
+    },
+    "preciserProduits": "Would you like to specify the products?"
+  },
+  "submit": "Send the form",
+  "submitting": "Sending...",
+  "success": {
+    "title": "Thank you!",
+    "message": "Your quotation request has been sent successfully. The Olidor SARL team will get back to you very soon.",
+    "backHome": "Back to home"
   }
+}
 }

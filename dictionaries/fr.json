@@ -234,5 +234,53 @@
     "contactTitle": "Contact",
     "address": "Notre adresse: Goma, North-Kivu, DR Congo",
     "rights": "Tous droits réservés."
+  },"quotation": {
+  "title": "Demande de cotation",
+  "description": "Pour obtenir une cotation, merci de remplir ce formulaire. Les champs marqués d'un astérisque (*) sont obligatoires.",
+  "subDescription": "En renseignant précisément ces informations, vous permettrez à nos équipes de répondre rapidement à votre demande pour Olidor.",
+  "userTypeLabel": "Êtes-vous",
+  "userTypes": {
+    "organisation": "Organisation / Société",
+    "particulier": "Particulier"
+  },
+  "fields": {
+    "civilite": "Civilité",
+    "civiliteOptions": { "mr": "Monsieur", "mme": "Madame", "mlle": "Mademoiselle" },
+    "ville": "Ville *",
+    "villePlaceholder": "Ex: Goma",
+    "nom": "Noms *",
+    "nomPlaceholder": "Nom complet",
+    "pays": "Pays",
+    "telephone": "Téléphone *",
+    "telephonePlaceholder": "+243 ...",
+    "organisation": "Organisation *",
+    "organisationPlaceholder": "Nom de la société",
+    "fonction": "Fonction",
+    "fonctionPlaceholder": "Votre poste",
+    "siteWeb": "Site Web",
+    "siteWebPlaceholder": "https://...",
+    "email": "E-mail *",
+    "emailPlaceholder": "email@exemple.com",
+    "sujet": "Sujet / Objet *",
+    "sujetPlaceholder": "Objet de votre demande",
+    "message": "Votre Message *",
+    "messagePlaceholder": "Détails de votre demande de cotation...",
+    "categorie": "Catégorie *",
+    "categorieOptions": {
+      "nutrition": "Intrant nutritionnels",
+      "pci": "Kit PCI",
+      "medical": "Équipement médicaux",
+      "vehicules": "Location de véhicules",
+      "transport": "Transport de marchandises"
+    },
+    "preciserProduits": "Souhaitez-vous préciser les produits ?"
+  },
+  "submit": "Envoyer le formulaire",
+  "submitting": "Envoi en cours...",
+  "success": {
+    "title": "Merci !",
+    "message": "Votre demande de cotation a été envoyée avec succès. L'équipe d'Olidor SARL reviendra vers vous très prochainement.",
+    "backHome": "Retour à l'accueil"
   }
+}
 }

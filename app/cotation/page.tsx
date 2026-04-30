@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { QuoteSchema } from '@/lib/validations/quote';
 import Link from 'next/link';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface FormData {
   userType: 'organisation' | 'particulier';
@@ -24,8 +25,11 @@ interface FormData {
 }
 
 export default function QuoteRequestForm() {
+  const { dict } = useLanguage();
+  const t = dict.quotation;
+
   const [isLoading, setIsLoading] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false); // Changement : État pour le succès
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     userType: 'organisation',
     civilite: '',
@@ -75,7 +79,7 @@ export default function QuoteRequestForm() {
       const result = await response.json();
 
       if (result.success) {
-        setIsSubmitted(true); // Changement : On active la vue de succès au lieu de l'alert
+        setIsSubmitted(true);
         setFormData({
           userType: 'organisation',
           civilite: '',
@@ -103,7 +107,6 @@ export default function QuoteRequestForm() {
     }
   };
 
-  // --- LOGIQUE DE LA PAGE DE SUCCÈS ---
   if (isSubmitted) {
     return (
       <>
@@ -115,13 +118,12 @@ export default function QuoteRequestForm() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
               </svg>
             </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Merci !</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t.success.title}</h2>
             <p className="text-xl text-gray-600 mb-10">
-              Votre demande de cotation a été envoyée avec succès.<br />
-              L&apos;équipe d&apos;Olidor SARL reviendra vers vous très prochainement.
+              {t.success.message}
             </p>
             <Link href="/" className="inline-block bg-blue-700 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-800 transition">
-              Retour à l&apos;accueil
+              {t.success.backHome}
             </Link>
           </div>
         </div>
@@ -138,26 +140,26 @@ export default function QuoteRequestForm() {
           {/* Header */}
           <div className="bg-green-700 px-6 py-8 rounded-t-lg">
             <h1 className="text-3xl md:text-4xl font-bold text-white text-center">
-              Demande de cotation
+              {t.title}
             </h1>
           </div>
 
           {/* Description */}
           <div className="px-6 py-6 bg-gray-50 border-b border-gray-200">
             <p className="text-gray-700 mb-4 font-medium">
-              Pour obtenir une cotation, merci de remplir ce formulaire. Les champs marqués d&apos;un astérisque (*) sont obligatoires.
+              {t.description}
             </p>
             <p className="text-sm text-gray-600">
-              En renseignant précisément ces informations, vous permettrez à nos équipes de répondre rapidement à votre demande pour Olidor.
+              {t.subDescription}
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="px-6 py-8">
             {/* Type d'utilisateur */}
             <div className="mb-8">
-              <label className="block text-gray-700 font-medium mb-4">Êtes-vous</label>
+              <label className="block text-gray-700 font-medium mb-4">{t.userTypeLabel}</label>
               <div className="flex gap-6">
-                {['particulier', 'organisation'].map((type) => (
+                {(['particulier', 'organisation'] as const).map((type) => (
                   <label key={type} className="flex items-center cursor-pointer">
                     <input
                       type="radio"
@@ -168,7 +170,7 @@ export default function QuoteRequestForm() {
                       className="w-4 h-4 text-green-600 focus:ring-green-500"
                     />
                     <span className="ml-2 text-gray-700 capitalize">
-                      {type === 'organisation' ? 'Organisation / Société' : 'Particulier'}
+                      {t.userTypes[type]}
                     </span>
                   </label>
                 ))}
@@ -178,7 +180,7 @@ export default function QuoteRequestForm() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               {/* Civilité */}
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Civilité</label>
+                <label className="block text-gray-700 font-medium mb-2">{t.fields.civilite}</label>
                 <select
                   name="civilite"
                   value={formData.civilite}
@@ -186,41 +188,41 @@ export default function QuoteRequestForm() {
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
                 >
                   <option value="">- Sélectionner -</option>
-                  <option value="mr">Monsieur</option>
-                  <option value="mme">Madame</option>
-                  <option value="mlle">Mademoiselle</option>
+                  <option value="mr">{t.fields.civiliteOptions.mr}</option>
+                  <option value="mme">{t.fields.civiliteOptions.mme}</option>
+                  <option value="mlle">{t.fields.civiliteOptions.mlle}</option>
                 </select>
               </div>
 
               {/* Ville */}
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Ville *</label>
+                <label className="block text-gray-700 font-medium mb-2">{t.fields.ville}</label>
                 <input
                   type="text"
                   name="ville"
                   value={formData.ville}
                   onChange={handleChange}
-                  placeholder="Ex: Goma"
+                  placeholder={t.fields.villePlaceholder}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
                 />
               </div>
 
               {/* Nom */}
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Noms *</label>
+                <label className="block text-gray-700 font-medium mb-2">{t.fields.nom}</label>
                 <input
                   type="text"
                   name="nom"
                   value={formData.nom}
                   onChange={handleChange}
-                  placeholder="Nom complet"
+                  placeholder={t.fields.nomPlaceholder}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
                 />
               </div>
 
               {/* Pays */}
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Pays</label>
+                <label className="block text-gray-700 font-medium mb-2">{t.fields.pays}</label>
                 <select
                   name="pays"
                   value={formData.pays}
@@ -237,13 +239,13 @@ export default function QuoteRequestForm() {
 
               {/* Téléphone */}
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Téléphone *</label>
+                <label className="block text-gray-700 font-medium mb-2">{t.fields.telephone}</label>
                 <input
                   type="tel"
                   name="telephone"
                   value={formData.telephone}
                   onChange={handleChange}
-                  placeholder="+243 ..."
+                  placeholder={t.fields.telephonePlaceholder}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
                 />
               </div>
@@ -253,39 +255,39 @@ export default function QuoteRequestForm() {
                 <>
                   {/* Organisation */}
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Organisation *</label>
+                    <label className="block text-gray-700 font-medium mb-2">{t.fields.organisation}</label>
                     <input
                       type="text"
                       name="organisation"
                       value={formData.organisation}
                       onChange={handleChange}
-                      placeholder="Nom de la société"
+                      placeholder={t.fields.organisationPlaceholder}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
                     />
                   </div>
 
                   {/* Fonction */}
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Fonction</label>
+                    <label className="block text-gray-700 font-medium mb-2">{t.fields.fonction}</label>
                     <input
                       type="text"
                       name="fonction"
                       value={formData.fonction}
                       onChange={handleChange}
-                      placeholder="Votre poste"
+                      placeholder={t.fields.fonctionPlaceholder}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
                     />
                   </div>
 
                   {/* Site Web */}
                   <div>
-                    <label className="block text-gray-700 font-medium mb-2">Site Web</label>
+                    <label className="block text-gray-700 font-medium mb-2">{t.fields.siteWeb}</label>
                     <input
                       type="url"
                       name="siteWeb"
                       value={formData.siteWeb}
                       onChange={handleChange}
-                      placeholder="https://..."
+                      placeholder={t.fields.siteWebPlaceholder}
                       className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
                     />
                   </div>
@@ -295,37 +297,37 @@ export default function QuoteRequestForm() {
 
             {/* Email & Sujet */}
             <div className="mb-6">
-              <label className="block text-gray-700 font-medium mb-2">E-mail *</label>
+              <label className="block text-gray-700 font-medium mb-2">{t.fields.email}</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="email@exemple.com"
+                placeholder={t.fields.emailPlaceholder}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
               />
             </div>
 
             <div className="mb-6">
-              <label className="block text-gray-700 font-medium mb-2">Sujet / Objet *</label>
+              <label className="block text-gray-700 font-medium mb-2">{t.fields.sujet}</label>
               <input
                 type="text"
                 name="sujet"
                 value={formData.sujet}
                 onChange={handleChange}
-                placeholder="Objet de votre demande"
+                placeholder={t.fields.sujetPlaceholder}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
               />
             </div>
 
             {/* Message */}
             <div className="mb-6">
-              <label className="block text-gray-700 font-medium mb-2">Votre Message *</label>
+              <label className="block text-gray-700 font-medium mb-2">{t.fields.message}</label>
               <textarea
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Détails de votre demande de cotation..."
+                placeholder={t.fields.messagePlaceholder}
                 rows={6}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none resize-none"
               ></textarea>
@@ -333,26 +335,26 @@ export default function QuoteRequestForm() {
 
             {/* Catégorie */}
             <div className="mb-6">
-              <label className="block text-gray-700 font-medium mb-2">Catégorie *</label>
+              <label className="block text-gray-700 font-medium mb-2">{t.fields.categorie}</label>
               <select
                 name="categorie"
                 value={formData.categorie}
                 onChange={handleChange}
                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-green-500 outline-none"
               >
-                <option value="nutrition">Intrant nutritionnels</option>
-                <option value="pci">Kit PCI</option>
-                <option value="medical">Équipement médicaux</option>
-                <option value="vehicules">Location de véhicules</option>
-                <option value="transport">Transport de marchandises</option>
+                <option value="nutrition">{t.fields.categorieOptions.nutrition}</option>
+                <option value="pci">{t.fields.categorieOptions.pci}</option>
+                <option value="medical">{t.fields.categorieOptions.medical}</option>
+                <option value="vehicules">{t.fields.categorieOptions.vehicules}</option>
+                <option value="transport">{t.fields.categorieOptions.transport}</option>
               </select>
             </div>
 
             {/* Préciser les produits */}
             <div className="mb-8">
-              <label className="block text-gray-700 font-medium mb-4">Souhaitez-vous préciser les produits ?</label>
+              <label className="block text-gray-700 font-medium mb-4">{t.fields.preciserProduits}</label>
               <div className="flex gap-4">
-                {['oui', 'non'].map((option) => (
+                {(['oui', 'non'] as const).map((option) => (
                   <label key={option} className="flex items-center cursor-pointer">
                     <input
                       type="radio"
@@ -383,9 +385,9 @@ export default function QuoteRequestForm() {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Envoi en cours...
+                    {t.submitting}
                   </span>
-                ) : 'Envoyer le formulaire'}
+                ) : t.submit}
               </button>
             </div>
           </form>
