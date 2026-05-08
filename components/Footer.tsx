@@ -31,7 +31,7 @@ export default function Footer() {
                 href="https://www.facebook.com/profile.php?id=61570966918203" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-gray-800 hover:bg-[#1877F2] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+                className="w-10 h-10 bg-[#1877F2] hover:bg-[#1877F2] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                 aria-label="Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@ export default function Footer() {
   href="https://www.linkedin.com/company/olidor-sarl" 
   target="_blank" 
   rel="noopener noreferrer"
-  className="w-10 h-10 bg-gray-800 hover:bg-[#0077B5] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
+  className="w-10 h-10 bg-[#1877F2] hover:bg-[#0077B5] rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
   aria-label="LinkedIn"
 >
   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

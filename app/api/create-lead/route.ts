@@ -35,9 +35,18 @@ export async function POST(request: NextRequest) {
       throw new Error('Configuration Odoo manquante');
     }
 
-    const host = new URL(ODOO_URL).hostname;
+    const host = "odoo.actionofthefuture.org";
     const commonClient = xmlrpc.createSecureClient({ host, port: 443, path: '/xmlrpc/2/common' });
     const objectClient = xmlrpc.createSecureClient({ host, port: 443, path: '/xmlrpc/2/object' });
+
+    // Test de connexion
+const version = await new Promise((resolve, reject) => {
+  commonClient.methodCall('version', [], (error: unknown, value: unknown) => {
+    if (error) reject(error);
+    else resolve(value);
+  });
+});
+console.log('🔍 Odoo version:', JSON.stringify(version));
 
     // 3. Authentification
     const uid = await new Promise<number>((resolve, reject) => {
@@ -45,13 +54,19 @@ export async function POST(request: NextRequest) {
         'authenticate',
         [ODOO_DB, ODOO_USERNAME, ODOO_PASSWORD, {}],
         (error: unknown, value: unknown) => { // ✅ Utilisation de unknown
+           console.log('🔍 Auth response type:', typeof value, '| value:', value);
+
+
           if (error) {
             reject(error instanceof Error ? error : new Error(String(error)));
-          } else if (typeof value !== 'number') {
-            reject(new Error('Authentification échouée'));
-          } else {
-            resolve(value);
-          }
+          
+          } else if (!value || value === false) {
+           reject(new Error(`Authentification échouée - Odoo a retourné: ${JSON.stringify(value)}`));
+           } else if (typeof value !== 'number') {
+        reject(new Error(`Type inattendu: ${typeof value} - valeur: ${JSON.stringify(value)}`));
+      } else {
+        resolve(value);
+      }
         }
       );
     });
