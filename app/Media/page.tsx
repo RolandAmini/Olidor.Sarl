@@ -24,7 +24,7 @@ export default function MediaPage() {
 
   // Exemple de données (À remplacer par tes vrais assets ou un appel API)
   const mediaData: MediaItem[] = [
-    { id: 1, type: 'image', title: 'Livraison Humanitaire, avantage concurrentiel fiable et sécurisé.', category: 'Logistique', url: '/images/img1.jpg', thumbnail: '/1x.jpeg' },
+    { id: 1, type: 'image', title: 'Excellence en Logistique Humanitaire : Votre partenaire fiable pour des livraisons sécurisées.', category: 'Logistique', url: '/images/img1.jpg', thumbnail: '/1x.jpeg' },
     
   ];
 
