@@ -4,11 +4,19 @@
     "products": "Nos produits",
     "quotation": "Cotation",
     "about": "À propos",
+    "media": "Média",
     "contact": "Contact",
     "cart": "Mon Panier",
     "emptyCart": "Votre panier est vide",
     "checkout": "Passer la commande",
     "continue": "Continuer mes achats"
+  },
+  "media": {
+    "title": "Médiathèque",
+    "filterAll": "Tout",
+    "description": "Découvrez nos dernières activités, événements et reportages en images et vidéos.",
+    "filterImages": "Images",
+    "filterVideos": "Vidéos"
   },
   "hero": {
     "subtitle": "Plus sain, plus efficace",

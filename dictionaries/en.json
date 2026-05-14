@@ -4,11 +4,19 @@
     "products": "Products",
     "quotation": "Quotation",
     "about": "About",
+    "media": "Media",
     "contact": "Contact",
     "cart": "My Cart",
     "emptyCart": "Your cart is empty",
     "checkout": "Checkout",
     "continue": "Continue shopping"
+  },
+  "media": {
+    "title": "Media Gallery",
+    "description": "Discover our latest activities, events, and reports in images and videos.",
+    "filterAll": "All",
+    "filterImages": "Images",
+    "filterVideos": "Videos"
   },
   "hero": {
     "subtitle": "Healthier, More Effective",
