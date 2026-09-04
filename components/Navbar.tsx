@@ -13,7 +13,7 @@ function Navbar() {
     { href: "/produits", label: dict.navbar.products },
     { href: "/cotation", label: dict.navbar.quotation },
     { href: "/Apropos", label: dict.navbar.about },
-    { href: "/Media", label: dict.navbar.media},
+    { href: "/blog", label: dict.navbar.blog },
   ];
 
   return (
