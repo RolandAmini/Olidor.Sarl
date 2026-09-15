@@ -103,7 +103,8 @@ export default async function BlogPage() {
                       href={`/blog/${post.slug}`}
                       className="text-[#38B2AC] hover:text-[#2C7A7B] text-sm font-medium transition-colors inline-block"
                     >
-                      Read More →
+                     
+                    En savoir plus  →
                     </Link>
                   </div>
                 </article>
