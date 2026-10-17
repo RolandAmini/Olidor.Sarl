@@ -64,8 +64,9 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
 
   const shareLinks = [
     {
-      label: 'Facebook',
-      href: `https://www.facebook.com/profile.php?id=61570966918203%2Fprofile%2Fsharer%2Fsharer.php%3Fu%3D%2Fblog%2Fcombattre-ebola-au-nord-kivu-lengagement-sur-le-terrain-dolidor-sarl-aux-cts-de-ses-partenaires-1788467528373/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+  label: 'Facebook',
+  href: 'https://www.facebook.com/profile.php?id=61570966918203',
+
     },
     {
       label: 'LinkedIn',
