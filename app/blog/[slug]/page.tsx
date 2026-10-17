@@ -98,10 +98,12 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
                 {readingTime(content)} min de lecture · {date}
               </p>
             </div>
+            
           </div>
 
           {/* Barre d'actions (haut) : retour + liens de partage texte */}
           <div className="flex items-center justify-between gap-4 border-y border-[#F2F2F2] py-3 mt-8 text-sm text-green-700">
+            
             <Link
               href="/blog"
               className="inline-flex items-center gap-2 hover:text-blue-600 transition-colors"
@@ -122,6 +124,14 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               </svg>
               Tous les articles
             </Link>
+           
+            <PostActions
+              slug={post.slug}
+              title={post.title}
+              url={url}
+              shareLinks={shareLinks}
+            />
+          
 
             <div className="flex items-center gap-4 sm:gap-5">
               {shareLinks.map((s) => (
@@ -171,14 +181,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           </div>
 
           {/* Barre d'actions (bas) : clap + partage */}
-          <div className="flex items-center justify-between border-y border-[#F2F2F2] py-3 mt-14">
-            <PostActions
-              slug={post.slug}
-              title={post.title}
-              url={url}
-              shareLinks={shareLinks}
-            />
-          </div>
+          
         </article>
       </main>
 
